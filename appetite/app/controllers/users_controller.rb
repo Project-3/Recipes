@@ -8,4 +8,7 @@ class UsersController < ApplicationController
 		@dairy= @user.inventories.where({:group => "dairy"})
 		@grain= @user.inventories.where({:group => "grain"})
 	end
+
+	def create
+	end
 end
