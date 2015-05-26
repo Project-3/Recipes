@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingredient: MyText
+  type: MyText
+  avail: false
+  user_id: 1
+
+two:
+  ingredient: MyText
+  type: MyText
+  avail: false
+  user_id: 1
