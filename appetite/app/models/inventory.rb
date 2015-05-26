@@ -1,4 +1,5 @@
 class Inventory < ActiveRecord::Base
+	belongs_to :user
 	validates :ingredient, uniqueness: { message:  "Ingredient is already in your list" }
 	validates :ingredient, presence: true
 
