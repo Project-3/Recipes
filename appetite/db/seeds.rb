@@ -13,7 +13,7 @@ Inventory.create(ingredient: 'Eggplant', group:'produce', avail: true, user_id:2
 
 Inventory.create(ingredient: 'Parmesean Cheese', group:'dairy', avail: false, user_id:1)
 Inventory.create(ingredient: 'Rice', group:'grain', avail: false, user_id:2)
-
+Inventory.create(ingredient: 'Chicken Breast', group:'protein', avail: true, user_id: 2)
 options = {
 :headers => {
   "ACCEPT" => "application/json",

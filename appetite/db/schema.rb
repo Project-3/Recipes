@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527160435) do
+ActiveRecord::Schema.define(version: 20150527160004) do
 
   create_table "inventories", force: :cascade do |t|
     t.text     "ingredient"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150527160435) do
     t.text     "ingredients"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.boolean  "active"
   end
 
   create_table "users", force: :cascade do |t|
