@@ -16,6 +16,12 @@ options = {
 
 # puts response
 
-response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token=leh0XQY71OGO0iFY_6aJ", options)
+response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=lemon&auth_token=leh0XQY71OGO0iFY_6aJ", options)
 
-puts response["results"][0]["instructions"]
+puts response["results"][0]
+
+api_id = 
+ingredients =
+instructions =
+pic =
+recipe_name = 
