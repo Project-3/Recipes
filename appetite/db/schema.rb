@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150526162135) do
     t.integer  "api_id"
     t.integer  "user_id"
     t.text     "instructions"
+    t.boolean  "active"
+    t.text     "ingredients"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
