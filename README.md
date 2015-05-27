@@ -6,7 +6,7 @@ This project was the third for the March 2015 iteration of General Assembly in N
 
 2. [Rails](http://rubyonrails.org/) made up our back-end.
 
-3. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some initial data fetching from our API, [We Eatt](http://www.weeatt.com/)
+3. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some initial data fetching from our API, [We Eatt](http://www.weeatt.com/).
 
 ### Contributors
 [Kwasi James](https://github.com/kwasijames), [Julie Kwok](https://github.com/kwokster10), [Nat Scott](https://github.com/itsnatscott/), and [Abner Yang](https://www.github.com/sunsheeppoplar)
