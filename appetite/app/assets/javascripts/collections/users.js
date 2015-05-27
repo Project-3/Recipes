@@ -4,3 +4,5 @@ Appetite.Collections.Users = Backbone.Collection.extend({
   url: "/user"
 
 });
+
+mainPage = new Appetite.Collections.Users();
