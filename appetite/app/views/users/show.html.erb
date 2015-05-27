@@ -1,24 +1,15 @@
-	
+<h2> Hello <%= @user.name %>. Ready to get cooking? </h2>
 
-	<h2> Hello <%= @user.name %>. Ready to get cooking? </h2>
-
-	<%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
+<%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
 	<%= f.text_field :ingredient, placeholder: "ingredient name"%>
 	<%= f.select :group do%>
-	<%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
-	<%= content_tag(:option, c.first, value:c.last)%>
+		<%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
+		<%= content_tag(:option, c.first, value:c.last)%>
+		<%end%>
 	<%end%>
-	<%end%>
-	<%= f.button "add", html:{class: "pure-button", id:"button-success"}%>
-	<% end %>
+<%= f.button "add", html:{class: "pure-button", id:"button-success"}%>
+<% end %>
 
-	<% if @user.inventories%>
-	<h3> Protein: </h3><% @protein.each{|item|%><p> <%= item.ingredient %> <% } %> </p>
-	 	<hr>
-	<h3> Produce: </h3> <% @produce.each{|item|%><p> <%= item.ingredient %> <% } %> </p>
-	 	<hr>
-	<h3> Dairy: </h3><% @dairy.each{|item|%><p> <%= item.ingredient %> <% } %> </p>
-	 	<hr>
-	<h3> Grain: </h3><% @grain.each{|item|%><p> <%= item.ingredient %> <% } %> </p>
-	<% end %>
+<div id="inventory-list"></div>
 
+<div id="recipe-list"></div>
