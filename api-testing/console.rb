@@ -24,4 +24,8 @@ api_id =
 ingredients =
 instructions =
 pic =
+<<<<<<< HEAD
 recipe_name =
+=======
+recipe_name = 
+>>>>>>> 093760eb123398d81fcc362dcf8e6675df6122ee
