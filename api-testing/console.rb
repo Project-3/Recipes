@@ -16,13 +16,17 @@ options = {
 
 # puts response
 
-response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=lemon&auth_token=leh0XQY71OGO0iFY_6aJ", options)
+response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token=leh0XQY71OGO0iFY_6aJ", options)
+
+response["results"].each do |key, value| 
+	puts 
+end
 
 
-
-api_id = response["results"][0]["id"]
-ingredients = response["results"][0]["ingredients"]
-instructions = response["results"][0]["instructions"]
-recipe_name = esponse["results"][0]["name"]
+# api_id = response["results"][0]["id"]
+# ingredients = response["results"][0]["ingredients"]
+# instructions = response["results"][0]["instructions"]
+# recipe_name = esponse["results"][0]["name"]
+# image = response["results"][0]["image"]["large_image_path"]
 
 
