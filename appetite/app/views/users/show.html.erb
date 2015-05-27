@@ -16,7 +16,7 @@
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
 		<img class="recipe_pic" src="<%= user.recipe[0].image%>">
-		<h2 class="recipe_title"> <%=  user.recipe[0].name %></h2>
+		<h2 class="recipe_title"> <%=  user.recipe[0].name %></h2><button id="<%=user.recipe[0].id" class="deactivate">Deactivate</button>
 		<h3> check if used: </h3> ingriedients from joined table <input type="checkbox"><button>Update</button>
 		<p class="recipe_ingredients"><%= user.recipe[0].ingredients%></p>
 		<p class="recipe_instructions"><%= user.recipe[0].instructions%></p>
