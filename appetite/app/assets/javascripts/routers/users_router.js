@@ -4,7 +4,8 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		"recipes" : "allRecipes",
 		"recipe/:recipe_id" : "showRecipe"
 		"inventory" : "allInventory",
-		"inventory/:inventory_id" : "showInventory"
+		"inventory/:inventory_id" : "showInventory",
+		"search": "searchRecipes"
 
 	},
 
@@ -13,11 +14,10 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-				 	if response["recipe"][0]
-						new activeRecipeView({active: mainPage}).render();
-					else 
-						new activeRecipeView({active: false}).render();
-				});	
+				if response["recipe"][0]
+					new activeRecipeView({active: mainPage}).render();
+				else 
+					new activeRecipeView({active: false}).render();
 			}
 		});
 	},
@@ -27,8 +27,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-					new activeRecipeView({user: mainPage["recipe"]}).render();
-				});
+				new allRecipeView({user: mainPage["recipe"]}).render();
 			}
 		});
 	},
@@ -39,8 +38,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-					new activeRecipeView({user: mainPage}).render();
-				});
+				new showRecipeView({user: mainPage}).render();
 			}
 		});
 	},
@@ -50,8 +48,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-					new activeRecipeView({user: mainPage["inventory"]}).render();
-				});
+				new allInventoryView({user: mainPage["inventory"]}).render();
 			}
 		});
 	},
@@ -62,10 +59,34 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-					new activeRecipeView({user: mainPage}).render();
-				});
+				new showInventoryView({user: mainPage}).render();
 			}
 		});
+	},
+
+	searchRecipes: function() {
+		var content = $("#content")
+		content.html("")
+		new searchRecipesView().render;
 	}
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

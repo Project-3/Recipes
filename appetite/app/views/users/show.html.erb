@@ -1,16 +1,73 @@
 <h2> Hello <%= @user.name %>. Ready to get cooking? </h2>
 
 <%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
-	<%= f.text_field :ingredient, placeholder: "ingredient name"%>
-	<%= f.select :group do%>
-		<%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
-		<%= content_tag(:option, c.first, value:c.last)%>
-		<%end%>
-	<%end%>
+<%= f.text_field :ingredient, placeholder: "ingredient name"%>
+<%= f.select :group do%>
+<%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
+<%= content_tag(:option, c.first, value:c.last)%>
+<%end%>
+<%end%>
 <%= f.button "add", html:{class: "pure-button", id:"button-success"}%>
 <% end %>
 
 <div id="content"></div>
 
-<script>
+
+<script type="text/template" id="active-recipe"> 
+	<div id="active-recipe-div">
+		<img class="recipe_pic" src="<%= user.recipe[0].image%>">
+		<h2 class="recipe_title"> <%=  user.recipe[0].name %></h2>
+		<h3> check if used: </h3> ingriedients from joined table <input type="checkbox"><button>Update</button>
+		<p class="recipe_ingredients"><%= user.recipe[0].ingredients%></p>
+		<p class="recipe_instructions"><%= user.recipe[0].instructions%></p>
+	</div>
 </script>
+
+
+<script type="text/template" id="all-recipes">
+	<div id="all-recipes-div">
+		<img class="recipe_pic" src="<%= recipe.image %>">
+		<h2<a href="#recipe/<%=recipe.id%>" class="recipe_title"> <%= recipe.name %></a></h2>
+		<p class="recipe_ingredients"><%=recipe.ingredients%></p><button class="delete_butt">Delete</button>
+	</div>
+</script>
+
+<script type="text/template" id="all-inventory">
+	<div id="all-inventory-div">
+		<%= inventory.ingredient %><button class="avail_butt">Available?</button><button class="delete_butt">Delete</button><button id="search_butt" class="<%=inventory.ingredient%>-<%=inventory.id%>">Search</button>
+	</div>
+</script>
+
+<script type="text/template" id="show-inventory">
+
+
+<div id="show-inventory-div">
+<%=inventory.ingredient%>
+//recipes from joined table, same functionality as all-recipes
+</div>
+	</script>
+<script type="text/template" id="search-results">
+<div id="search-results-div">
+		<img class="recipe_pic" src="<%= recipe.image %>">
+		<h2<a href="#recipe/<%=recipe.id%>" class="recipe_title"> <%= recipe.name %></a></h2>
+		<p class="recipe_ingredients"><%=recipe.ingredients%></p>
+		<button class="save-button">Save Recipe</button>
+	</div>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
