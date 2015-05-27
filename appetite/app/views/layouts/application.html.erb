@@ -8,6 +8,10 @@
 </head>
 	<header> <h1> Welcome to APPetite or Re: Frigerator or Crock.ly  </h1> </header>
 <body>
+<% if flash %>
+	<% flash.each do |name, message| %>
+		<div class="flash-<%= name %>"><%= message %></div>
+<% end %>
 
 <%= yield %>
 
