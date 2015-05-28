@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		# sending either html or json to user show page
 		respond_to do |format|
 			format.html { render :show }
+			# is not sending back correct ids for join table
 			format.json { render json: @user.to_json(include: {inventories: { include: { recipes: {only: [:id]}}}, recipes: {include: {inventories: {only: [:id]}}}})}
 		end
 	end

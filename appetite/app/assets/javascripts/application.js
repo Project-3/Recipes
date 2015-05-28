@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require backbone/app.js
+//= require ./libraries/backbone
+//= require ./libraries/underscore
+//= require backbone/app
 //= require_tree ./backbone/models/
 //= require_tree ./backbone/collections/
 //= require_tree ./backbone/views/
