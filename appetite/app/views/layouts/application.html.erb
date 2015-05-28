@@ -5,8 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+  _.templateSettings = {
+ evaluate    : /\{\{([\s\S]+?)\}\}/g,
+ interpolate : /\{\{=([\s\S]+?)\}\}/g,
+ escape      : /\{\{-([\s\S]+?)\}\}/g
+};
+	</script>
 </head>
-	<header> <h1> Welcome to APPetite or Re: Frigerator or Crock.ly  </h1> </header>
+	<header class="header">  </header>
 <body>
 <% if flash %>
 	<% flash.each do |name, message| %>

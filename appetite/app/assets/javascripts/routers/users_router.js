@@ -1,4 +1,4 @@
-var UserRoutes = Backbone.Router.extend({
+Appetite.Routers.User = Backbone.Router.extend({
 	routes : {
 		"" : "activeRecipe",
 		"recipes" : "allRecipes",
@@ -12,12 +12,9 @@ var UserRoutes = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		mainPage.fetch({
-			success: function(model, response) {
-			var woof = new activeRecipeView({collection: mainPage})
-			woof.render();
-		}
-		});
+		var mainPage = new Appetite.Collections.User
+		var act_recp = new Appetite.Views.ActiveRecipe({model: mainPage, el: $("#content")})
+		mainPage.fetch();
 	},
 
 	allRecipes: function() {
@@ -70,8 +67,7 @@ var UserRoutes = Backbone.Router.extend({
 
 });
 
-var userRoutes = new UserRoutes();
-Backbone.history.start();
+
 
 
 

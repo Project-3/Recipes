@@ -7,10 +7,11 @@
 
 
 // do logic for --if response["recipe"][0]
-Appetite.Views.ActiveRecipe = Backbone.View.extend({
+	Appetite.Views.ActiveRecipe = Backbone.View.extend({
 	el:"#content", 
 	initialize: function(){
 		this.listenTo(this.collection, "sync", this.render);
+		this.render();
 	},
 	template: _.template($("#active-recipe").html()),
 	events:{
