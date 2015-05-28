@@ -1,4 +1,4 @@
-Appetite.Routers.Users = Backbone.Router.extend({
+var UserRoutes = Backbone.Router.extend({
 	routes : {
 		"" : "activeRecipe",
 		"recipes" : "allRecipes",
@@ -12,14 +12,8 @@ Appetite.Routers.Users = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		mainPage.fetch({
-			success: function(model, response) {
-				if response["recipe"][0]
-					new activeRecipeView({active: mainPage}).render();
-				else 
-					new activeRecipeView({active: false}).render();
-			}
-		});
+		mainPage.fetch();
+		new activeRecipeView({collection: mainPage}).render();
 	},
 
 	allRecipes: function() {
@@ -27,7 +21,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-				new allRecipeView({user: mainPage["recipe"]}).render();
+				new allRecipeView({collection: mainPage["recipe"]}).render();
 			}
 		});
 	},
@@ -38,7 +32,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-				new showRecipeView({user: mainPage}).render();
+				new showRecipeView({collection: mainPage}).render();
 			}
 		});
 	},
@@ -48,7 +42,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-				new allInventoryView({user: mainPage["inventory"]}).render();
+				new allInventoryView({collection: mainPage["inventory"]}).render();
 			}
 		});
 	},
@@ -59,7 +53,7 @@ Appetite.Routers.Users = Backbone.Router.extend({
 		content.html("");
 		mainPage.fetch({
 			success: function(model, response) {
-				new showInventoryView({user: mainPage}).render();
+				new showInventoryView({collection: mainPage}).render();
 			}
 		});
 	},
@@ -72,14 +66,8 @@ Appetite.Routers.Users = Backbone.Router.extend({
 
 });
 
-
-
-
-
-
-
-
-
+var userRoutes = new UserRoutes();
+Backbone.history.start();
 
 
 

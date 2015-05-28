@@ -5,4 +5,4 @@ Appetite.Collections.Users = Backbone.Collection.extend({
 
 });
 
-mainPage = new Appetite.Collections.Users();
+var mainPage = new Appetite.Collections.Users();

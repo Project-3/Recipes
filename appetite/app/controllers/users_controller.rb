@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 		# @produce = @user.inventories.where({:group => "produce"})
 		# @dairy= @user.inventories.where({:group => "dairy"})
 		# @grain= @user.inventories.where({:group => "grain"})
-
+		@inventories = Inventory.joins(:recipes)
 		# sending either html or json to user show page
 		respond_to do |format|
 			format.html { render :show }
-			format.json { render json: @user.to_json(:include => [:inventories, :recipes]) }
+			format.json { render json: @user.to_json(include: {inventories: { include: { recipes: {only: [:id]}}}, recipes: {include: {inventories: {only: [:id]}}}})}
 		end
 	end
 
