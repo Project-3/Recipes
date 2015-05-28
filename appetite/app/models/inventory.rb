@@ -6,7 +6,8 @@ class Inventory < ActiveRecord::Base
 		association_foreign_key: "recipe_id"
 
 	belongs_to :user
-	validates :ingredient, uniqueness: { message:  "Ingredient is already in your list" }
+	
+	# validates :ingredient, uniqueness: { message:  "Ingredient is already in your list" }
 	validates :ingredient, presence: true
 
 	validates :group, presence: true
