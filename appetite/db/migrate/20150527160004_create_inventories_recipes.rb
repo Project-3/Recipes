@@ -4,5 +4,7 @@ class CreateInventoriesRecipes < ActiveRecord::Migration
     	t.integer :inventory_id, null: false
     	t.integer :recipe_id, null: false
     end
+    add_foreign_key :inventories_recipes, :inventories
+   add_foreign_key :recipes_inventories, :recipes
   end
 end
