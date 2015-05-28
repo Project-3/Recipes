@@ -12,10 +12,15 @@
 
 <div id="content"></div>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		Appetite.initialize();
+	});
+</script>
 
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
-	
+	{{= JSON.strinify(user)}}
 	<%%= JSON.stringify(user) %>
 		// <img class="recipe_pic" src="<%%= user.recipe[0].image%>">
 		// <h2 class="recipe_title"> <%%=  user.recipe[0].name %></h2><button id="<%%= user.recipe[0].id %>" class="deactivate">Deactivate</button>
@@ -64,6 +69,7 @@
 		<button class="save-button">Save Recipe</button>
 	</div>
 </script>
+
 
 
 

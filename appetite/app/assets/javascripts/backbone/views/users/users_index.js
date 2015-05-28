@@ -5,7 +5,6 @@
 
 // });
 
-
 // do logic for --if response["recipe"][0]
 Appetite.Views.ActiveRecipe = Backbone.View.extend({
 	el:"#content", 
