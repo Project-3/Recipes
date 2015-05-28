@@ -29,9 +29,9 @@ var activeRecipeView = Backbone.View.extend({
 			url: window.location + "user/recipe/" + recipeId,
 			data: { recipe_id: recipeId }, 
 			success: function(data) {
-				error: function(){
-					alert("error");
-				}
+				// error: function(){
+				// 	alert("error");
+				// }
 			}
 		});
 

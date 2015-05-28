@@ -2,7 +2,7 @@ var UserRoutes = Backbone.Router.extend({
 	routes : {
 		"" : "activeRecipe",
 		"recipes" : "allRecipes",
-		"recipe/:recipe_id" : "showRecipe"
+		"recipe/:recipe_id" : "showRecipe",
 		"inventory" : "allInventory",
 		"inventory/:inventory_id" : "showInventory",
 		"search": "searchRecipes"
@@ -12,8 +12,12 @@ var UserRoutes = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		mainPage.fetch();
-		new activeRecipeView({collection: mainPage}).render();
+		mainPage.fetch({
+			success: function(model, response) {
+			var woof = new activeRecipeView({collection: mainPage})
+			woof.render();
+		}
+		});
 	},
 
 	allRecipes: function() {

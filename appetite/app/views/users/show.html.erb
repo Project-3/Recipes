@@ -15,61 +15,24 @@
 
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
-	<%= JSON.stringify(user) %>
-		// <img class="recipe_pic" src="<%= user.recipe[0].image%>">
-		// <h2 class="recipe_title"> <%=  user.recipe[0].name %></h2><button id="<%= user.recipe[0].id %>" class="deactivate">Deactivate</button>
+	<%%= JSON.stringify(user) %>
+		// <img class="recipe_pic" src="<%%= user.recipe[0].image%>">
+		// <h2 class="recipe_title"> <%%=  user.recipe[0].name %></h2><button id="<%%= user.recipe[0].id %>" class="deactivate">Deactivate</button>
 
 		// <div id="update-ingredient">
 		// <h3> check if used: </h3> ingriedients from joined table 
-		// <% user.inventory.forEach(function(obj){ %>
-		// 	<%= obj.ingredient %>
-		// 	<input type="checkbox" name="recipe<%= obj.id %>" value="<%= obj.id %>" > 
-		// <% }) %> 
+		// <%% user.inventory.forEach(function(obj){ %>
+		// 	<%%= obj.ingredient %>
+		// 	<input type="checkbox" name="recipe<%%= obj.id %>" value="<%%= obj.id %>" > 
+		// <%% }) %> 
 
 		// <button class="update-button">Update</button>
 		// </div>
 
-		// <p class="recipe_ingredients"><%= user.recipe[0].ingredients%></p>
-		// <p class="recipe_instructions"><%= user.recipe[0].instructions%></p>
+		// <p class="recipe_ingredients"><%%= user.recipe[0].ingredients%></p>
+		// <p class="recipe_instructions"><%%= user.recipe[0].instructions%></p>
 	</div>
 </script>
-
-
-<script type="text/template" id="all-recipes">
-	<div id="all-recipes-div">
-		<img class="recipe_pic" src="<%= recipe.image %>">
-		<h2<a href="#recipe/<%=recipe.id%>" class="recipe_title"> <%= recipe.name %></a></h2>
-		<p class="recipe_ingredients"><%=recipe.ingredients%></p><button class="delete_butt">Delete</button>
-	</div>
-</script>
-
-<script type="text/template" id="all-inventory">
-	<div id="all-inventory-div">
-		<%= inventory.ingredient %><button class="avail_butt">Available?</button><button class="delete_butt">Delete</button><button id="search_butt" class="<%=inventory.ingredient%>-<%=inventory.id%>">Search</button>
-	</div>
-</script>
-
-<script type="text/template" id="show-inventory">
-	<div id="show-inventory-div">
-	<%=inventory.ingredient%>
-	//recipes from joined table, same functionality as all-recipes
-	</div>
-</script>
-
-<script type="text/template" id="search-results">
-	<div id="search-results-div">
-		<img class="recipe_pic" src="<%= recipe.image %>">
-		<h2<a href="#recipe/<%=recipe.id%>" class="recipe_title"> <%= recipe.name %></a></h2>
-		<p class="recipe_ingredients"><%=recipe.ingredients%></p>
-		<button class="save-button">Save Recipe</button>
-	</div>
-</script>
-
-
-
-
-
-
 
 
 
