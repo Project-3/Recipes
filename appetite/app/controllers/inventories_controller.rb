@@ -1,30 +1,35 @@
 class InventoriesController < ApplicationController
 	protect_from_forgery with: :null_session
 
+
+	# gets all of the users ingredients and any user recipes associated with that ingredient
 	def index
-	@user = User.find(session[:user_id])
-	@inventories =  Inventory.where(user_id: session[:user_id]).joins(:recipes)
-	# respond_to do |format|
-	# 		format.html { render :index }
-	# 		format.json { render json: @inventory.to_json}
-	if @inventories
-	render json: @inventories.to_json(:include => [:inventory_recipe])
+		@user = User.find(session[:user_id])
+		@inventories =  @user.inventories
+		if @inventories
+			render json: @inventories.to_json(:include => [:recipes])
 		end
 	end
 
-
-
+	#gets the saved recipes associated with any one ingredient
 	def show
+		@inventory =  params[:inventory.id]
+		binding.pry
+		if @inventories
+			render json: @inventory.to_json(:include => [:recipes])
+		end
 	end
 
+end
 
-	def create
-	end
 
-	def update
-	end
+def create
+end
 
-	def destroy
-	end
+def update
+end
+
+def destroy
+end
 
 end

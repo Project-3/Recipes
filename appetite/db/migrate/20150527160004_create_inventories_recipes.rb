@@ -4,5 +4,7 @@ class CreateInventoriesRecipes < ActiveRecord::Migration
     	t.belongs_to :inventory, index: true
     	t.belongs_to :recipe, index: true
     end
+    add_foreign_key :inventories_recipes, :inventories
+   add_foreign_key :recipes_inventories, :recipes
   end
 end
