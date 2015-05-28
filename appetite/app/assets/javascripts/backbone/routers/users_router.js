@@ -12,9 +12,17 @@ Appetite.Routers.User = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		var mainPage = new Appetite.Collections.User
-		var act_recp = new Appetite.Views.ActiveRecipe({model: mainPage, el: $("#content")})
-		mainPage.fetch();
+		var mainPage = new Appetite.Collections.User();
+		mainPage.fetch({
+			success: function() {
+				new Appetite.Views.ActiveRecipe({collection: mainPage})
+			},
+			error: function(){
+				new Error({message: "Error loading user."})
+			}
+		});
+		// var act_recp = new Appetite.Views.ActiveRecipe({ el: $("#content"), collection: mainPage})
+		// mainPage.fetch();
 	},
 
 	allRecipes: function() {
