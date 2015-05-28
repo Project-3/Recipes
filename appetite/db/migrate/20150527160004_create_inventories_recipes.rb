@@ -1,8 +1,8 @@
 class CreateInventoriesRecipes < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :inventories_recipes, id: false do |t|
-    	t.integer :inventory
-    	t.integer :recipe
+    	t.integer :inventory_id, null: false
+    	t.integer :recipe_id, null: false
     end
   end
 end
