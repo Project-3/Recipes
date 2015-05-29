@@ -1,6 +1,8 @@
 Appetite.Views.InventoryView = Backbone.View.extend({
 	tagName: 'div',
-	template: _.template($("#all-inventory").html()),
+	initialize: function(){
+	 	this.template = _.template($("#all-inventory").html())
+	},
 	events: {
 		"click button.avail": "availInv",
 		"click button.delete_butt": "deleteInv",

@@ -7,9 +7,11 @@ var Appetite = Appetite || {
 
 Appetite.Views.RecipeView = Backbone.View.extend({
 	tagName: "div",
-
-	template: _.template($("#all-recipies").html()),
 	
+	initialize: function(){
+	 	this.template = _.template($("#all-recipies").html());
+	},
+
 	events: {"click .recipe_title": "recipeShow",
 		"click .delete_butt": "deleteRecipe" },
 	
