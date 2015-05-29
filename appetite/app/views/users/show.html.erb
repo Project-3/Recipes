@@ -49,7 +49,33 @@
 
 <script type="text/template" id="showInventory">
 	<div id="show-inventory-div">
-	<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+
+		{{ if (inventory.group === "protein") { }}
+			<div id="show-protein">
+			Protein
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		{{ if (inventory.group === "produce") { }}
+			<div id="show-produce">
+			Produce
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		{{ if (inventory.group === "dairy") { }}
+			<div id="show-dairy">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		{{ if (inventory.group === "grain") { }}
+			<div id="show-grain">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
 	</div>
 </script>
 
