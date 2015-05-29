@@ -1,3 +1,10 @@
+var Appetite = Appetite || {
+	Models: {},
+	Collections: {},
+	Views: {},
+	Routers: {}
+};
+
 Appetite.Views.AllRecipeView = Backbone.View.extend({
 	el: "#content",
 	initialize: function(){

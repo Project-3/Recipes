@@ -17,9 +17,19 @@
 //= require backbone
 //= require ./libraries/backbone
 //= require ./libraries/underscore
-//= require backbone/app
-//= require_tree ./backbone/models/
+//= require app
 //= require_tree ./backbone/collections/
+//= require_tree ./backbone/models/
 //= require_tree ./backbone/views/
 //= require_tree ./backbone/routers/
-//= require_tree .
+
+
+_.templateSettings = {
+		 evaluate    : /\{\{([\s\S]+?)\}\}/g,
+		 interpolate : /\{\{=([\s\S]+?)\}\}/g,
+		 escape      : /\{\{-([\s\S]+?)\}\}/g
+	};
+
+
+
+

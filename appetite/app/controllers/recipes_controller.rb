@@ -1,16 +1,6 @@
 class RecipesController < ApplicationController
 	protect_from_forgery with: :null_session
 
-<<<<<<< HEAD
-
-	def index
-	end
-
-	def show
-	end
-
-
-=======
 	# all recipes corresponding to one user
 	def index
 		@recipes = Recipe.where(user_id: session[:user_id])
@@ -33,10 +23,12 @@ class RecipesController < ApplicationController
 	end
 
 	# saving a recipe to the db
->>>>>>> d17d99d575b6361b64dac827ddf314dbecd67584
 	def create
 		# how are we connecting this with inventory?
 		@recipe = Recipe.new(recipe_params)
+		# how are we grabbing id's of inventories
+		# @inventories = Inventory.where(id: )
+		# @recipe.inventories << @inventories
 		if @recipe.save
 			render json: @recipe
 		else
@@ -44,13 +36,7 @@ class RecipesController < ApplicationController
 		end
 	end
 
-<<<<<<< HEAD
-	def update
-	end
-
-=======
 	# deleting an unwanted recipe
->>>>>>> d17d99d575b6361b64dac827ddf314dbecd67584
 	def destroy
 		@recipe = Recipe.find(params[:id])
 		if @recipe.destroy
