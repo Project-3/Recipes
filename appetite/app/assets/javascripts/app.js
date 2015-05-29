@@ -15,7 +15,7 @@ _.templateSettings = {
 
 Appetite.initialize = function() {
 	// if (mainPage === undefined) {
-	mainPage = mainPage || new Appetite.Collections.Recipes();
+	//mainPage = mainPage || new Appetite.Collections.Recipes();
 	// }
 	// new Appetite.Views.ActiveRecipe({collection: mainPage});
 	var userRoutes = new Appetite.Routers.UserRouter();
