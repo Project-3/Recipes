@@ -6,6 +6,6 @@ var Appetite = Appetite || {
 };
 
 Appetite.Collections.Inventories = Backbone.Collection.extend({
-  model: Appetite.Models.Inventories,
+  model: Appetite.Models.Inventory,
   url: "/user/inventories"
 });

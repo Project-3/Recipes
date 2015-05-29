@@ -5,7 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
-Appetite.Routers.User = Backbone.Router.extend({
+Appetite.Routers.UserRouter = Backbone.Router.extend({
 	routes : {
 		"" : "activeRecipe",
 		"recipes" : "allRecipes",
@@ -21,8 +21,10 @@ Appetite.Routers.User = Backbone.Router.extend({
 		content.html("");
 		var mainPage = new Appetite.Collections.Recipes();
 		mainPage.fetch({
-			success: function() {
-				new Appetite.Views.ActiveRecipe({collection: mainPage})
+			success: function(model, response) {
+				console.log(response);
+				console.log(model);
+				new Appetite.Views.ActiveRecipe({collection: response}).render();
 			},
 			error: function(){
 				new Error({message: "Error loading user."})

@@ -18,7 +18,7 @@ Appetite.initialize = function() {
 		mainPage = mainPage || new Appetite.Collections.Recipes();
 	// }
 	// new Appetite.Views.ActiveRecipe({collection: mainPage});
-	var userRoutes = new Appetite.Routers.User();
+	var userRoutes = new Appetite.Routers.UserRouter();
 	Backbone.history.start();
 };
 

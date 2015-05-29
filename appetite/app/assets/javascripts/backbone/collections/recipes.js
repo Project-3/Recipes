@@ -6,9 +6,9 @@ var Appetite = Appetite || {
 };
 
 Appetite.Collections.Recipes = Backbone.Collection.extend({
-  model: Appetite.Models.Recipes,
+  model: Appetite.Models.Recipe,
   url: "/user/recipes"
 });
 
-var recipeCollection = new Appetite.Collections.Recipes;
-recipeCollection.fetch();
+// var recipeCollection = new Appetite.Collections.Recipes;
+// recipeCollection.fetch();

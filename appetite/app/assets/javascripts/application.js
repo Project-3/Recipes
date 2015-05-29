@@ -15,11 +15,11 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require ./libraries/backbone
 //= require ./libraries/underscore
+//= require ./libraries/backbone
 //= require app
-//= require_tree ./backbone/collections/
 //= require_tree ./backbone/models/
+//= require_tree ./backbone/collections/
 //= require_tree ./backbone/views/
 //= require_tree ./backbone/routers/
 
