@@ -1,7 +1,7 @@
-Appetite.Views.InventoryView = Backbone.View.extend({
+Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "#content",
 	initialize: function() {
-		this.listen(this.collection, "sync remove", this.render);
+		this.listenTo(this.collection, "sync remove", this.render);
 	},
 
 	render: function() {
@@ -9,7 +9,7 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 		div.html("");
 
 		this.collection.each(function(inventory) {
-			div.append(new InventoryView({model: inventory}).render.$el);
+			div.append(new Appetite.Views.InventoryView({model: inventory}).render.$el);
 		});
 		return this;
 

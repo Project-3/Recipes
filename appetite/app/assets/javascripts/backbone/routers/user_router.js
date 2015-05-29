@@ -19,13 +19,13 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		var mainPage = new Appetite.Collections.Recipes();
+		var mainPage = new Appetite.Collections.Recipes;
 		mainPage.fetch({
-			success: function(model, response) {
+			success: function(collection, response, options) {
 				console.log(mainPage);
 				console.log(response);
-				console.log(model);
-				new Appetite.Views.ActiveRecipe({collection: model}).render();
+				console.log(collection);
+				new Appetite.Views.AllInventoryView({collection: collection}).render();
 			},
 			error: function(){
 				new Error({message: "Error loading user."})
