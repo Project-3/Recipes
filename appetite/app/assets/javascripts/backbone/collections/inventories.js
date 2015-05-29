@@ -7,5 +7,8 @@ var Appetite = Appetite || {
 
 Appetite.Collections.Inventories = Backbone.Collection.extend({
   model: Appetite.Models.Inventory,
-  url: "/user/inventories"
+  url: "/user/inventories",
+  defaults: {
+  	avail: true
+  }
 });

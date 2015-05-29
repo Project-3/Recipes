@@ -19,11 +19,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		var mainPage = new Appetite.Collections.Recipes();
-		mainPage.fetch({
-			success: function(collection, response, options) {
-				console.log("activeRecipe");
-				new Appetite.Views.ShowRecipeView({collection: collection.where({active: true})});
+		var activeRecipes = new Appetite.Collections.Recipes();
+		activeRecipes.fetch({
+			success: function(collection) {
+				new Appetite.Views.ActiveRecipeView({collection: collection});
 			},
 			error: function(){
 				new Error({message: "Error loading user."})
@@ -32,24 +31,26 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	},
 
 	allRecipes: function() {
-		// var content = $("#content");
-		// content.html("");
-		// mainPage.fetch({
-		// 	success: function(model, response) {
-		// 		new allRecipeView({collection: mainPage["recipe"]}).render();
-		// 	}
-		// });
+		var content = $("#content");
+		content.html("");
+		var recipesColl = new Appetite.Collections.Recipes();
+		recipesColl.fetch({
+			success: function(collection) {
+				new Appetite.Views.AllRecipeView({collection: collection})
+			}
+		});
 	},
 
-	// do a select or pluck of mainPage for recipe_id associated things
+	// fetching a single model and instaniate view
 	showRecipe: function(recipe_id) {
-		// var content = $("#content");
-		// content.html("");
-		// mainPage.fetch({
-		// 	success: function(model, response) {
-		// 		new showRecipeView({collection: mainPage}).render();
-		// 	}
-		// });
+		var content = $("#content");
+		content.html("");
+		var oneRecipe = new Appetite.Models.Recipe(recipe_id);
+		oneRecipe.fetch({
+			success: function(model, response) {
+				new ShowRecipeView({model: model})
+			}
+		});
 	},
 
 	allInventory: function() {
@@ -57,7 +58,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		content.html("");
 		var mainPage = new Appetite.Collections.Inventories();
 		mainPage.fetch({
-			success: function(collection, response, options) {
+			success: function(collection) {
 				new Appetite.Views.AllInventoryView({collection: collection});
 			},
 			error: function(){
@@ -78,9 +79,17 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	},
 
 	searchRecipes: function() {
-		// var content = $("#content")
-		// content.html("")
-		// new searchRecipesView().render;
+		var content = $("#content");
+		content.html("");
+		var searchResults // place ajax call here
+
+		// in ajax call, instaniate below view upon success of call 
+
+		// searchResults.fetch({
+		// 	success: function(collection) {
+		// 		new Appetite.Views.SearchRecipesView({collection: collection})
+		// 	}
+		// });
 	}
 
 });

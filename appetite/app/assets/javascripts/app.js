@@ -5,7 +5,7 @@ var Appetite = {
 	Routers: {}
 };
 
-var mainPage;
+var userRouter;
 
 _.templateSettings = {
 		 evaluate    : /\{\{([\s\S]+?)\}\}/g,
@@ -18,11 +18,11 @@ Appetite.initialize = function() {
 	//mainPage = mainPage || new Appetite.Collections.Recipes();
 	// }
 	// new Appetite.Views.ActiveRecipe({collection: mainPage});
-	var userRoutes = new Appetite.Routers.UserRouter();
-	Backbone.history.start({pushState: true, root: "/user/"});
+	userRouter = userRouter || new Appetite.Routers.UserRouter();
+	Backbone.history.start({root: "/user/"});
 };
 
 $(document).ready(function(){
-		Appetite.initialize();
-	});
+	Appetite.initialize();
+});
 
