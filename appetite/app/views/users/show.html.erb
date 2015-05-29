@@ -50,18 +50,22 @@
 </script>
 
 <script type="text/template" id="showInventory">
+
 	<div id="show-inventory-div">
 
-		{{ if (inventory.group === "protein") { }}
+					{{debugger}}
+
+		{{ if (inventory.group === "protein") { }} 
+			Protein: 
 			<div id="show-protein">
-			Protein
 			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
 			</div>
 		{{ } }}
 
+		
 		{{ if (inventory.group === "produce") { }}
+			Produce: 
 			<div id="show-produce">
-			Produce
 			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
 			</div>
 		{{ } }}
@@ -73,6 +77,7 @@
 		{{ } }}
 
 		{{ if (inventory.group === "grain") { }}
+			Grain:
 			<div id="show-grain">
 			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
 			</div>
