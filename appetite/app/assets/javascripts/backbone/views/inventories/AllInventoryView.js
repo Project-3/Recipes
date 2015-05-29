@@ -1,3 +1,10 @@
+var Appetite = Appetite || {
+	Models: {},
+	Collections: {},
+	Views: {},
+	Routers: {}
+};
+
 Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function() {

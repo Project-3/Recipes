@@ -1,3 +1,10 @@
+var Appetite = Appetite || {
+	Models: {},
+	Collections: {},
+	Views: {},
+	Routers: {}
+};
+
 Appetite.Views.InventoryView = Backbone.View.extend({
 	tagName: 'div',
 	initialize: function(){
