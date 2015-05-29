@@ -48,7 +48,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		var oneRecipe = new Appetite.Models.Recipe(recipe_id);
 		oneRecipe.fetch({
 			success: function(model, response) {
-				new ShowRecipeView({model: model})
+				new Appetite.Views.ShowRecipeView({model: model})
 			}
 		});
 	},
