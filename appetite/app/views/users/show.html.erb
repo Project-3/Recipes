@@ -15,7 +15,7 @@
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
 		<img class="recipe_pic" src="{{= recipe.image}}">
-		<h2 class="recipe_title"> {{=  recipe.name }}</h2><button id="{{= recipe.id }}" class="deactivate">Deactivate</button>
+		<h2 class="recipe_title"> {{=  recipe.name }}</h2>
 
 		<div id="update-ingredient">
 		<h3> check if used: </h3> ingriedients from joined table 
@@ -32,11 +32,12 @@
 	</div>
 </script>
 
-<script type="text/template" id="all-recipes">
+<script type="text/template" id="each-recipe">
 	<div id="all-recipes-div">
-		<img class="recipe_pic" src="{{= recipe.image }}">
 		<h2<a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
-		<p class="recipe_ingredients">{{=recipe.ingredients}}</p><button class="delete_butt">Delete</button>
+		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
+		<button id="{{= recipe.id }}" class="activate_butt">Activate</button>
+		<button class="delete_butt">Delete</button>
 	</div>
 </script>
 
