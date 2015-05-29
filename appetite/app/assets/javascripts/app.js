@@ -19,7 +19,7 @@ Appetite.initialize = function() {
 	// }
 	// new Appetite.Views.ActiveRecipe({collection: mainPage});
 	var userRoutes = new Appetite.Routers.UserRouter();
-	Backbone.history.start();
+	Backbone.history.start({pushState: true, root: "/user/"});
 };
 
 $(document).ready(function(){

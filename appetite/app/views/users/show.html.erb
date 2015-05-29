@@ -50,6 +50,11 @@
 </script>
 
 <script type="text/template" id="show-inventory">
+<p>are we here?</p>
+{{=inventory}}
+<%%= inventory %>
+{{=JSON.stringify(inventory)}}
+<%%= JSON.stringify(inventory) %>
 	<div id="show-inventory-div">
 	<%%=inventory.ingredient%>
 	//recipes from joined table, same functionality as all-recipes

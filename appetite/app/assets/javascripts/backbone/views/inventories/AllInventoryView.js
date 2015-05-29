@@ -12,6 +12,5 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render.$el);
 		});
 		return this;
-
 	}
 });
