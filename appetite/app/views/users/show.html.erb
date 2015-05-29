@@ -49,15 +49,9 @@
 
 <script type="text/template" id="showInventory">
 
-<<<<<<< HEAD
-	<div id="show-inventory-div">
-			<div id="show-protein">
-			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
-=======
 	<div id="produce">	
-	{{ inventory.forEach(function(produceInstance) { }}
-		{{= JSON.stringify(produceInstance) }}
-	{{ }) }}
+		{{= JSON.stringify(inventory) }}
+
 
 		
 	</div>
@@ -66,7 +60,6 @@
 	<div id="grain">			
 	</div>
 	<div id="dairy">			
->>>>>>> f58e82cc45af04bd7b10fe805df8470f3c6128bf
 	</div>
 </script>
 

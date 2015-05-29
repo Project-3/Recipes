@@ -11,20 +11,13 @@ Appetite.Collections.Inventories = Backbone.Collection.extend({
   defaults: {
   	avail: true
   },
+
   // filter for only protein group
-  protein: function() {
-  	return this.where({group: "protein"});
+  byGroup: function(group) {
+    filtered = this.filter(function(coll) {
+      return coll.get("group") === group;
+    });
+    return new Appetite.Collections.Inventories(filtered);
   },
-  // filter for only produce 
-  produce: function() {
-  	return this.where({group: "produce"});
-  },
-  // filter for only dairy
-  dairy: function() {
-  	return this.where({group: "dairy"});
-  },
-  // filter for only grain
-  grain: function() {
-  	return this.where({group: "grain"});
-  }
+
 });
