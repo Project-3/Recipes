@@ -9,34 +9,28 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function() { 
 		this.listenTo(this.collection, "sync remove", this.render);
-
+		this.template = _.template($("#showInventory").html());
 	},
 
-
 	render: function() {
-		console.log(this.collection.models)
 		var div = this.$el;
 		div.html("");
 
+		// this.collection.produce().forEach(function(produceInstance) {
 
-		var protein = []
-		var produce = []
-		var dairy = []
-		var grain = []
+		// 	console.log(produceInstance.attributes)	
+     
+		// 	div.append('<br>' + '<a href="#inventory/'+produceInstance.attributes.id +'">' +'<h3>' + produceInstance.attributes.ingredient  + '</h3>' + '</a>')
+		// })
+		var produce = this.collection.produce();
+		console.log(produce)
+		div.html(this.template({inventory: produce[1]}).render().$el);
 
-		this.collection.models.each(function(inventory) {
-				console.log(collection)
-			if (this.collection.models.attributes === "protein") {
+		// div.append(new Appetite.Views.InventoryView({inventory: collection.toJSON()}).render().$el);
 
-				protein.push(this.collection.models)
-				console.log(protein)
-			}
-
-		})
-
-		this.collection.each(function(inventory) {
-			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
-		});
+		// this.collection.each(function(inventory) {
+		// 	div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
+		// });
 		return this;
 	}
 });
