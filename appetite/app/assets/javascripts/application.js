@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require ./libraries/underscore
-//= require ./libraries/backbone
+//= require libraries/underscore
+//= require libraries/backbone
 //= require app
 
 //= require_tree ./backbone/models/
