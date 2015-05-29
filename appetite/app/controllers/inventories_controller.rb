@@ -7,7 +7,10 @@ class InventoriesController < ApplicationController
 		@user = User.find(session[:user_id])
 		@inventories =  @user.inventories
 		if @inventories
-			render json: @inventories.to_json(:include => [:recipes])
+			render json: @inventories
+			# .to_json(:include => [:recipes])
+		else
+			render status: 400, nothing: true
 		end
 	end
 
@@ -20,16 +23,12 @@ class InventoriesController < ApplicationController
 		end
 	end
 
-end
+	def create
+	end
 
+	def update
+	end
 
-def create
-end
-
-def update
-end
-
-def destroy
-end
-
+	def destroy
+	end
 end
