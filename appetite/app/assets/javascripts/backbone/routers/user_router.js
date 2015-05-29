@@ -19,18 +19,16 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
-		var mainPage = new Appetite.Collections.Inventories;
+		var mainPage = new Appetite.Collections.Recipes({active: true});
 		mainPage.fetch({
 			success: function(collection, response, options) {
 				console.log("activeRecipe");
-				new Appetite.Views.AllInventoryView({collection: collection});
+				new Appetite.Views.ShowRecipeView({collection: collection});
 			},
 			error: function(){
 				new Error({message: "Error loading user."})
 			}
 		});
-		// var act_recp = new Appetite.Views.ActiveRecipe({ el: $("#content"), collection: mainPage})
-		// mainPage.fetch();
 	},
 
 	allRecipes: function() {
@@ -55,13 +53,17 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	},
 
 	allInventory: function() {
-		// var content = $("#content");
-		// content.html("");
-		// mainPage.fetch({
-		// 	success: function(model, response) {
-		// 		new allInventoryView({collection: mainPage["inventory"]}).render();
-		// 	}
-		// });
+		var content = $("#content");
+		content.html("");
+		var mainPage = new Appetite.Collections.Inventories();
+		mainPage.fetch({
+			success: function(collection, response, options) {
+				new Appetite.Views.AllInventoryView({collection: collection});
+			},
+			error: function(){
+				new Error({message: "Error loading user."})
+			}
+		});
 	},
 
 	// do a select or pluck of mainPage for inventory_id associated things
