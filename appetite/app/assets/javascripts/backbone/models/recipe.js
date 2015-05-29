@@ -6,5 +6,8 @@ var Appetite = Appetite || {
 };
 
 Appetite.Models.Recipe = Backbone.Model.extend({
-	urlRoot: "/user/recipes"
+	urlRoot: "/user/recipes",
+	isActive: function() {
+		return this.get("active") == true;
+	}
 });

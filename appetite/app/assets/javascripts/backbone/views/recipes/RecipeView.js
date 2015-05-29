@@ -9,8 +9,7 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 	tagName: "div",
 
 	initialize: function(){
-	 	this.template = _.template($("#all-recipies").html());
-	 	this.render();
+	 	this.template = _.template($("#all-recipes").html());
 	},
 
 	events: {"click .recipe_title": "recipeShow",

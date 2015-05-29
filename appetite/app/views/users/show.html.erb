@@ -12,7 +12,6 @@
 
 <div id="content"></div>
 
-
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
 	{{= JSON.strinify(user)}}
@@ -50,8 +49,39 @@
 </script>
 
 <script type="text/template" id="showInventory">
+
 	<div id="show-inventory-div">
-	<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+
+					{{debugger}}
+
+		{{ if (inventory.group === "protein") { }} 
+			Protein: 
+			<div id="show-protein">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		
+		{{ if (inventory.group === "produce") { }}
+			Produce: 
+			<div id="show-produce">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		{{ if (inventory.group === "dairy") { }}
+			<div id="show-dairy">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
+		{{ if (inventory.group === "grain") { }}
+			Grain:
+			<div id="show-grain">
+			<a href="#inventory/{{= inventory.id }}">{{= inventory.ingredient }}</a>
+			</div>
+		{{ } }}
+
 	</div>
 </script>
 
