@@ -35,19 +35,15 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 		Appetite.activeFilter === false ;
 	},
 
-
-
-
 	deleteRecipe: function(){
 		this.model.destroy();
 	},
 
 	render: function(){
-		this.$el.html(this.template({recipe: this.model.toJSON()}));
 		console.log("check")
-		this.$el.toggleClass("active",this.model.get("active"));
-		this.toggleActive();
+		this.$el.html(this.template({recipe: this.model.toJSON()}));
+		// this.$el.toggleClass("active",this.model.get("active"));
+		// this.toggleActive();
 		return this;
 	}
-	
 });
