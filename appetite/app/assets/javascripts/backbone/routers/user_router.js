@@ -69,13 +69,13 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 
 	// do a select or pluck of mainPage for inventory_id associated things
 	showInventory: function(inventory_id) {
-		// var content = $("#content");
-		// content.html("");
-		// mainPage.fetch({
-		// 	success: function(model, response) {
-		// 		new showInventoryView({collection: mainPage}).render();
-		// 	}
-		// });
+		var content = $("#content");
+		content.html("");
+		mainPage.fetch({
+			success: function(model, response) {
+				new showInventoryView({collection: mainPage}).render();
+			}
+		});
 	},
 
 	searchRecipes: function() {
