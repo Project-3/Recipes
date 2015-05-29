@@ -1,7 +1,6 @@
 class Inventory < ActiveRecord::Base
 	has_and_belongs_to_many :recipes, dependent: :destroy,
-	join_table: :inventories_recipes
-
+		join_table: :inventories_recipes
 
 	belongs_to :user
 	

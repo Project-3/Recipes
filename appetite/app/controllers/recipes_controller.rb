@@ -13,9 +13,9 @@ class RecipesController < ApplicationController
 =======
 	# all recipes corresponding to one user
 	def index
-		@recipes = Recipe.where(user_id: session[:user_id]).joins(:inventories)
+		@recipes = Recipe.where(user_id: session[:user_id])
 		if @recipes
-			render json: @recipes
+			render json: @recipes.to_json(:include => [:inventories])
 		else
 			flash[:error] = "You haven't saved any recipes yet! Search now :)"
 			render status: 400, nothing: true
