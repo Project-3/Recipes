@@ -34,16 +34,22 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		// div.html(this.template({inventory: produce}).render().$el);
 
 		// div.append(new Appetite.Views.InventoryView({inventory: collection.toJSON()}).render().$el);
-
+		div.append("<h2>Protein</h2>")
 		this.collection.byGroup("protein").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
+		div.append("<hr>")
+		div.append("<h2>Produce</h2>")
 		this.collection.byGroup("produce").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
+		div.append("<hr>")
+		div.append("<h3>Dary</h3>")
 		this.collection.byGroup("dairy").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
+		div.append("<hr>")
+		div.append("<h3>Grain</h3>")
 		this.collection.byGroup("grain").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
