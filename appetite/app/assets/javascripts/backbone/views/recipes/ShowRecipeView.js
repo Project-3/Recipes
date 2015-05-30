@@ -6,19 +6,10 @@ var Appetite = Appetite || {
 };
 
 Appetite.Views.ShowRecipeView = Backbone.View.extend({
-<<<<<<< HEAD
 	el: "div#content",
-
-	initialize: function(){
-		// need to add a show recipe template...on Nat's computer?
-	 	this.template = _.template($("#each-recipe").html());
-	 	this.render();
-=======
-	el: "#content",
-
 	initialize: function(){
 		this.template = _.template($("#show-recipe").html());
->>>>>>> backbone
+	 	this.render();
 	},
 
 	events: {},

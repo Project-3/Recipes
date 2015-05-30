@@ -45,13 +45,6 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.template({recipe: this.model.toJSON()}));
-<<<<<<< HEAD
-		this.$el.toggleClass("active",this.model.get("active"));
-		this.toggleActive();
-=======
-		// this.$el.toggleClass("active",this.model.get("active"));
-		// this.toggleActive();
->>>>>>> backbone
 		return this;
 	}
 });
