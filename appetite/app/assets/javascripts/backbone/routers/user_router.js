@@ -99,12 +99,8 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 			type: "GET",
     		url: "/user/inventories/search",
     		data: {ingredients: checkedBoxes},
-  			// dataType: "json",
 		    success: function(response) {
-		    	console.log(response.total_results);
-		    	console.log(response);
-		    	console.log(response.results);
-		    	new Appetite.Views.SearchRecipesView({collection: response.results});
+		    	new Appetite.Views.SearchRecipesView({collection: response});
 		    }
 		});
 	}

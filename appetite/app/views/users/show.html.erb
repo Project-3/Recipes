@@ -8,17 +8,20 @@
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 
 		<div id="update-ingredient">
-		<h3> check if used: </h3> ingriedients from joined table 
-		{{ inventory.forEach(function(obj){ }}
-			{{= obj.ingredient }}
-			<input type="checkbox" name="recipe{{= obj.id }}" value="{{= obj.id %>" > 
+		<h3> Click Used Ingredients: </h3> 
+		{{ recipe.inventories.forEach(function(inventory){ }}
+			<p>{{= inventory.ingredient }}</p>
+		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt">Used?</button>
 		{{ }) }}
+	</div>
+</script>
 
-		<button class="update-button">Update</button>
-		</div>
-
-		<p class="recipe-ingredients">{{= user.recipe[0].ingredients}}</p>
-		<p class="recipe-instructions">{{= user.recipe[0].instructions}}</p>
+<script type="text/template" id="recipe-result">
+<h1>HOW DOES THIS SOUND...</h1>
+	<div id="recipe-result-div">
+		<h2 class="recipe-name">{{= recipe.name }}</h2>
+		<p class="recipe-ingredients">{{=recipe.ingredients}}</p>
+		<button class="save-button" id="{{= recipe.id }}">Save</button>
 	</div>
 </script>
 
