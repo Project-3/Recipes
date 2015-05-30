@@ -26,8 +26,16 @@ class InventoriesController < ApplicationController
 	# create new ingredient, save it, let backbone rerender its view
 
 	### added default value to the avail column so when you enter an ingredient it will be 'true'
+	# def new 
+	# 	@inventory = Inventory.new
+	# 	puts "def new runs"
+	# end
+
+
 	def create
 		@inventory = Inventory.new(inventory_params)
+		puts "HEY HEY HEY HEY HEY"
+		puts inventory_params
 		if @inventory.save
 			render json: @inventory
 		else
@@ -46,7 +54,7 @@ class InventoriesController < ApplicationController
 
 
 	def destroy
-		@inventory = Inventory.find(params[:id])
+		@inventory = Inventory.find(inventory_params[:id])
 		if @inventory.destroy
 			render json: {}
 		else
@@ -56,6 +64,6 @@ class InventoriesController < ApplicationController
 
 	private
 	def inventory_params
-		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id)
+		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id, )
 	end
 end
