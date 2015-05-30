@@ -50,7 +50,9 @@
 <script type="text/template" id="showInventory">
 
 	<div id="produce">	
-		{{= JSON.stringify(inventory) }}
+		// {{= JSON.stringify(inventory) }}
+		<h2>Produce</p>
+		<a href="#inventory/{{=inventory.id}}" class="inventory_title">{{=inventory.ingredient}}</a>
 
 
 		
