@@ -16,7 +16,11 @@ Appetite.Views.AllRecipeView = Backbone.View.extend({
 		var div = this.$el;
 		div.html("");
 
+<<<<<<< HEAD
 		this.collection.each(function(recipe){
+=======
+		this.collection.protien().each(function(recipe){
+>>>>>>> backbone
 			div.append(new Appetite.Views.RecipeView({model: recipe}).render().$el);
 		});
 		return this;

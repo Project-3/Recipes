@@ -33,15 +33,47 @@
 </script>
 
 <script type="text/template" id="each-recipe">
+<h1>HOW ABOUT SOME...</h1>
 	<div id="all-recipes-div">
-		<h2<a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
+		<h2><a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
 		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
 		<button id="{{= recipe.id }}" class="activate_butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
 		<button class="delete_butt">Delete</button>
 	</div>
 </script>
 
+<<<<<<< HEAD
 <script type="text/template" id="show-inventory">
+=======
+<!--show clicked on recipe-->
+<script type="text/template" id="show-recipe">
+<h1>This looks good, right?</h1>
+{{console.log(recipe.name)}}
+	<div id="all-recipes-div">
+		<h2>{{= recipe.name }}</a></h2>
+		
+		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
+		{{console.log(recipe.ingredients)}}
+		<p class="recipe_instructions">{{=recipe.instructions}}</p>
+		{{console.log(recipe.instructions)}}
+		<button id="{{= recipe.id }}" class="activate_butt">Activate</button>
+		{{console.log(recipe.id)}}
+		<button class="delete_butt">Delete</button>
+		<h2> From your inventory: </h2>
+
+
+		{{ recipe.inventories.forEach(function(inventory) { }}
+			<div class="invent_item"> <h3 class= "invent_name">{{= inventory.ingredient }}<button id="{{ inventory.id }}" class="used"> ALL GONE </button></h3>
+		{{ }); }}
+		
+	</div>
+</script>
+
+
+
+
+<script type="text/template" id="all-inventory">
+>>>>>>> backbone
 	<div id="all-inventory-div">
 		{{= inventory.ingredient }}
 		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
@@ -66,6 +98,7 @@
 </script>
 
 
+<<<<<<< HEAD
 
 
 
@@ -75,3 +108,5 @@
 
 
 
+=======
+>>>>>>> backbone
