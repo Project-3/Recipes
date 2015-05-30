@@ -21,16 +21,7 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	},
 
 	switchItem: function() {
-		// console.log(this.model.attributes["avail"])
-		// if (this.model.attributes.avail === true) {
-		// 	console.log("here2")
-		// 	this.model.attributes["avail"] = false;
-		// } else {
-		// 	console.log("here3")
-		// 	this.model.attributes["avail"] = true;
-		// }
 		this.model.toggle();
-		this.model.save();
 	},
 	
 	searchInvent: function(){

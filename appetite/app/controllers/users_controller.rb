@@ -6,15 +6,11 @@ class UsersController < ApplicationController
 	def show
 		# only if user logged-in
 		@user = User.find(session[:user_id])
-		# @protein = @user.inventories.where({:group => "protein"})
-		# @produce = @user.inventories.where({:group => "produce"})
-		# @dairy= @user.inventories.where({:group => "dairy"})
-		# @grain= @user.inventories.where({:group => "grain"})
-		@inventories = Inventory.joins(:recipes)
+
 		# sending either html or json to user show page
 		respond_to do |format|
 			format.html { render :show }
-			# is not sending back correct ids for join table
+			# sends monstrous json with user and all associated inventories and recipes and their associations
 			format.json { render json: @user.to_json(include: {inventories: { include: { recipes: {only: [:id]}}}, recipes: {include: {inventories: {only: [:id]}}}})}
 		end
 	end
@@ -27,6 +23,7 @@ class UsersController < ApplicationController
 			session[:user_id] =  @user.id
 			session[:name] = @user.name
 			flash[:success] = "Welcome #{@user.name}! Start off by filling out your inventory."
+			# is it possible to redirect to a backbone page - how to use site
 			redirect_to user_path
 
 		# if user failed validation

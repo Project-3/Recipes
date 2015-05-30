@@ -36,7 +36,7 @@
 	<div id="all-recipes-div">
 		<h2<a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
 		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
-		<button id="{{= recipe.id }}" class="activate_butt">Activate</button>
+		<button id="{{= recipe.id }}" class="activate_butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
 		<button class="delete_butt">Delete</button>
 	</div>
 </script>
@@ -51,19 +51,9 @@
 </script>
 
 <script type="text/template" id="each-inventory">
-
 		<a href="#inventory/{{=inventory.id}}" class="inventory_title">{{=inventory.ingredient}}</a>
 		<button class="delete_butt">Delete</button>
 		<button id="search_butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
-
-		
-	</div>
-	<div id="protein">			
-	</div>
-	<div id="grain">			
-	</div>
-	<div id="dairy">			
-	</div>
 </script>
 
 <script type="text/template" id="search-results">
@@ -74,7 +64,6 @@
 		<button class="save-button">Save Recipe</button>
 	</div>
 </script>
-
 
 
 

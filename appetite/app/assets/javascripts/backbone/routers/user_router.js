@@ -14,7 +14,6 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		"inventory" : "allInventory",
 		"inventory/:inventory_id" : "showInventory",
 		"search": "searchRecipes"
-
 	},
 
 	activeRecipe: function() {
@@ -49,7 +48,6 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		var oneRecipe = new Appetite.Models.Recipe({id: recipe_id});
 		oneRecipe.fetch({
 			success: function(model, response) {
-				console.log(model)
 				new Appetite.Views.ShowRecipeView({model: model})
 			}
 		});
@@ -76,7 +74,6 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		var oneInvent = new Appetite.Models.Inventory({id: inventory_id});
 		oneInvent.fetch({
 			success: function(model, response) {
-				console.log(model);
 				new Appetite.Views.ShowInventoryView({model: model});
 			}
 		});

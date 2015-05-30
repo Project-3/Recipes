@@ -6,17 +6,13 @@ var Appetite = Appetite || {
 };
 Appetite.Models.Inventory = Backbone.Model.extend({
 	urlRoot: "/user/inventories",
-	// defaults: {
- //  		avail: true
- //  	},
-  	// toggle the availability of an inventory item
+	defaults: {
+  		avail: true
+  	},
+  	// toggles the availability of an inventory item
 	toggle: function() {
-		console.log(this.get("avail"))
-		// should use this.save here but not working...b/c of defaults?
-		this.set({
+		this.save({
 		  	"avail": !this.get("avail")
 		});
-
-
 	}
 });

@@ -9,7 +9,8 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 	el: "div#content",
 
 	initialize: function(){
-	 	this.template = _.template($("#show-recipe").html());
+		// need to add a show recipe template...on Nat's computer?
+	 	this.template = _.template($("#each-recipe").html());
 	 	this.render();
 	},
 
