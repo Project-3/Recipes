@@ -7,21 +7,17 @@ options = {
    "x-api-key" => "78861666c8ba"
    # :body => {
    #   chef_login: { 
-   #     login: "sunsheeppoplar",
-   #     password: "chipotleswrath"
+   #     login: "",
+   #     password: ""
    #   }
-   } # This is what you’re missing
+   } 
 }
-# response = HTTParty.post("http://www.weeatt.com/api/v1/chefs/sign_in", options)
-
-# puts response
-
-response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token=leh0XQY71OGO0iFY_6aJ", options)
+# note - apiToken is hidden in inner folder
+response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token="+apiToken, options)
 
 response["results"].each do |key, value| 
 	puts 
 end
-
 
 # api_id = response["results"][0]["id"]
 # ingredients = response["results"][0]["ingredients"]
