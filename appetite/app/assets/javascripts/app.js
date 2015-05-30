@@ -14,10 +14,6 @@ _.templateSettings = {
 	};
 
 Appetite.initialize = function() {
-	// if (mainPage === undefined) {
-	//mainPage = mainPage || new Appetite.Collections.Recipes();
-	// }
-	// new Appetite.Views.ActiveRecipe({collection: mainPage});
 	userRouter = userRouter || new Appetite.Routers.UserRouter();
 	Backbone.history.start({root: "/user/"});
 };
