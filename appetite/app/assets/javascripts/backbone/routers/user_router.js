@@ -5,9 +5,6 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
-// var secrets = require("../secrets.json");
-// var apiToken = secrets["apiToken"];
-
 Appetite.Routers.UserRouter = Backbone.Router.extend({
 	// maybe add a route welcoming new users with directions to use site
 	routes : {
@@ -84,27 +81,32 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	},
 
 	searchRecipes: function() {
-		var checkedBoxes = this.$('input:checked');
-		$.ajax({
-    		url: "http://www.weeatt.com/api/v1/recipes?qs="+checkedBoxes+"&auth_token="+apiToken,
-    		headers: {
-		    	"ACCEPT": "application/json",
-		    	"CONTENT-TYPE": "application/json",
-		    	"x-api-key": "78861666c8ba"
-		    }
+		var checkedBoxes = [];
+		$('input[name=ingredients]:checked').map(function() {
+		    checkedBoxes.push($(this).val());
 		});
+
+		// finding all checked boxes and unchecking them
+		$('.checked-ingredient').each(function() {
+            $(this).attr('checked',!$(this).attr('checked'));
+        });
 
 		var content = $("#content");
 		content.html("");
-		var searchResults // place ajax call here
 
-		// in ajax call, instaniate below view upon success of call 
-
-		// searchResults.fetch({
-		// 	success: function(collection) {
-		// 		new Appetite.Views.SearchRecipesView({collection: collection})
-		// 	}
-		// });
+		// ajax call to server to make request to api and send back data
+		$.ajax({
+			type: "GET",
+    		url: "/user/inventories/search",
+    		data: {ingredients: checkedBoxes},
+  			// dataType: "json",
+		    success: function(response) {
+		    	console.log(response.total_results);
+		    	console.log(response);
+		    	console.log(response.results);
+		    	new Appetite.Views.SearchRecipesView({collection: response.results});
+		    }
+		});
 	}
 
 });

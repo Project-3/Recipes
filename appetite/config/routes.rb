@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
+  get "user/inventories/search" => "inventories#search"
+
   resource :user do 
     resources :inventories, :recipes
   end
-
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -16,8 +16,8 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 
 	events: {
 		"click .delete-butt" : "deleteItem",
-		"click #search-butt" : "searchInvent",
-		"click #avail-butt" : "switchItem"
+		"click .search-butt" : "searchInvent",
+		"click .avail-butt" : "switchItem"
 	},
 
 	switchItem: function() {
@@ -25,7 +25,11 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	},
 	
 	searchInvent: function(){
-		userRouter.navigate("search", {trigger: true});
+		if ($('.checked-ingredient').is(":checked") == true) {
+			userRouter.navigate("search", {trigger: true});
+		} else {
+			alert("Please check all ingredients you would like to use in your dish.")
+		}
 	},
 
 	deleteItem: function(){
