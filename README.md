@@ -6,7 +6,11 @@ This project was the third for the March 2015 iteration of General Assembly in N
 
 2. [Rails](http://rubyonrails.org/) made up our back-end.
 
-3. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some initial data fetching from our API, [We Eatt](http://www.weeatt.com/).
+3. Our front-end was provided by [Backbone](http://backbonejs.org/) via the [backbone-on-rails](https://github.com/meleyal/backbone-on-rails) gem.
+
+4. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some initial data fetching from our API, [We Eatt](http://www.weeatt.com/).
+
+5. We did some basic model testing with [RSPEC](http://rspec.info/).
 
 ### Contributors
 [Kwasi James](https://github.com/kwasijames), [Julie Kwok](https://github.com/kwokster10), [Nat Scott](https://github.com/itsnatscott/), and [Abner Yang](https://www.github.com/sunsheeppoplar)

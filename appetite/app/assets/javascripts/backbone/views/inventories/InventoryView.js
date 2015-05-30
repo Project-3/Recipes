@@ -23,13 +23,11 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 		var newIngFld = this.$('#ingredient_add');
 		var newGrpFld = this.$('#group_select');
 		var newIng = newIngFld.val();
-		console.log(this.model.collection);
 		var newGrp = newGrpFld.val();
 		var userIdFld = this.$('#user_id_select');
 		var userId = userIdFld.val();
 		newIngFld.val('');
 		el = this.$el;
-		//KINDA WORKS, MAYBE//
 		this.model.collection.create({
 			ingredient: newIng,
 			group: newGrp,
