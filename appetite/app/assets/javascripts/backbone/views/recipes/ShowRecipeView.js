@@ -7,7 +7,6 @@ var Appetite = Appetite || {
 
 Appetite.Views.ShowRecipeView = Backbone.View.extend({
 	el: "div#content",
-
 	initialize: function(){
 		this.template = _.template($("#show-recipe").html());
 	 	this.render();
