@@ -28,7 +28,7 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 		var userId = userIdFld.val();
 		newIngFld.val('');
 		el = this.$el;
-		this.model.collection.create({
+		this.model.save({
 			ingredient: newIng,
 			group: newGrp,
 			user_id: userId
