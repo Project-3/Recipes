@@ -5,13 +5,6 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
-<<<<<<< HEAD
-// var secrets = require(["../secrets.json"]);
-=======
-// var secrets = require("../secrets.json");
->>>>>>> d2a3a22de5535f47600bdcf6d2fc715e7900c9af
-// var apiToken = secrets["apiToken"];
-
 Appetite.Routers.UserRouter = Backbone.Router.extend({
 	// maybe add a route welcoming new users with directions to use site
 	routes : {
