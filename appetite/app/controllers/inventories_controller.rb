@@ -1,6 +1,30 @@
 class InventoriesController < ApplicationController
 	protect_from_forgery with: :null_session
 
+	# searching for recipes
+	def search
+		# http header for api call
+		options = {
+			:headers => {
+				"ACCEPT" => "application/json",
+				"CONTENT-TYPE" => "application/json",
+				"x-api-key" => "78861666c8ba" 
+			}
+		}
+
+		# getting the search query
+		checked = params[:ingredients].join("+").gsub(" ", "+")
+
+		# making the call
+		response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=#{checked}&auth_token="+Rails.application.secrets.secret_password, options)
+		
+		if response
+			render json: response
+		else
+			render status: 400, nothing: true
+		end
+	end
+
 	# gets all of the users ingredients and any user recipes associated with that ingredient
 	def index
 		@user = User.find(session[:user_id])
@@ -24,8 +48,6 @@ class InventoriesController < ApplicationController
 	end
 
 	# create new ingredient, save it, let backbone rerender its view
-
-	### added default value to the avail column so when you enter an ingredient it will be 'true'
 	def create
 		@inventory = Inventory.new(inventory_params)
 		if @inventory.save
@@ -35,6 +57,7 @@ class InventoriesController < ApplicationController
 		end
 	end
 
+	# updates an ingredient; backbone's put route
 	def update
 		@inventory = Inventory.find(params[:id])
 		if @inventory.update(inventory_params)
@@ -46,7 +69,7 @@ class InventoriesController < ApplicationController
 
 
 	def destroy
-		@inventory = Inventory.find(params[:id])
+		@inventory = Inventory.find(inventory_params[:id])
 		if @inventory.destroy
 			render json: {}
 		else
@@ -56,6 +79,6 @@ class InventoriesController < ApplicationController
 
 	private
 	def inventory_params
-		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id)
+		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id, )
 	end
 end

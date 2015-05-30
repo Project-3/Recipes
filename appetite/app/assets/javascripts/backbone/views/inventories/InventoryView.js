@@ -16,7 +16,25 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 		"click button.avail": "availInv",
 		"click button.delete-butt": "deleteInv",
 		"click button.search-butt": "searchInv",
+		"click button.add-inv-butt": "addInv"
 	}, 
+
+	addInv: function(){
+		var newIngFld = this.$('#ingredient_add');
+		var newGrpFld = this.$('#group_select');
+		var newIng = newIngFld.val();
+		var newGrp = newGrpFld.val();
+		var userIdFld = this.$('#user_id_select');
+		var userId = userIdFld.val();
+		newIngFld.val('');
+		el = this.$el;
+		this.model.collection.create({
+			ingredient: newIng,
+			group: newGrp,
+			user_id: userId
+
+		});
+	},
 
 	availInv: function() {
 	// avail boolean
@@ -29,7 +47,11 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 	},
 
 	searchInv: function () {
-		userRouter.navigate("search", {trigger: true});
+		if ($('.checked-ingredient').is(":checked") == true) {
+			userRouter.navigate("search", {trigger: true});
+		} else {
+			alert("Please check all ingredients you would like to use in your dish.")
+		}
 	},
 
 	render: function() {

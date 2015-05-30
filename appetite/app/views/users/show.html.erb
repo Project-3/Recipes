@@ -1,12 +1,4 @@
-<%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
-<%= f.text_field :ingredient, placeholder: "ingredient name"%>
-<%= f.select :group do%>
-<%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
-<%= content_tag(:option, c.first, value:c.last)%>
-<%end%>
-<%end%>
-<%= f.button "add", html:{class: "pure-button", id:"button-success"}%>
-<% end %>
+
 
 <div id="content"></div>
 
@@ -59,11 +51,12 @@
 </script>
 
 <script type="text/template" id="show-inventory">
-	<div id="all-inventory-div">
+	
 		{{= inventory.ingredient }}
+		hello
 		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 		<button class="delete-butt">Delete</button>
-		<button id="search-butt">Search</button>
+		<button class="search-butt">Search</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipe-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
@@ -71,14 +64,28 @@
 				<button id="{{= recipe.id }}" class="activate" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> Active ?</button></h3>
 			{{ }); }}
 		</div>
-	</div>
+
+
 </script>
 
 <script type="text/template" id="each-inventory">
+<div id="all-inventory-div">
+	ADD ITEM HERE
+		
+		<div id="add_inv_form"
+		<form action="user/inventories", id="new-inventory", method="POST">
+		<input name="user_id" id="user_id_select" value="{{=inventory.user_id }}" type="hidden">
+		<input id="ingredient_add" type="text" placeholder="ingredient name"/> 
+		<select id="group_select"> <option value="protein">Protein</option> 
+		<option value="produce">Produce</option> <option value="dairy">Dairy</option> <option value="grain">Grain</option> </select> <button class="add-inv-butt">Add Item </button>
+		</div>
+
+
+
 		<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
 		<button class="delete-butt">Delete</button>
-		<button id="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
-		<input type="checkbox" class="checked-ingredient" name="{{= inventory.id }}">
+		<button class="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
 </script>
 
 <script type="text/template" id="search-results">
@@ -89,7 +96,6 @@
 		<button class="save-button">Save Recipe</button>
 	</div>
 </script>
-
 
 
 
