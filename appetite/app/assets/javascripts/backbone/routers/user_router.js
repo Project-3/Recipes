@@ -6,6 +6,7 @@ var Appetite = Appetite || {
 };
 
 Appetite.Routers.UserRouter = Backbone.Router.extend({
+	// maybe add a route welcoming new users with directions to use site
 	routes : {
 		"" : "activeRecipe",
 		"recipes" : "allRecipes",
@@ -13,7 +14,6 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		"inventory" : "allInventory",
 		"inventory/:inventory_id" : "showInventory",
 		"search": "searchRecipes"
-
 	},
 
 	activeRecipe: function() {
@@ -46,12 +46,9 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		var content = $("#content");
 		content.html("");
 		var oneRecipe = new Appetite.Models.Recipe({id: recipe_id});
-		console.log(oneRecipe)
 		oneRecipe.fetch({
 			success: function(model, response) {
-				console.log (model)
-				console.log (response)
-				new Appetite.Views.ShowRecipeView({model: model}).render();
+				new Appetite.Views.ShowRecipeView({model: model});
 			}
 		});
 	},
@@ -74,9 +71,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	showInventory: function(inventory_id) {
 		var content = $("#content");
 		content.html("");
-		mainPage.fetch({
+		var oneInvent = new Appetite.Models.Inventory({id: inventory_id});
+		oneInvent.fetch({
 			success: function(model, response) {
-				new showInventoryView({collection: mainPage}).render();
+				new Appetite.Views.ShowInventoryView({model: model});
 			}
 		});
 	},

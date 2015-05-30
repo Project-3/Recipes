@@ -7,6 +7,12 @@ var Appetite = Appetite || {
 Appetite.Models.Inventory = Backbone.Model.extend({
 	urlRoot: "/user/inventories",
 	defaults: {
-  	avail: true
-  }
+  		avail: true
+  	},
+  	// toggles the availability of an inventory item
+	toggle: function() {
+		this.save({
+		  	"avail": !this.get("avail")
+		});
+	}
 });

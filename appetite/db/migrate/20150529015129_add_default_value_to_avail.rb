@@ -5,6 +5,6 @@ class AddDefaultValueToAvail < ActiveRecord::Migration
 	end
 
 	def down
-		change_column :inventories, :avail, :boolean, :default => nil
+		change_column :inventories, :avail, :boolean, :default => true
 	end
 end

@@ -12,7 +12,6 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 	 	this.template = _.template($("#each-recipe").html());
 	 	this.listenTo(this.model, "sync", this.render);
 	 	this.listenTo(this.model, "destroy", this.remove);
-	 	this.listenTo(this.model, "visible", this.toggleActive);
 	},
 
 	events: {"click .recipe_title": "recipeShow",
@@ -21,23 +20,9 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 	
 
 	recipeUpdate: function(){
-		if (this.model.active === true){
-			this.model.save({active: false});
-		}else{
-			this.model.save({active: true});
-		};
+		this.model.toggle();
 			
 	},
-
-	// toggleActive: function(){
-	// 	this.$el.toggleClass("hidden", this.inActive());
-	// },
-
-	// inActive: function(){
-	// 	this.model.get("active")?
-	// 	Appetite.activeFilter === true :
-	// 	Appetite.activeFilter === false ;
-	// },
 
 	deleteRecipe: function(){
 		this.model.destroy();
@@ -45,8 +30,6 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.html(this.template({recipe: this.model.toJSON()}));
-		// this.$el.toggleClass("active",this.model.get("active"));
-		// this.toggleActive();
 		return this;
 	}
 });

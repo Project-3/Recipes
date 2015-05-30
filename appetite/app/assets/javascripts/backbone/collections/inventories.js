@@ -8,16 +8,13 @@ var Appetite = Appetite || {
 Appetite.Collections.Inventories = Backbone.Collection.extend({
   model: Appetite.Models.Inventory,
   url: "/user/inventories",
-  defaults: {
-  	avail: true
-  },
 
-  // filter for only protein group
+  // filter for one group 
   byGroup: function(group) {
     filtered = this.filter(function(coll) {
       return coll.get("group") === group;
     });
     return new Appetite.Collections.Inventories(filtered);
-  },
+  }
 
 });

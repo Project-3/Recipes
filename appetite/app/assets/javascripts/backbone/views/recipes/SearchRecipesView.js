@@ -24,3 +24,4 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 	}
 });
 
+	
