@@ -59,8 +59,8 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	allInventory: function() {
 		var content = $("#content");
 		content.html("");
-		var mainPage = new Appetite.Collections.Inventories();
-		mainPage.fetch({
+		var inventoryColl = new Appetite.Collections.Inventories();
+		inventoryColl.fetch({
 			success: function(collection) {
 				new Appetite.Views.AllInventoryView({collection: collection});
 			},
