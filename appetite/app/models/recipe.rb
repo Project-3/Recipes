@@ -4,5 +4,7 @@ class Recipe < ActiveRecord::Base
 
 	belongs_to :user
 
-	default_scope {order(:active => :DESC)}
+	validates :active, inclusion: { in: [true, false] }
+
+	# default_scope {order(:active => :DESC)}
 end

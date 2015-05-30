@@ -16,8 +16,10 @@ class InventoriesController < ApplicationController
 	#gets the saved recipes associated with any one ingredient
 	def show
 		@inventory =  Inventory.find(params[:id])
-		if @inventories
+		if @inventory
 			render json: @inventory.to_json(:include => [:recipes])
+		else
+			render status: 400, nothing: true
 		end
 	end
 
@@ -28,6 +30,8 @@ class InventoriesController < ApplicationController
 		@inventory = Inventory.new(inventory_params)
 		if @inventory.save
 			render json: @inventory
+		else
+			render status: 400, nothing: true
 		end
 	end
 
@@ -52,6 +56,6 @@ class InventoriesController < ApplicationController
 
 	private
 	def inventory_params
-		params.require(:inventory).permit(:ingredient, :group, :user_id)
+		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id)
 	end
 end

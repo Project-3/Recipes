@@ -41,16 +41,20 @@
 	</div>
 </script>
 
-<script type="text/template" id="all-inventory">
+<script type="text/template" id="show-inventory">
 	<div id="all-inventory-div">
-		{{= inventory.ingredient }}<button class="avail_butt">Available?</button><button class="delete_butt">Delete</button><button id="search_butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		{{= inventory.ingredient }}
+		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+		<button class="delete-butt">Delete</button>
+		<button id="search-butt">Search</button>
 	</div>
 </script>
 
-<script type="text/template" id="showInventory">
+<script type="text/template" id="each-inventory">
 
 		<a href="#inventory/{{=inventory.id}}" class="inventory_title">{{=inventory.ingredient}}</a>
-
+		<button class="delete_butt">Delete</button>
+		<button id="search_butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
 
 		
 	</div>

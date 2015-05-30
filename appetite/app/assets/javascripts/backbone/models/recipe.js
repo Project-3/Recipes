@@ -8,9 +8,6 @@ var Appetite = Appetite || {
 Appetite.Models.Recipe = Backbone.Model.extend({
 	urlRoot: "/user/recipes",
 	defaults: {
-  	image: "http://en.academic.ru/pictures/enwiki/78/No_image_available.svg"
-  },
-	isActive: function() {
-		return this.get("active") == true;
-	}
+  		image: "http://en.academic.ru/pictures/enwiki/78/No_image_available.svg"
+  	}
 });

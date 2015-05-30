@@ -8,7 +8,7 @@ var Appetite = Appetite || {
 Appetite.Views.InventoryView = Backbone.View.extend({
 	tagName: 'div',
 	initialize: function(){
-	 	this.template = _.template($("#showInventory").html());
+	 	this.template = _.template($("#each-inventory").html());
 	},
 	events: {
 		"click button.avail": "availInv",
@@ -32,6 +32,6 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 
 	render: function() {
 		this.$el.html(this.template({inventory: this.model.toJSON()}));
-		return this
+		return this;
 	}
 });

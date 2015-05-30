@@ -44,7 +44,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 		div.append("<hr>")
-		div.append("<h3>Dary</h3>")
+		div.append("<h3>Dairy</h3>")
 		this.collection.byGroup("dairy").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
