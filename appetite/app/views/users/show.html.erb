@@ -63,7 +63,7 @@
 		{{= inventory.ingredient }}
 		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 		<button class="delete-butt">Delete</button>
-		<button id="search-butt">Search</button>
+		<button class="search-butt">Search</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipe-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
@@ -77,8 +77,8 @@
 <script type="text/template" id="each-inventory">
 		<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
 		<button class="delete-butt">Delete</button>
-		<button id="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
-		<input type="checkbox" class="checked-ingredient" name="{{= inventory.id }}">
+		<button class="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
 </script>
 
 <script type="text/template" id="search-results">

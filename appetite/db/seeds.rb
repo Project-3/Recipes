@@ -23,7 +23,7 @@ options = {
 	}
 }
 
-response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token="+Rail.application.secrets.secret_password, options)
+response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token="+Rails.application.secrets.secret_password, options)
 
 response["results"].each do |result|
 	if result["image"]  
