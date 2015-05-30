@@ -14,9 +14,10 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 	 	this.listenTo(this.model, "destroy", this.remove);
 	},
 
-	events: {"click .recipe_title": "recipeShow",
-		"click .activate_butt" : "recipeUpdate",
-		"click .delete_butt": "deleteRecipe" },
+	events: {
+		"click .activate-butt" : "recipeUpdate",
+		"click .delete-butt": "deleteRecipe" 
+	},
 	
 
 	recipeUpdate: function(){

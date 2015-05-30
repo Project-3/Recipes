@@ -5,6 +5,9 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+var secrets = require("../secrets.json");
+var apiToken = secrets["apiToken"];
+
 Appetite.Routers.UserRouter = Backbone.Router.extend({
 	// maybe add a route welcoming new users with directions to use site
 	routes : {
@@ -80,6 +83,16 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	},
 
 	searchRecipes: function() {
+		var checkedBoxes = this.$('input:checked');
+		$.ajax({
+    		url: "http://www.weeatt.com/api/v1/recipes?qs="+checkedBoxes+"&auth_token="+apiToken,
+    		headers: {
+		    	"ACCEPT": "application/json",
+		    	"CONTENT-TYPE": "application/json"
+		    	"x-api-key": "78861666c8ba"
+		    }
+		});
+
 		var content = $("#content");
 		content.html("");
 		var searchResults // place ajax call here

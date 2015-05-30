@@ -1,5 +1,3 @@
-<h2> Hello <%= @user.name %>. Ready to get cooking? </h2>
-
 <%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
 <%= f.text_field :ingredient, placeholder: "ingredient name"%>
 <%= f.select :group do%>
@@ -14,8 +12,8 @@
 
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
-		<img class="recipe_pic" src="{{= recipe.image}}">
-		<h2 class="recipe_title"> {{=  recipe.name }}</h2>
+		<img class="recipe-pic" src="{{= recipe.image}}">
+		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 
 		<div id="update-ingredient">
 		<h3> check if used: </h3> ingriedients from joined table 
@@ -27,42 +25,36 @@
 		<button class="update-button">Update</button>
 		</div>
 
-		<p class="recipe_ingredients">{{= user.recipe[0].ingredients}}</p>
-		<p class="recipe_instructions">{{= user.recipe[0].instructions}}</p>
+		<p class="recipe-ingredients">{{= user.recipe[0].ingredients}}</p>
+		<p class="recipe-instructions">{{= user.recipe[0].instructions}}</p>
 	</div>
 </script>
 
 <script type="text/template" id="each-recipe">
 <h1>HOW ABOUT SOME...</h1>
 	<div id="all-recipes-div">
-		<h2><a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
-		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
-		<button id="{{= recipe.id }}" class="activate_butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
-		<button class="delete_butt">Delete</button>
+		<h2><a href="#recipe/{{=recipe.id}}" class="recipe-title"> {{= recipe.name }}</a></h2>
+		<p class="recipe-ingredients">{{=recipe.ingredients}}</p>
+		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
+		<button class="delete-butt">Delete</button>
 	</div>
 </script>
 
 <!--show clicked on recipe-->
 <script type="text/template" id="show-recipe">
 <h1>This looks good, right?</h1>
-{{console.log(recipe.name)}}
 	<div id="all-recipes-div">
-		<h2>{{= recipe.name }}</a></h2>
-		
-		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
-		{{console.log(recipe.ingredients)}}
-		<p class="recipe_instructions">{{=recipe.instructions}}</p>
-		{{console.log(recipe.instructions)}}
-		<button id="{{= recipe.id }}" class="activate_butt">Activate</button>
-		{{console.log(recipe.id)}}
-		<button class="delete_butt">Delete</button>
+		<h2>{{= recipe.name }}</a></h2>	
+		<p class="recipe-ingredients">{{=recipe.ingredients}}</p>
+		<p class="recipe-instructions">{{=recipe.instructions}}</p>
+		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
+		<button class="delete-butt">Delete</button>
 		<h2> From your inventory: </h2>
-
-
-		{{ recipe.inventories.forEach(function(inventory) { }}
-			<div class="invent_item"> <h3 class= "invent_name">{{= inventory.ingredient }}<button id="{{ inventory.id }}" class="used"> ALL GONE </button></h3>
-		{{ }); }}
-		
+			{{ recipe.inventories.forEach(function(inventory) { }}
+				<div class="invent-item"> 
+				<h3 class= "invent-name">{{= inventory.ingredient }}
+				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE </button></h3>
+			{{ }); }}
 	</div>
 </script>
 
@@ -72,20 +64,28 @@
 		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 		<button class="delete-butt">Delete</button>
 		<button id="search-butt">Search</button>
+		<h2> Linked to these recipes: </h2>
+		<div class="recipe-itemized"> 
+			{{ inventory.recipes.forEach(function(recipe) { }}
+				<h3 class="recipe-name">{{= recipe.name }}
+				<button id="{{= recipe.id }}" class="activate" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> Active ?</button></h3>
+			{{ }); }}
+		</div>
 	</div>
 </script>
 
 <script type="text/template" id="each-inventory">
-		<a href="#inventory/{{=inventory.id}}" class="inventory_title">{{=inventory.ingredient}}</a>
-		<button class="delete_butt">Delete</button>
-		<button id="search_butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
+		<button class="delete-butt">Delete</button>
+		<button id="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		<input type="checkbox" class="checked-ingredient" name="{{= inventory.id }}">
 </script>
 
 <script type="text/template" id="search-results">
 	<div id="search-results-div">
-		<img class="recipe_pic" src="{{= recipe.image }}">
-		<h2<a href="#recipe/{{=recipe.id}}" class="recipe_title"> {{= recipe.name }}</a></h2>
-		<p class="recipe_ingredients">{{=recipe.ingredients}}</p>
+		<img class="recipe-pic" src="{{= recipe.image }}">
+		<h2<a href="#recipe/{{=recipe.id}}" class="recipe-title"> {{= recipe.name }}</a></h2>
+		<p class="recipe-ingredients">{{=recipe.ingredients}}</p>
 		<button class="save-button">Save Recipe</button>
 	</div>
 </script>

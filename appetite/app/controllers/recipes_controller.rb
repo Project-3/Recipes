@@ -36,6 +36,16 @@ class RecipesController < ApplicationController
 		end
 	end
 
+	# updating a recipe 
+	def update
+		@recipe = Recipe.find(params[:id])
+		if @recipe.update(recipe_params)
+			render json: @recipe
+		else
+			render status: 400, nothing: true
+		end
+	end
+
 	# deleting an unwanted recipe
 	def destroy
 		@recipe = Recipe.find(params[:id])

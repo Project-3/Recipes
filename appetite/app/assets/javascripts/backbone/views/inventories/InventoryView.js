@@ -14,8 +14,8 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 	},
 	events: {
 		"click button.avail": "availInv",
-		"click button.delete_butt": "deleteInv",
-		"click button.search_butt": "searchInv",
+		"click button.delete-butt": "deleteInv",
+		"click button.search-butt": "searchInv",
 	}, 
 
 	availInv: function() {
@@ -29,7 +29,7 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 	},
 
 	searchInv: function () {
-		
+		userRouter.navigate("search", {trigger: true});
 	},
 
 	render: function() {

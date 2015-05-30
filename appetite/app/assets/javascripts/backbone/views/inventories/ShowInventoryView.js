@@ -25,8 +25,7 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	},
 	
 	searchInvent: function(){
-		// this.model.ingredient also pass in id
-		// put ajax call here
+		userRouter.navigate("search", {trigger: true});
 	},
 
 	deleteItem: function(){

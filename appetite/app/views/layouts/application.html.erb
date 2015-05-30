@@ -13,7 +13,11 @@
 };
 	</script>
 </head>
-	<header class="header">  </header>
+<% if @user %>
+	<header class="header"> 
+  <h2> Hello <%= @user.name %>. Ready to get cooking? </h2> 
+  </header>
+<% end %>
 <body>
 <% if flash %>
 	<% flash.each do |name, message| %>
