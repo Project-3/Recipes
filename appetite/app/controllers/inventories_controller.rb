@@ -34,8 +34,6 @@ class InventoriesController < ApplicationController
 
 	def create
 		@inventory = Inventory.new(inventory_params)
-		puts "HEY HEY HEY HEY HEY"
-		puts inventory_params
 		if @inventory.save
 			render json: @inventory
 		else
