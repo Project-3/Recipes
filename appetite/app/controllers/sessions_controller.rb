@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 			redirect_to user_path 
 		else 
 			@email = params[:email]
-			flash[:error] = "Unknown email/password"
+			flash.now[:error] = "Unknown email/password"
 			render :new
 		end
 	end

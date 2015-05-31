@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
 		# if user failed validation
 		else 
-			flash[:error] = "Please check your inputs!"
+			flash.now[:error] = "Please check your inputs!"
 			redirect_to new_session_path
 		end
 	end
