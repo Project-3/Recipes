@@ -8,7 +8,7 @@ var Appetite = Appetite || {
 Appetite.Views.SearchRecipesView = Backbone.View.extend({
 	el: "#content",
 	initialize: function(){
-		this.listenTo(this.collection, "sync remove", this.render);
+		this.listenTo(this.collection, "sync", this.render);
 		this.render();
 	},
 
@@ -17,6 +17,8 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 		console.log(this.collection)
 		var div = this.$el;
 		div.html("");
+
+		console.log(this.collection)
 
 		// looping array of response to append to dom
 		this.collection.results.forEach(function(recipe){

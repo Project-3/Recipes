@@ -32,3 +32,5 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 		return this;
 	}
 });
+
+

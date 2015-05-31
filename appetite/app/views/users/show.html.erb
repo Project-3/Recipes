@@ -1,4 +1,7 @@
- <!-- style="display: none" -->
+<!--picture area-->
+<div id="sidebar"></div>
+
+ <!-- template to add a new inventory item -->
 <script type="text/template" id="create-inventory">
 <div id="inventory-form">
   <h2>Add An Ingredient</h2>
@@ -8,18 +11,41 @@
 </div>
 </script>
 
+<!-- this is where view content will be appended -->
 <div id="content"></div>
 
+
 <script type="text/javascript">
-	String.prototype.nl2br = function() {
-    	return this.replace(/\r\n/g, "<br /><br />");
+	// getting rid of weird symbols in returned text
+
+	// first changes the string to hexcode
+	String.prototype.toUnicode = function(){
+	    var result = "";
+	    for(var i = 0; i < this.length; i++){
+	        result += "\\u" + ("000" + this[i].charCodeAt(0).toString(16)).substr(-4);
+	    }
+	    return result;
+	};
+
+	// changed the hexcode back to human language
+	function hex2a(hex) {
+	    var str = '';
+	    for (var i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+	    return str;
 	}
+
+	// calling above functions, ridding of more weird symbols and replacing new line breaks
+	String.prototype.nl2br = function() {
+		var hex_coded = this.replace(/\r\n/g, "<<<").toUnicode();
+    	return hex2a(hex_coded).replace(/[^\w\-\\\s\/\\.#'"%()<]/g, "").replace(/<<</g, "<br />");
+	};
 </script>
 
+<!-- template for user's currently active recipe(s) -->
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
 		<h2>Active Recipes: </h2>
-		<img class="recipe-pic" src="{{= recipe.image}}">
+		<img class="recipe-pic" src="">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
@@ -34,15 +60,17 @@
 	</div>
 </script>
 
+<!-- template for recipe search results -->
 <script type="text/template" id="recipe-result">
 <h1>HOW DOES THIS SOUND...</h1>
 	<div id="recipe-result-div">
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
-	</div>
+	</div>	 
 </script>
 
+<!-- template for all of user's saved recipes -->
 <script type="text/template" id="each-recipe">
 <h1>HOW ABOUT SOME...</h1>
 	<div id="all-recipes-div">
@@ -53,7 +81,7 @@
 	</div>
 </script>
 
-<!--show clicked on recipe-->
+<!--shows clicked on recipe-->
 <script type="text/template" id="show-recipe">
 <h1>This looks good, right?</h1>
 	<div id="all-recipes-div">
@@ -71,9 +99,10 @@
 	</div>
 </script>
 
+<!-- shows clicked on inventory item -->
 <script type="text/template" id="show-inventory">
 		<h1>{{= inventory.ingredient }}</h1>
-		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+	<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 		<button class="delete-butt">Delete</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipes-itemized"> 
@@ -84,15 +113,19 @@
 		</div>
 </script>
 
+<!-- template for each inventory item on the inventory index page -->
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
+	ADD ITEM HERE
 	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
+	<ul class="ing-butts">	<button class="search-butt">Search</button>
 	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 	<button class="delete-butt">Delete</button>
 	<button class="search-butt">Search</button>
 	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
 </script>
 
+<!-- is this template being used? -->
 <script type="text/template" id="search-results">
 	<div id="search-results-div">
 		<img class="recipe-pic" src="{{= recipe.image }}">
