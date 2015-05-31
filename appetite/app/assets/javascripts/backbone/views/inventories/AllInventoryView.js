@@ -12,51 +12,60 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		this.listenTo(this.collection, "sync remove", this.render);
 	},
 
+	events: {
+		"click #add-inventory": "addInv"
+	}, 
+
+	addInv: function(){
+		var newIngFld = $('#ingredient').val();
+		var newGrpFld = this.$('#group').val();
+		var thisUserId = this.collection.models[0].attributes.user_id
+
+		// add a new model to the collection 
+		// since collection listens to sync, it will auto append to view on successful save
+		this.collection.create({
+			ingredient: newIngFld,
+			group: newGrpFld,
+			user_id: thisUserId
+		});
+
+		$('#ingredient').val("");
+	},
+
 	render: function() {
 		var div = this.$el;
 		div.html("");
 
-		// will there be an asynchronous issue?
-		var thisUserId = this.collection.models[0].attributes.user_id
+		div.append(new Appetite.Views.CreateInventoryView().render().$el);
 
 		// rendering ingredients to dom sorted by group		
-		div.append("<h2>Protein</h2>")
+		div.append("<h2>Protein</h2>");
 		this.collection.byGroup("protein").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 
-		div.append("<hr>")
-		div.append("<h2>Produce</h2>")
+		div.append("<hr>");
+		div.append("<h2>Produce</h2>");
 		this.collection.byGroup("produce").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 
-		div.append("<hr>")
-		div.append("<h3>Dairy</h3>")
+		div.append("<hr>");
+		div.append("<h3>Dairy</h3>");
 		this.collection.byGroup("dairy").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 
-		div.append("<hr>")
-		div.append("<h3>Grain</h3>")
+		div.append("<hr>");
+		div.append("<h3>Grain</h3>");
 		this.collection.byGroup("grain").each(function(inventory) {
 		div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
-		div.append("<form action='user/inventories', id='new-inventory', method='POST'></form>")
-		var form = $("#new-inventory")
-		form.append("<input name='user-id' id='user-id-select' value='" + thisUserId + "' type='hidden'>")
-		
-		form.append("<input id='ingredient_add' type='text' placeholder='ingredient name'/>")
 
-		form.append("<select id='group_select'> <option value='protein'>Protein</option><option value='produce'>Produce</option> <option value='dairy'>Dairy</option> <option value='grain'>Grain</option> </select>")
-		form.append("<button class='add-inv-butt'>Add Item </button>")
-
+		div.append("<br><br>");
 		return this;
 	}
 });
-
-
-
 
 
 
