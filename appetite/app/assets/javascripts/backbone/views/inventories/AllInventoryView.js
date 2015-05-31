@@ -13,8 +13,17 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 	},
 
 	events: {
-		"click #add-inventory": "addInv"
+		"click #add-inventory": "addInv",
+		"click #search-butt": "searchInv"
 	}, 
+
+	searchInv: function () {
+		if ($('.checked-ingredient').is(":checked") == true) {
+			userRouter.navigate("search", {trigger: true});
+		} else {
+			alert("Please check all ingredients you would like to use in your dish.")
+		}
+	},
 
 	addInv: function(){
 		var newIngFld = $('#ingredient').val();
@@ -34,6 +43,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 
 	render: function() {
 		var div = this.$el;
+		var bod = $("body")
 		div.html("");
 
 		div.append(new Appetite.Views.CreateInventoryView().render().$el);
@@ -63,6 +73,8 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		});
 
 		div.append("<br><br>");
+
+		div.append("<button id='search-butt'>Search</button>")
 		return this;
 	}
 });
