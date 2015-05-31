@@ -13,10 +13,11 @@
 };
 	</script>
 </head>
-<% if @user %>
-	<header class="header"> 
-  <h2> Hello <%= @user.name %>. Ready to get cooking? </h2> 
+  <header class="header"> <div id="title_bar">    <div id="logo"></div>  </div>
+
   </header>
+  <% if @user %>
+  <h2 id="greeting"> Hello <%= @user.name %>. Ready to get cooking? </h2> 
 <% end %>
 <body>
 <% if flash %>
