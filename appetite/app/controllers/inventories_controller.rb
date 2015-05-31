@@ -19,11 +19,20 @@ class InventoriesController < ApplicationController
 		response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=#{checked}&auth_token="+Rails.application.secrets.secret_password, options)
 		
 		if response
-			render json: response
+			"render json: response and return"
+
+			checked = params[:ingredients].join("+").gsub(" ", "+")
+
+		# image search to match recipe search
+		img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=#{checked}")
+		elsif img_response
+			puts response
+			"render json: img_response and return"
 		else
 			render status: 400, nothing: true
 		end
 	end
+
 
 	# gets all of the users ingredients and any user recipes associated with that ingredient
 	def index
