@@ -99,9 +99,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		$.ajax({
 			type: "GET",
     		url: "/user/inventories/search",
+    		contentType: "application/json; charset=utf-8",
     		data: {ingredients: checkedBoxes},
 		    success: function(response) {
-		    	console.log(response)
+
 		    	new Appetite.Views.SearchRecipesView({collection: response});
 		    }
 		});

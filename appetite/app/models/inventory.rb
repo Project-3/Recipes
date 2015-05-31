@@ -12,4 +12,6 @@ class Inventory < ActiveRecord::Base
 	validates :avail, inclusion: { in: [true, false] }
 
 	validates :user_id, presence: true
+
+	default_scope {order(:ingredient => :ASC)}
 end

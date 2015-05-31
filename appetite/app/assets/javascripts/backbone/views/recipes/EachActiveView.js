@@ -15,13 +15,12 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 	},
 
 	events: {
-		"click .activate-butt" : "recipeUpdate",
+		"click .dectivate-butt" : "recipeUpdate",
 		"click .delete-butt": "deleteRecipe" 
 	},
 
 	recipeUpdate: function(){
-		this.model.toggle();
-			
+		this.model.toggle();	
 	},
 
 	deleteRecipe: function(){
@@ -33,3 +32,5 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 		return this;
 	}
 });
+
+
