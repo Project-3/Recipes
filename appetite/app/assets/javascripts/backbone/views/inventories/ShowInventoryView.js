@@ -39,6 +39,7 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 
 	// toggles availability of inventory item
 	switchItem: function() {
+		console.log(this)
 		this.model.toggle();
 	},
 
