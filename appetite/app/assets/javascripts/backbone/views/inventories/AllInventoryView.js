@@ -14,9 +14,8 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 
 	events: {
 		"click #add-inventory": "addInv",
-		"click button#search-butt": "searchInv"
+		"click #search-butt": "searchInv"
 	}, 
-
 
 	searchInv: function () {
 		if ($('.checked-ingredient').is(":checked") == true) {

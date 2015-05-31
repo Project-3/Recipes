@@ -135,7 +135,7 @@ body  {
 	left:3%;
 	top:30%;
 	z-index:-1;
-	background-color:rgba(223,223,223,.8) ;
+	background-color:rgba(223,223,223,.9) ;
     overflow-y:scroll;
     padding: 20px 10px 120px 10px
 
@@ -143,29 +143,17 @@ body  {
 .ing-butts{
   width: 70%;
   position: relative;
-  right: -32%;
+  right: -39%;
   top: -2.25em;
 }
 
 #search-butt{
-	position: fixed;
-  right: 16%;
+position: fixed;
+  right: 18%;
   top: 57%;
   width: 300px;
   height: 120px;
   font-size: 3em;
-}
-#list{
-	font-family: Courier;
-	position:absolute;
-	height:70%;
-	width:40%;
-	left:3%;
-	top:30%;
-	z-index:-1;
-	background-color:rgb(223,223,223) ;
-    overflow-y:scroll;
-    padding: 20px 10px 120px 10px
 }
 
 #all-inventory-div{

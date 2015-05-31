@@ -17,13 +17,15 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 		var div = this.$el;
 		div.html("");
 
-		console.log(this.collection)
-
+		if (this.collection.results.length < 1) {
+			div.html("<h2 style='color: red'>**Your search did not render any results.</h2>");
+		} else {
 		// looping array of response to append to dom
-		this.collection.results.forEach(function(recipe){
-			div.append(new Appetite.Views.EachResultView({model: recipe}).render().$el);
-		});
-		return this;
+			this.collection.results.forEach(function(recipe){
+				div.append(new Appetite.Views.EachResultView({model: recipe}).render().$el);
+			});
+			return this;
+		}
 	}
 });
 
