@@ -11,7 +11,7 @@ Appetite.Views.AllRecipeView = Backbone.View.extend({
 		this.listenTo(this.collection, "sync remove", this.render);
 	},
 
-	// render list of recipies in Recipe Collection
+	// render list of recipes in Recipe Collection
 	render: function(){
 		var div = this.$el;
 		div.html("");

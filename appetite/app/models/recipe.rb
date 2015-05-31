@@ -6,5 +6,4 @@ class Recipe < ActiveRecord::Base
 
 	validates :active, inclusion: { in: [true, false] }
 
-	# default_scope {order(:active => :DESC)}
 end
