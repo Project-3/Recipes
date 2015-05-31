@@ -88,8 +88,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 			// pushing ingredient names into checkedBoxes array
 		    checkedBoxes.push($(this).val());
 		    // pushing ingredient ids into checkedIds array
-		    checkedIds.push(parseInt($(this).attr("id")));
+		    checkedIds.push({id: parseInt($(this).attr("id"))});
 		});
+
+		console.log("router searchRecipes " + checkedIds);
 
 		// grabbing the user_id -- will need it to save recipe
 		var user_id = $("#hidden-userId").val();
