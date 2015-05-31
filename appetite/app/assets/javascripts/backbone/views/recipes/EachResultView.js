@@ -21,19 +21,7 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	saveRecipe: function(){
 		// get values and save 
 
-	// get the user id
-	var user_id = "";	
-	$.ajax({
-    url: '/user',
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-    	// user_id = JSON.parse(data.id)
-        //console.log(user_id);
-
-    }
-	});
-	console.log(user_id)
+		console.log(user_id)
 
 		var recipe = this.model
 		console.log(recipe)
@@ -72,3 +60,7 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 		return this;
 	}
 });
+
+
+
+

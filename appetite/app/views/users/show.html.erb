@@ -54,7 +54,7 @@
 		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
-		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt">Used?</button>
+		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
 		{{ }) }}
 	</div>
 </script>
