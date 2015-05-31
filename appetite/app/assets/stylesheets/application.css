@@ -57,6 +57,7 @@ a#menu_logout:visited{
 	width: 45%;
 	top:25%;
 	vertical-align: middle;
+	left:2%;
 	background-image:url("logo.svg");
 /*	background-position: 50% 50%;*/
 	background-repeat: no-repeat;
