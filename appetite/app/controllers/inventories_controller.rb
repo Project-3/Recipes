@@ -27,7 +27,6 @@ class InventoriesController < ApplicationController
 
 	# gets all of the users ingredients and any user recipes associated with that ingredient
 	def index
-		@inventory = Inventory.new
 		@user = User.find(session[:user_id])
 		@inventories =  @user.inventories
 		if @inventories
@@ -50,11 +49,15 @@ class InventoriesController < ApplicationController
 
 	# create new ingredient, save it, let backbone rerender its view
 	def create
-		@inventory = Inventory.new(inventory_params)
-		if @inventory.save
-			render json: @inventory
+		if Inventory.find_by({ingredient: params[:ingredient]}) 
+			flash.now[:error] = "That item is already in your inventory."
 		else
-			render status: 400, nothing: true
+			@inventory = Inventory.new(inventory_params)
+			if @inventory.save
+				render json: @inventory
+			else
+				render status: 400, nothing: true
+			end
 		end
 	end
 
@@ -68,7 +71,7 @@ class InventoriesController < ApplicationController
 		end
 	end
 
-
+	# deletes inventory and all associatons
 	def destroy
 		@inventory = Inventory.find(params[:id])
 		if @inventory.destroy
@@ -78,6 +81,7 @@ class InventoriesController < ApplicationController
 		end
 	end
 
+	# priavate params for form when saving and updating
 	private
 	def inventory_params
 		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id, )
