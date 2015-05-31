@@ -91,14 +91,13 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		    checkedIds.push(parseInt($(this).attr("id")));
 		});
 
-		// grabbing the user_id -- will need it to save recipe
-		var user_id = $("#hidden-userId").val();
-
-
 		// finding all checked boxes and unchecking them
 		$('.checked-ingredient').each(function() {
             $(this).attr('checked',!$(this).attr('checked'));
         });
+
+		// grabbing the user_id -- will need it to save recipe
+		var user_id = $("#hidden-userId").val();
 
 		// clearing content area for new view
 		var content = $("#content");
