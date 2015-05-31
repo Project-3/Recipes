@@ -14,7 +14,6 @@
 <!-- this is where view content will be appended -->
 <div id="content"></div>
 
-
 <script type="text/javascript">
 	// getting rid of weird symbols in returned text
 
@@ -116,13 +115,11 @@
 <!-- template for each inventory item on the inventory index page -->
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
-	ADD ITEM HERE
 	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
-	<ul class="ing-butts">	<button class="search-butt">Search</button>
+	<ul class="ing-butts">
 	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 	<button class="delete-butt">Delete</button>
-	<button class="search-butt">Search</button>
-	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
+	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
 </script>
 
 <!-- is this template being used? -->
