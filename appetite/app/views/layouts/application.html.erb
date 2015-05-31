@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
+<%= favicon_link_tag 'favicon.png' %>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>Appetite</title>
+  <title>Frigeratr</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,7 +15,6 @@
      escape      : /\{\{-([\s\S]+?)\}\}/g
    };
  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <header class="header"> <div id="title_bar">    <div id="logo"></div>  
 
