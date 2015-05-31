@@ -27,7 +27,7 @@
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
-	</div>
+	</div>	 
 </script>
 
 <script type="text/template" id="each-recipe">
@@ -86,7 +86,7 @@
 
 		<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
 		<button class="delete-butt">Delete</button>
-		<button class="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
+		<button class="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}" id="{{= inventory.id }}">Search</button>
 		<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
 </script>
 
