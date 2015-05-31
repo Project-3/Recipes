@@ -12,7 +12,6 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	 	this.template = _.template($("#show-inventory").html());
 	 	this.listenTo(this.model, "sync", this.render);
 	 	this.listenTo(this.model, "destroy", this.remove);
-	 	this.listenTo($(".active-butt"), "click", this.render);
 	},
 
 	events: {
@@ -21,8 +20,8 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 		"click .active-butt" : "switchActive"
 	},
 
+	// toggle the activeness of a recipe
 	switchActive: function(e) {
-
 		// this grabs the id of the clicked button
 	    var recipe_id = e.currentTarget.id;
 	    // since recipe belongs to a different collection, need to do a fetch 

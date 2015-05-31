@@ -1,20 +1,35 @@
-	<div id="sidebar"></div>
+<!--picture area-->
+<div id="sidebar"></div>
+ <!-- style="display: none" -->
+<script type="text/template" id="create-inventory">
+<div id="inventory-form">
+  <h2>Add An Ingredient</h2>
+  <%= text_field_tag :ingredient, nil, placeholder: "ingredient name" %>
+  <%= select_tag :group, options_for_select([["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]]) %>
+  <%= button_tag "ADD", id: "add-inventory" %>
+</div>
+</script>
 
 <div id="content"></div>
 
 
 <script type="text/javascript">
 	String.prototype.nl2br = function() {
-    	return this.replace(/\r\n/g, "<br />");
+    	return this.replace(/\r\n/g, "<br /><br />");
 	}
 </script>
 
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
+		<h2>Active Recipes: </h2>
 		<img class="recipe-pic" src="{{= recipe.image}}">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
+		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
+		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
+		<button class="delete-butt">Delete</button>
+
 		<div id="update-ingredient">
-		<h3> Click Used Ingredients: </h3> 
+		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
 		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt">Used?</button>
@@ -54,7 +69,7 @@
 			{{ recipe.inventories.forEach(function(inventory) { }}
 				<div class="invent-item"> 
 				<h3 class= "invent-name">{{= inventory.ingredient }}
-				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE </button></h3>
+				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
 			{{ }); }}
 	</div>
 </script>
@@ -74,21 +89,11 @@
 
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
-	ADD ITEM HERE
-		
-		<div id="add_inv_form"
-		<form action="user/inventories", id="new-inventory", method="POST">
-		<input name="user_id" id="user_id_select" value="{{= inventory.user_id }}" type="hidden">
-		<input id="ingredient_add" type="text" placeholder="ingredient name"/> 
-		<select id="group_select"> <option value="protein">Protein</option> 
-		<option value="produce">Produce</option> <option value="dairy">Dairy</option> <option value="grain">Grain</option> </select> <button class="add-inv-butt">Add Item </button>
-		</div>
-
-
-		<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
-		<button class="delete-butt">Delete</button>
-		<button class="search-butt" class="{{=inventory.ingredient}}-{{=inventory.id}}">Search</button>
-		<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
+	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
+	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+	<button class="delete-butt">Delete</button>
+	<button class="search-butt">Search</button>
+	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
 </script>
 
 <script type="text/template" id="search-results">

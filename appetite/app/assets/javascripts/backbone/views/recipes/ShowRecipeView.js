@@ -16,13 +16,34 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 
 	events: {
 		"click .activate-butt" : "recipeUpdate",
+		"click .used" : "inventoryUpdate",
 		"click .delete-butt": "deleteRecipe" 
 	},
-	
 
-	recipeUpdate: function(){
+	recipeUpdate: function() {
 		this.model.toggle();
-			
+	},
+	
+	// updating availability of an inventory item if clicked
+	inventoryUpdate: function(e){
+		// grabs the id of the clicked button
+		var inventory_id = e.currentTarget.id;
+		// need to fetch from the collection since this is on a recipe model page
+		var inventory_model = new Appetite.Collections.Inventories;
+
+		inventory_model.fetch({
+			success: function(model, response) {
+				// filtering for inventory item
+				var fetched_inventory = inventory_model.get(inventory_id);
+				// calling the models function to update activeness
+				fetched_inventory.toggle();
+				if (fetched_inventory.attributes.avail == true) {
+					$("button#"+inventory_id).css("background-color", "green");
+				} else {
+					$("button#"+inventory_id).css("background-color", "red");
+				}
+			}
+		});	
 	},
 
 	deleteRecipe: function(){

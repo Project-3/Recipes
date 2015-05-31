@@ -1,6 +1,14 @@
 class InventoriesController < ApplicationController
 	protect_from_forgery with: :null_session
 
+
+	def new
+		@inventory = Inventory.new
+		respond_to do |format|
+			format.html # new.html.erb
+		end
+	end
+
 	# searching for recipes
 	def search
 		# http header for api call
@@ -27,6 +35,7 @@ class InventoriesController < ApplicationController
 
 	# gets all of the users ingredients and any user recipes associated with that ingredient
 	def index
+		@inventory = Inventory.new
 		@user = User.find(session[:user_id])
 		@inventories =  @user.inventories
 		if @inventories
@@ -69,7 +78,7 @@ class InventoriesController < ApplicationController
 
 
 	def destroy
-		@inventory = Inventory.find(inventory_params[:id])
+		@inventory = Inventory.find(params[:id])
 		if @inventory.destroy
 			render json: {}
 		else

@@ -13,33 +13,13 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 	 	this.listenTo(this.model, "destroy", this.remove);
 	},
 	events: {
-		"click button.avail": "availInv",
+		"click button.avail-butt": "availInv",
 		"click button.delete-butt": "deleteInv",
-		"click button.search-butt": "searchInv",
-		"click button.add-inv-butt": "addInv"
+		"click button.search-butt": "searchInv"
 	}, 
 
-	addInv: function(){
-		var newIngFld = this.$('#ingredient_add');
-		var newGrpFld = this.$('#group_select');
-		var newIng = newIngFld.val();
-		var newGrp = newGrpFld.val();
-		var userIdFld = this.$('#user_id_select');
-		var userId = userIdFld.val();
-		newIngFld.val('');
-		el = this.$el;
-		this.model.save({
-			ingredient: newIng,
-			group: newGrp,
-			user_id: userId
-
-		});
-	},
-
 	availInv: function() {
-	// avail boolean
-	// available value = true/false
-	// this.model.save
+		this.model.toggle();
 	},
 
 	deleteInv: function() {
