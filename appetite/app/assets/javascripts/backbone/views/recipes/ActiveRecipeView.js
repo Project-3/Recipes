@@ -15,7 +15,8 @@ Appetite.Views.ActiveRecipeView = Backbone.View.extend({
 	render: function(collection){
 		var div = this.$el;
 		div.html("");
-		if (collection.active(true).length < 1 ) {
+
+		if (this.collection.where({"active": true}).length < 1 ) {
 			userRouter.navigate("inventory", {trigger: true});
 		} else {
 			this.collection.active(true).each(function(recipe) {

@@ -1,4 +1,18 @@
+ <!-- style="display: none" -->
 
+<div id="inventory-form">
+	<%= form_for "/user/inventories", url: {action: "create"}, html:{class: "pure-form"} do |f|  %>
+    <%= f.text_field :ingredient, placeholder: "ingredient name" %>
+    <%= f.select :group do %>
+        <%[["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]].each do |c| -%>
+        <%= content_tag(:option, c.first, value:c.last)%>
+    <%end%>
+    <%end%>
+     
+     <input name="authenticity_token" value="<%=form_authenticity_token()%>" type="hidden">
+	<%= f.button "ADD", html:{class: "pure-button", id: "button-success"}%>
+	<% end %>
+</div>
 
 <div id="content"></div>
 
@@ -10,10 +24,15 @@
 
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
+		<h2>Active Recipes: </h2>
 		<img class="recipe-pic" src="{{= recipe.image}}">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
+		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
+		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
+		<button class="delete-butt">Delete</button>
+
 		<div id="update-ingredient">
-		<h3> Click Used Ingredients: </h3> 
+		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
 		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt">Used?</button>
