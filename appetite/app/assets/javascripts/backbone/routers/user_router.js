@@ -9,11 +9,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	// maybe add a route welcoming new users with directions to use site
 	routes : {
 		"" : "activeRecipe",
-		"recipes" : "allRecipes",
 		"recipe/:recipe_id" : "showRecipe",
-		"inventory" : "allInventory",
-		// "inventory/new":"allInventory",
+		"recipes" : "allRecipes",
 		"inventory/:inventory_id" : "showInventory",
+		"inventory" : "allInventory",
 		"search": "searchRecipes"
 	},
 
@@ -88,16 +87,20 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 			// pushing ingredient names into checkedBoxes array
 		    checkedBoxes.push($(this).val());
 		    // pushing ingredient ids into checkedIds array
-		    checkedIds.push(parseInt($(this).attr("id")));
+		    checkedIds.push({id: parseInt($(this).attr("id"))});
 		});
+
+		console.log("router searchRecipes " + checkedIds);
+
+		// grabbing the user_id -- will need it to save recipe
+		var user_id = $("#hidden-userId").val();
+
 
 		// finding all checked boxes and unchecking them
 		$('.checked-ingredient').each(function() {
             $(this).attr('checked',!$(this).attr('checked'));
         });
 
-		// grabbing the user_id -- will need it to save recipe
-		var user_id = $("#hidden-userId").val();
 
 		// clearing content area for new view
 		var content = $("#content");
