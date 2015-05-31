@@ -17,6 +17,8 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 		var div = this.$el;
 		div.html("");
 
+		console.log(this.collection)
+
 		// looping array of response to append to dom
 		this.collection.results.forEach(function(recipe){
 			div.append(new Appetite.Views.EachResultView({model: recipe}).render().$el);
