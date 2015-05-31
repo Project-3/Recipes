@@ -116,13 +116,12 @@
 <!-- template for each inventory item on the inventory index page -->
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
-	ADD ITEM HERE
-	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
-	<ul class="ing-butts">	<button class="search-butt">Search</button>
-	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
-	<button class="delete-butt">Delete</button>
-	<button class="search-butt">Search</button>
-	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
+    <a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
+    <ul class="ing-butts">    <button class="search-butt">Search</button>
+    <button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+    <button class="delete-butt">Delete</button>
+    <input type="hidden" value="{{= inventory.user_id }}" id="hidden-userId">
+    <input type="checkbox" name="ingredients" id="{{= inventory.id }}" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
 </script>
 
 <!-- is this template being used? -->
