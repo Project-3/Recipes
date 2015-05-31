@@ -7,27 +7,39 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script>
-  _.templateSettings = {
- evaluate    : /\{\{([\s\S]+?)\}\}/g,
- interpolate : /\{\{=([\s\S]+?)\}\}/g,
- escape      : /\{\{-([\s\S]+?)\}\}/g
-};
-	</script>
+    _.templateSettings = {
+     evaluate    : /\{\{([\s\S]+?)\}\}/g,
+     interpolate : /\{\{=([\s\S]+?)\}\}/g,
+     escape      : /\{\{-([\s\S]+?)\}\}/g
+   };
+ </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-  <header class="header"> <div id="title_bar">    <div id="logo"></div>  </div>
+<header class="header"> <div id="title_bar">    <div id="logo"></div>  
+
+  <div id= "menu_bar">
+
+    <div class="menu_items"> 
+      <li id="menu_recipes"> <a class="nav_link" href="#recipes"> Saved Recipes </li> 
+      <li id="menu_inv"> <a class="nav_link" href="#inventory"> Inventory </li> 
+    <%= link_to "Logout", session_path, method: :delete, id: "menu_logout" %></li>
+    </div>
+    <div>
+    </div>
+
 
   </header>
   <% if @user %>
   <h2 id="greeting"> Hello <%= @user.name %>. Ready to get cooking? </h2> 
-<% end %>
-<body>
-<% if flash %>
-	<% flash.each do |name, message| %>
-		<div class="flash-<%= name %>"><%= message %></div>
-	<% end %>
-<% end %>
+  <% end %>
+  <body>
+    <% if flash %>
+    <% flash.each do |name, message| %>
+    <div class="flash-<%= name %>"><%= message %></div>
+    <% end %>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
-</html>
+  </body>
+  </html>
