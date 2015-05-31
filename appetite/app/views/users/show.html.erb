@@ -117,15 +117,6 @@
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
 	ADD ITEM HERE
-		
-		<div id="add_inv_form"
-		<form action="user/inventories", id="new-inventory", method="POST">
-		<input name="user_id" id="user_id_select" value="{{= inventory.user_id }}" type="hidden">
-		<input id="ingredient_add" type="text" placeholder="ingredient name"/> 
-		<select id="group_select"> <option value="protein">Protein</option> 
-		<option value="produce">Produce</option> <option value="dairy">Dairy</option> <option value="grain">Grain</option> </select> <button class="add-inv-butt">Add Item </button>
-		</div>
-
 	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
 	<ul class="ing-butts">	<button class="search-butt">Search</button>
 	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
