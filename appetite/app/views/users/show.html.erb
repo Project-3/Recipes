@@ -22,7 +22,7 @@
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
 		<h2>Active Recipes: </h2>
-		<img class="recipe-pic" src="{{= recipe.image}}">
+		<img class="recipe-pic" src="">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
@@ -76,7 +76,7 @@
 
 <script type="text/template" id="show-inventory">
 		<h1>{{= inventory.ingredient }}</h1>
-		<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+	<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 		<button class="delete-butt">Delete</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipes-itemized"> 
@@ -90,10 +90,10 @@
 <script type="text/template" id="each-inventory">
 <div id="all-inventory-div">
 	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
+	<ul class="ing-butts">	<button class="search-butt">Search</button>
 	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 	<button class="delete-butt">Delete</button>
-	<button class="search-butt">Search</button>
-	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}">
+	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
 </script>
 
 <script type="text/template" id="search-results">
