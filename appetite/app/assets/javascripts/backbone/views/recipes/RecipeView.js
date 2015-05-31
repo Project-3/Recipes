@@ -34,3 +34,4 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 		return this;
 	}
 });
+

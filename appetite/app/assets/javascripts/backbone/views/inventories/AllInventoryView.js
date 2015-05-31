@@ -18,6 +18,11 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 	}, 
 
 	searchInv: function () {
+		var counter = 0;
+		$('.checked-ingredient').each(function() {
+            $(this).attr('checked', counter++);
+            console.log(counter);
+        });
 
 		if ($('input[name=ingredients]:checked').length > 0) {
 			userRouter.navigate("search", {trigger: true});
