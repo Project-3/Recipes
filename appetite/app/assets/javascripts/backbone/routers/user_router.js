@@ -126,9 +126,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		    }
 		});
 	}
-
 });
-
 
 
 
