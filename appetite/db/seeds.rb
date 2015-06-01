@@ -25,14 +25,26 @@ options = {
 
 response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=okra&auth_token="+Rails.application.secrets.secret_password, options)
 
-response["results"].each do |result|
-	if result["image"]  
-		image = result["image"]["large_image_path"]
-	else 
-		image = "no image available"		
-	end
-	Recipe.create(name: result["name"], image: image, api_id: result["id"] , instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1)
+img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=okra")
 
+counter = 0 
+response["results"].each do |result|
+	
+	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 2, image: img_response["recipes"][counter]["img_url"]
+
+		counter += 1
+end
+
+response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=chicken&auth_token="+Rails.application.secrets.secret_password, options)
+
+img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=chicken")
+
+counter = 0 
+response["results"].each do |result|
+	
+	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1, image: img_response["recipes"][counter]["img_url"]
+
+		counter += 1
 end
 
 
