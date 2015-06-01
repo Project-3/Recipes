@@ -30,7 +30,7 @@ img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc
 counter = 0 
 
 response["results"].each do |result|
-	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 2, image: img_response["recipes"][counter]["img_url"]
+	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 2, image: img_response["recipes"][counter]["img_url"])
 	counter = counter + 1
 end
 
@@ -40,7 +40,7 @@ img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc
 
 counter = 0 
 response["results"].each do |result|
-	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1, image: img_response["recipes"][counter]["img_url"]
+	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1, image: img_response["recipes"][counter]["img_url"])
 		counter = counter + 1
 end
 
