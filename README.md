@@ -2,54 +2,70 @@
 
 ##re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you may want, or can cook with those ingredients. 
 
-    If you are a new user, you will be directed to an inventory page where you can begin by adding ingredients you currently have in your refridgerator. 
+- If you are a new user, you will be directed to an inventory page where you can begin by adding ingredients you currently have in your refridgerator. 
 
-    A returning user will be directed to their active recipes page upon successful login. If there are no active recipes, a user will also be directed to their inventory page. 
+- A returning user will be directed to their active recipes page upon successful login. If there are no active recipes, a user will also be directed to their inventory page. 
 
-    With an inventory, a user can begin searching for recipes. A user can check any amount of ingredients to search for in the recipe. Upon hitting search, a user will be shown the results of the search if any. Else, if the button was hit without checking any ingredients, a user will be prompted to check at least one.
+- With an inventory, a user can begin searching for recipes. A user can check any amount of ingredients to search for in the recipe. Upon hitting search, a user will be shown the results of the search if any. Else, if the button was hit without checking any ingredients, a user will be prompted to check at least one.
 
-    On the search page, which can not be refreshed as a search is not persisted, a user can save any recipes they found appealing. Upon save, a user will be alerted of success.
+- On the search page, which can not be refreshed as a search is not persisted, a user can save any recipes they found appealing. Upon save, a user will be alerted of success.
 
-    A user can update the activeness of a recipe and the availability of an ingredient in their inventory. 
+- A user can update the activeness of a recipe and the availability of an ingredient in their inventory. 
 
-    A user can also delete a inventory item and/or a recipe on their respective show pages.
+- A user can also delete an inventory item and/or a recipe on their respective show pages.
 
-    A user can log-out.
+- A user can log-out.
 
-Check out our project [here](). 
+- Check out our project [here](). 
+
 
 ### Tools of the Trade
 1. [Trello](https://trello.com/b/VzQ0EueS/general-assembly-project-three) was used to keep track of the comings and goings of the project overall. 
 
-2. [Rails](http://rubyonrails.org/) made up our back-end.
+2. [Ruby on Rails](http://rubyonrails.org/) made up our back-end.
 
-3. Our front-end was provided by [Backbone](http://backbonejs.org/) via the [backbone-on-rails](https://github.com/meleyal/backbone-on-rails) gem.
+3. Our front-end was built in  [Backbone](http://backbonejs.org/) via the [backbone-on-rails](https://github.com/meleyal/backbone-on-rails) gem.
 
-4. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some data fetching from our APIs, [We Eatt](http://www.weeatt.com/) and [Food2Fork](http://food2fork.com/about/api).
+4. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some data fetching from the following APIs, [We Eatt](http://www.weeatt.com/) and [Food2Fork](http://food2fork.com/about/api).
 
-5. We did some basic model testing with [RSPEC](http://rspec.info/).
+5. We did basic model testing with [RSPEC](http://rspec.info/).
 
-6. For styling purposes, most of it was done vanilla, but there is some utilization of [Pure](http://purecss.io/).
+6. For styling purposes, most of it was done with vanilla, but there was some utilization of [Pure](http://purecss.io/).
 
-### Languages and Frameworks Used
-    Ruby
-    Rails
-    Backbone
-    Underscore
-    ERB
-    jQuery
-    Javascript
+
+### Summation of Languages and Frameworks Used
+- Ruby on Rails
+- Backbone
+- Underscore
+- ERB
+- jQuery
+- Javascript
+- Vanilla CSS 
+- Pure CSS
+- RSpec
+
 
 ### Contributors
-    [Kwasi James](https://github.com/kwasijames)
+- [Kwasi James](https://github.com/kwasijames)
 
-    [Julie Kwok](https://github.com/kwokster10) 
+- [Julie Kwok](https://github.com/kwokster10) 
 	
-    [Nat Scott](https://github.com/itsnatscott/) 
+- [Nat Scott](https://github.com/itsnatscott/) 
 
-    [Abner Yang](https://www.github.com/sunsheeppoplar)
+- [Abner Yang](https://www.github.com/sunsheeppoplar)
+
 
 ### Thanks
-
 This project was the third for the March 2015 iteration of General Assembly in New York City. All members were in the "Lemon" cohort. We were tasked during the second to last week of our program with building an app as a group with specs and general workflow narrative linked above. As always, thanks to our instructors and TAs for all of their support and help: [Maria](https://github.com/mariaperhaps), [Crawford](https://github.com/crawfordforbes), [Sam](https://github.com/sgottfried), [Gretchen](https://github.com/gretchenziegler), and [Dave](https://github.com/dahvvv). 
+
+
+### Things to Revisit
+- The ability to add inventory items to recipes after a recipe has been saved
+- Pagination of search results
+- An API with reliable images and cooking instructions
+- Using OCR to read shopping receipts to automatically input ingredients
+- Hook up to online grocery website
+- Include chefs so users can follow them for recipes
+
+
 
