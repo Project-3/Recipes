@@ -92,39 +92,43 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 
 		console.log("router searchRecipes " + JSON.stringify(checkedIds));
 
-		// grabbing the user_id -- will need it to save recipe
-		var user_id = $("#hidden-userId").val();
+		// makes sure that something was searched
+		if (checkedIds.length > 0) {
+			// grabbing the user_id -- will need it to save recipe
+			var user_id = $("#hidden-userId").val();
+
+			// finding all checked boxes and unchecking them
+			$('.checked-ingredient').each(function() {
+	            $(this).attr('checked',!$(this).attr('checked'));
+	        });
 
 
-		// finding all checked boxes and unchecking them
-		$('.checked-ingredient').each(function() {
-            $(this).attr('checked',!$(this).attr('checked'));
-        });
+			// clearing content area for new view
+			var content = $("#content");
+			content.html("");
 
+			// ajax call to server to make request to api and send back data
+			$.ajax({
+				type: "GET",
+	    		url: "/user/inventories/search",
+	    		contentType: "application/json; charset=utf-8",
+	    		data: {ingredients: checkedBoxes},
+			    success: function(response) {
+			    	var recipes = response.results
 
-		// clearing content area for new view
-		var content = $("#content");
-		content.html("");
-
-		// ajax call to server to make request to api and send back data
-		$.ajax({
-			type: "GET",
-    		url: "/user/inventories/search",
-    		contentType: "application/json; charset=utf-8",
-    		data: {ingredients: checkedBoxes},
-		    success: function(response) {
-		    	var recipes = response.results
-
-		    	// putting user_id and all related inventory ids into response object
-		    	recipes.forEach(function(recipe){
-		    		recipe.user_id = parseInt(user_id);
-		    		recipe.inventories_ids = checkedIds;
-		    	});
-		    	
-		    	// instantiating the view for all search results
-		    	new Appetite.Views.SearchRecipesView({collection: response});
-		    }
-		});
+			    	// putting user_id and all related inventory ids into response object
+			    	recipes.forEach(function(recipe){
+			    		recipe.user_id = parseInt(user_id);
+			    		recipe.inventories_ids = checkedIds;
+			    	});
+			    	
+			    	// instantiating the view for all search results
+			    	new Appetite.Views.SearchRecipesView({collection: response});
+			    }
+			});
+		} else {
+			alert("Please start a new search from your Inventory page.")
+		}
 	}
 });
 

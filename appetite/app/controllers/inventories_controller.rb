@@ -32,7 +32,6 @@ class InventoriesController < ApplicationController
 		if @inventories
 			render json: @inventories
 		else
-			flash[:error] = "Start out by adding what food you have on hand to your inventory (:^J)"
 			render status: 400, nothing: true
 		end
 	end
@@ -51,6 +50,7 @@ class InventoriesController < ApplicationController
 	def create
 		if Inventory.find_by({ingredient: params[:ingredient]}) 
 			flash.now[:error] = "That item is already in your inventory."
+			render status: 400, nothing: true
 		else
 			@inventory = Inventory.new(inventory_params)
 			if @inventory.save
@@ -81,7 +81,7 @@ class InventoriesController < ApplicationController
 		end
 	end
 
-	# priavate params for form when saving and updating
+	# private params for form when saving and updating
 	private
 	def inventory_params
 		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id, )

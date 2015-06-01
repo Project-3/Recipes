@@ -20,17 +20,18 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 	searchInv: function () {
 		var counter = 0;
 		$('.checked-ingredient').each(function() {
-            if ($(this).is('checked')) {
+			console.log($(this).is(':checked'));
+            if ($(this).is(':checked')) {
             	counter++
             	console.log(counter);
             };
+        }).done(function(){
+			if (counter > 0) {
+				userRouter.navigate("search", {trigger: true});
+			} else {
+				alert("Please check all ingredients you would like to use in your dish. OR ignore this.")
+			}
         });
-
-		if ($('input[name=ingredients]:checked').length > 0) {
-			userRouter.navigate("search", {trigger: true});
-		} else {
-			alert("Please check all ingredients you would like to use in your dish. OR ignore this.")
-		}
 	},
 
 	addInv: function(){

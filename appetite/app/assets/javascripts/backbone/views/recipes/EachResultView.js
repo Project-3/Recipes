@@ -11,14 +11,13 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	initialize: function(){
 	 	this.template = _.template($("#recipe-result").html());
 	 	this.listenTo(this.model, "sync", this.render);
-	 	// this.listenTo(this.model, "remove", this.remove);
+	 	// this.listenTo(this.model, "re", this.remove);
 	},
 
 	events: {
 		"click .save-button" : "saveRecipe"
 	},
 	
-
 	saveRecipe: function(e){
 		// get values and save recipe
 		var api_id = e.currentTarget.id;
@@ -39,10 +38,9 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	    	ingredients: ingredients.replace(/<br>/g, "\r\n"),
 	    	inventories: inventories_ids
 	    });	
-
-	    console.log("recipe model in Each Result View");
-	    console.log(JSON.stringify(recipe_model));
-	    console.log(JSON.stringify(inventories_ids));
+	    
+	    // how can I remove it from the dom....parent node?
+	    // this.model.remove();
 	},
 
 	render: function(){
