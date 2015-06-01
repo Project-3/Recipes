@@ -25,13 +25,13 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
             	counter++
             	console.log(counter);
             };
-        }).done(function(){
-			if (counter > 0) {
-				userRouter.navigate("search", {trigger: true});
-			} else {
-				alert("Please check all ingredients you would like to use in your dish. OR ignore this.")
-			}
         });
+
+		if (counter > 0) {
+			userRouter.navigate("search", {trigger: true});
+		} else {
+			alert("Please check all ingredients you would like to use in your dish. OR ignore this.")
+		}
 	},
 
 	addInv: function(){
