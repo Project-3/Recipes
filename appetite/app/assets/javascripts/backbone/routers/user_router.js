@@ -90,8 +90,6 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		    checkedIds.push(parseInt($(this).attr("id")));
 		});
 
-		console.log("router searchRecipes " + JSON.stringify(checkedIds));
-
 		// makes sure that something was searched
 		if (checkedIds.length > 0) {
 			// grabbing the user_id -- will need it to save recipe
@@ -114,13 +112,30 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	    		contentType: "application/json; charset=utf-8",
 	    		data: {ingredients: checkedBoxes},
 			    success: function(response) {
-			    	var recipes = response.results
+				    	var recipes = response[0].results
+
+
+			    	console.log(JSON.parse(response[1]).recipes[0].image_url)
+			    	
 
 			    	// putting user_id and all related inventory ids into response object
 			    	recipes.forEach(function(recipe){
 			    		recipe.user_id = parseInt(user_id);
 			    		recipe.inventories_ids = checkedIds;
 			    	});
+
+			    	// needs to put column back in for image in schema
+			    	if (JSON.parse(response[1]).recipes.length < recipes.length) {
+				    	for (var i = 0; i < recipes.length; i++) {
+				    		recipe.image = JSON.parse(response[1]).recipes[i].image_url
+
+				    	}
+				    } else {
+				    	for (var i = 0; i < JSON.parse(response[1]).recipes.length; i++) {
+				    		recipe.image = JSON.parse(response[1]).recipes[i].image_url
+				    	}
+				    }
+
 			    	
 			    	// instantiating the view for all search results
 			    	new Appetite.Views.SearchRecipesView({collection: response});

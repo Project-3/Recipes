@@ -14,6 +14,7 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 
 	// render list of recipes from ajax call to api
 	render: function(){
+		console.log(this.collection)
 		var div = this.$el;
 		div.html("");
 
