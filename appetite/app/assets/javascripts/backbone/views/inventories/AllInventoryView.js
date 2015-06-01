@@ -5,7 +5,6 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
-
 Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function() { 
@@ -19,22 +18,21 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 
 	searchInv: function () {
 		var counter = 0;
+		// making sure at least one ingredient was checked when search button was hit
 		$('.checked-ingredient').each(function() {
-			console.log($(this).is(':checked'));
-            if ($(this).is(':checked')) {
-            	counter++
-            	console.log(counter);
+			// if none checked and search button was clicked, send alert
+            if ($(this).is(':checked') == false && $('.checked-ingredient').length == counter) {
+            	alert("Please check all ingredients you would like to use in your dish.")
+            	// if at least one was hit, trigger router to search
+            } else if ($(this).is(':checked')) {
+            	userRouter.navigate("search", {trigger: true});
             };
+            counter++
         });
-
-		if (counter > 0) {
-			userRouter.navigate("search", {trigger: true});
-		} else {
-			alert("Please check all ingredients you would like to use in your dish. OR ignore this.")
-		}
 	},
 
 	addInv: function(){
+		// grabbing all the values entered for the new ingredient
 		var newIngFld = $('#ingredient').val();
 		var newGrpFld = $('#group').val();
 		var thisUserId = this.collection.models[0].attributes.user_id
@@ -47,14 +45,16 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 			user_id: thisUserId
 		});
 
+		// clears the ingredient name field
 		$('#ingredient').val("");
 	},
 
 	render: function() {
 		var div = this.$el;
-		var bod = $("body")
+		// clears the div content
 		div.html("");
 
+		// first append the add ingredient form
 		div.append(new Appetite.Views.CreateInventoryView().render().$el);
 
 		// rendering ingredients to dom sorted by group		
@@ -81,8 +81,10 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 
+		// adding some breaks at the end
 		div.append("<br><br>");
 
+		// appending search button; done here for styling convenience
 		div.append("<button id='search-butt'>Search</button>")
 		return this;
 	}

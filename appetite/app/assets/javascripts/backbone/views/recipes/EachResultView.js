@@ -29,6 +29,7 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 
 		var recipe_model = new Appetite.Collections.Recipes;
 
+		// params that need to be passed to Rails recipes controller
 	    recipe_model.create({
 	    	name: name,
 	    	api_id: api_id,
@@ -38,9 +39,8 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	    	ingredients: ingredients.replace(/<br>/g, "\r\n"),
 	    	inventories: inventories_ids
 	    });	
-	    
-	    // how can I remove it from the dom....parent node?
-	    // this.model.remove();
+
+	    alert("Recipe for "+name+" saved!");
 	},
 
 	render: function(){

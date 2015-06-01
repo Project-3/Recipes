@@ -8,6 +8,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+ <!--  script to use mustache template to avoid clash with erb -->
   <script>
     _.templateSettings = {
      evaluate    : /\{\{([\s\S]+?)\}\}/g,
@@ -16,32 +18,34 @@
    };
  </script>
 </head>
+<!-- for css purposes -->
 <header class="header"> <div id="title_bar">    <div id="logo"></div>  
-
+<!-- if a session user exists -->
+ <% if @user %>
   <div id= "menu_bar">
-
-    <div class="menu_items">
-     <li id="menu_act_recipes"> <a class="nav_link" href="#"> Active Recipes </li> 
-      <li id="menu_recipes"> <a class="nav_link" href="#recipes"> Saved Recipes </li> 
-      <li id="menu_inv"> <a class="nav_link" href="#inventory"> Inventory </li> 
+<!-- nav bar links -->
+  <div class="menu_items">
+    <li id="menu_act_recipes"> <a class="nav_link" href="#"> Active Recipes </a></li> 
+    <li id="menu_recipes"> <a class="nav_link" href="#recipes"> Saved Recipes </a></li> 
+    <li id="menu_inv"> <a class="nav_link" href="#inventory"> Inventory </a></li> 
     <%= link_to "Logout", session_path, method: :delete, id: "menu_logout", class: "nav_link" %></li>
     </div>
-    <div>
-    </div>
-
-
+  </div>
+ </div>
   </header>
-  <% if @user %>
-  <h2 id="greeting"> Hello <%= @user.name %>. Ready to get cooking? </h2> 
+
+    <h2 id="greeting"> Hello <%= @user.name %>. Ready to get cooking? </h2> 
   <% end %>
   <body>
-    <% if flash %>
+<!--   for flash success or error messages -->
+  <% if flash %>
     <% flash.each do |name, message| %>
-    <div class="flash-<%= name %>"><%= message %></div>
+      <div class="flash-<%= name %>"><%= message %></div>
     <% end %>
-    <% end %>
+  <% end %>
 
     <%= yield %>
 
   </body>
   </html>
+

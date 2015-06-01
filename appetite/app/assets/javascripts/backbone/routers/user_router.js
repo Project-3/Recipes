@@ -15,7 +15,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		"inventory" : "allInventory",
 		"search": "searchRecipes"
 	},
-
+	// root page: all of user's active recipes
 	activeRecipe: function() {
 		var content = $("#content");
 		content.html("");
@@ -29,7 +29,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 			}
 		});
 	},
-
+	// all of user's saved recipes
 	allRecipes: function() {
 		var content = $("#content");
 		content.html("");
@@ -41,7 +41,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		});
 	},
 
-	// fetching a single model and instaniate view
+	// fetching a single model and instaniate view for one recipe
 	showRecipe: function(recipe_id) {
 		var content = $("#content");
 		content.html("");
@@ -53,6 +53,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		});
 	},
 
+	// user's total inventory view
 	allInventory: function() {
 		var content = $("#content");
 		content.html("");
@@ -79,10 +80,12 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		});
 	},
 
+	// search view based on ingredients selected
 	searchRecipes: function() {
 		var checkedBoxes = [];
 		var checkedIds = [];
 
+		// mapping through all checked ingredients
 		$('input[name=ingredients]:checked').map(function() {
 			// pushing ingredient names into checkedBoxes array
 		    checkedBoxes.push($(this).val());
@@ -90,18 +93,15 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		    checkedIds.push(parseInt($(this).attr("id")));
 		});
 
-		console.log("router searchRecipes " + JSON.stringify(checkedIds));
-
 		// makes sure that something was searched
 		if (checkedIds.length > 0) {
 			// grabbing the user_id -- will need it to save recipe
 			var user_id = $("#hidden-userId").val();
 
-			// finding all checked boxes and unchecking them
+			// finding all checked boxes and unchecking them; may not be necessary
 			$('.checked-ingredient').each(function() {
 	            $(this).attr('checked',!$(this).attr('checked'));
 	        });
-
 
 			// clearing content area for new view
 			var content = $("#content");
@@ -114,28 +114,40 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	    		contentType: "application/json; charset=utf-8",
 	    		data: {ingredients: checkedBoxes},
 			    success: function(response) {
-			    	var recipes = response.results
+				    var recipes = response[0].results
 
 			    	// putting user_id and all related inventory ids into response object
 			    	recipes.forEach(function(recipe){
 			    		recipe.user_id = parseInt(user_id);
 			    		recipe.inventories_ids = checkedIds;
 			    	});
+
+			    	// looping through recipe response to insert an image
+			    	// first case: if there are more images than recipes
+			    	if (JSON.parse(response[1]).recipes.length > recipes.length) {
+				    	for (var i = 0; i < recipes.length; i++) {
+				    		recipes[i].image = JSON.parse(response[1]).recipes[i].image_url
+				    	}
+				    } else {
+				    	// case two: if there are more recipes than images
+				    	for (var i = 0; i < JSON.parse(response[1]).recipes.length; i++) {
+				    		recipe[i].image = JSON.parse(response[1]).recipes[i].image_url
+				    	}
+				    	for (var i = JSON.parse(response[1]).recipes.length; i < recipes.length; i++) {
+				    		recipe[i].image = JSON.parse(response[1]).recipes[0].image_url
+				    	}
+				    }
 			    	
 			    	// instantiating the view for all search results
-			    	new Appetite.Views.SearchRecipesView({collection: response});
+			    	new Appetite.Views.SearchRecipesView({collection: recipes});
 			    }
 			});
 		} else {
+			// For the people that decide to refresh on a search page where search results are not persisted
 			alert("Please start a new search from your Inventory page.")
 		}
 	}
 });
-
-
-
-
-
 
 
 

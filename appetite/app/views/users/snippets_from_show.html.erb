@@ -1,8 +1,8 @@
-snippets from show.html.erb
+<!-- things cut out that may still be needed -->
 
 <!--shows clicked on recipe-->
-				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
-			{{ }); }}
+	<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
+	{{ }); }}
 
 
 <!-- template for user's currently active recipe(s) -->
@@ -10,23 +10,12 @@ snippets from show.html.erb
 <button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
 
 
-			<!-- shows clicked on inventory item -->
-
-		
-
-
-							{{ if (recipe.active == true){ }} 
-						<button id = "{{= recipe.id }}" class="active-butt" style="background-color:green"> Active</button>
-						{{ } else { }} <button id = "{{= recipe.id }}" class="avail-butt" style="background-color:red"> Inactive </button> {{ }; }}
+<!-- shows clicked on inventory item -->
+		{{ if (recipe.active == true){ }} 
+	<button id = "{{= recipe.id }}" class="active-butt" style="background-color:green"> Active</button>
+	{{ } else { }} <button id = "{{= recipe.id }}" class="avail-butt" style="background-color:red"> Inactive </button> {{ }; }}
 
 
-
-
-
-
-
-
-
-											{{ if (inventory.avail === true){ }} 
-					<button id = "{{= inventory.id }}" class="used" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="used" style="background-color:red"> Unavailable </button> {{ }; }}
+	{{ if (inventory.avail === true){ }} 
+	<button id = "{{= inventory.id }}" class="used" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="used" style="background-color:red"> Unavailable </button> {{ }; }}
 					
