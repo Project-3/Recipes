@@ -112,7 +112,8 @@
 		<div class="recipes-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
 				<h3 class="recipe-name">{{= recipe.name }}</h3>
-				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"></button>
+
+				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate Recipe</button>
 			{{ }); }}
 		</div>
 </script>
