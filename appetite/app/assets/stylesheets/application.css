@@ -197,6 +197,14 @@
     border-style: none;
 
   }
+    #avail-butt{
+    width:124px;
+    border-style: none;
+
+  }
+     .active-butt{
+    border-style: none;
+  }
    .activate-butt{
     width:124px;
     border-style: none;
