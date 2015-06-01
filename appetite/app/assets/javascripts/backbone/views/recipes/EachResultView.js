@@ -11,48 +11,38 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	initialize: function(){
 	 	this.template = _.template($("#recipe-result").html());
 	 	this.listenTo(this.model, "sync", this.render);
+	 	// this.listenTo(this.model, "remove", this.remove);
 	},
 
 	events: {
-		"click .save-button" : "saveRecipe",
+		"click .save-button" : "saveRecipe"
 	},
 	
 
-	saveRecipe: function(){
-		// get values and save 
+	saveRecipe: function(e){
+		// get values and save recipe
+		var api_id = e.currentTarget.id;
+		var name = this.$(".recipe-name").html();
+		var user_id = this.$(".user_id").val();
+		var ingredients = this.$(".recipe-ingredients").html();
+		var instructions = this.$(".recipe-instructions").html();
+		var inventories_ids = this.$(".inventories_ids").val();
 
-		console.log(user_id)
+		var recipe_model = new Appetite.Collections.Recipes;
 
-		var recipe = this.model
-		console.log(recipe)
-		
-		var name = recipe.name
-		var api_id = recipe.id
-		var instructions = recipe.instructions
-		var ingredients = recipe.ingredients
+	    recipe_model.create({
+	    	name: name,
+	    	api_id: api_id,
+	    	user_id: user_id,
+	    	instructions: instructions,
+	    	active: true,
+	    	ingredients: ingredients.replace(/<br>/g, "\r\n"),
+	    	inventories: inventories_ids
+	    });	
 
-
-
-		// $.ajax({
-		// 	$("#recipe.id").on("click", function(){
-		// 		type: "POST",
-		// 		url: "user/recipies/create",
-		// 		dataType: "json",
-		// 		data: {
-		// 			name: name,
-		// 			api_id: api_id,
-		// 			user_id: user_id,
-		// 			instructions: instructions,
-		// 			ingredients: ingredients
-		// 		}
-		// 	});
-		// });
-		// var nameVal = this.$(".recipe-name");
-		// var apiIdVal = this.$("")
-		// this.model.save({
-		// 	name:
-
-		// }); 	
+	    console.log("recipe model in Each Result View");
+	    console.log(JSON.stringify(recipe_model));
+	    console.log(JSON.stringify(inventories_ids));
 	},
 
 	render: function(){

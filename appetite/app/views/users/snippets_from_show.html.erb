@@ -18,3 +18,15 @@ snippets from show.html.erb
 							{{ if (recipe.active == true){ }} 
 						<button id = "{{= recipe.id }}" class="active-butt" style="background-color:green"> Active</button>
 						{{ } else { }} <button id = "{{= recipe.id }}" class="avail-butt" style="background-color:red"> Inactive </button> {{ }; }}
+
+
+
+
+
+
+
+
+
+											{{ if (inventory.avail === true){ }} 
+					<button id = "{{= inventory.id }}" class="used" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="used" style="background-color:red"> Unavailable </button> {{ }; }}
+					

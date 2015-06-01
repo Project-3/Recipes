@@ -5,5 +5,5 @@ class Recipe < ActiveRecord::Base
 	belongs_to :user
 
 	validates :active, inclusion: { in: [true, false] }
-
+	default_scope {order(:name => :ASC)}
 end
