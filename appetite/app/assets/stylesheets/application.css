@@ -214,3 +214,12 @@
   .inventory-title{
     font-size: 1.3em;
   }
+  .search_pic{
+  position: fixed;
+  right: 12%;
+  top: 40%;
+  width: 400px;
+  max-height:360px;
+  border-radius: 25px;
+  border: 9px solid rgba(223,223,223,.9);;
+}
