@@ -20,11 +20,14 @@ Appetite.Views.SearchRecipesView = Backbone.View.extend({
 		if (this.collection.length < 1) {
 			div.html("<h2 style='color: red'>** Your search did not render any results. **</h2>");
 		} else {
+// app pic response to append to dom
+			var search_pic = this.collection[0].image
+
+			div.append("<img class='search_pic' src="+search_pic+">")
 		// looping array of response to append to dom
 			this.collection.forEach(function(recipe){
 				div.append(new Appetite.Views.EachResultView({model: recipe}).render().$el);
 			});
-			return this;
 		}
 	}
 });
