@@ -19,6 +19,7 @@ Appetite.Views.ActiveRecipeView = Backbone.View.extend({
 		if (this.collection.where({"active": true}).length < 1 ) {
 			userRouter.navigate("inventory", {trigger: true});
 		} else {
+			div.append(	"<h2>Active Recipes:</h2>")
 			this.collection.active(true).each(function(recipe) {
 				div.append(new Appetite.Views.EachActiveView({model: recipe}).render().$el);
 			});

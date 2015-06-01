@@ -16,7 +16,6 @@
 
 <script type="text/javascript">
 	// getting rid of weird symbols in returned text
-
 	// first changes the string to hexcode
 	String.prototype.toUnicode = function(){
 	    var result = "";
@@ -25,14 +24,12 @@
 	    }
 	    return result;
 	};
-
 	// changed the hexcode back to human language
 	function hex2a(hex) {
 	    var str = '';
 	    for (var i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
 	    return str;
 	}
-
 	// calling above functions, ridding of more weird symbols and replacing new line breaks
 	String.prototype.nl2br = function() {
 		var hex_coded = this.replace(/\r\n/g, "<<<").toUnicode();
@@ -43,7 +40,6 @@
 <!-- template for user's currently active recipe(s) -->
 <script type="text/template" id="active-recipe"> 
 	<div id="active-recipe-div">
-		<h2>Active Recipes: </h2>
 		<img class="recipe-pic" src="">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
@@ -109,8 +105,8 @@
 		<h2> Linked to these recipes: </h2>
 		<div class="recipes-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
-				<h3 class="recipe-name">{{= recipe.name }}
-				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"></button></h3>
+				<h3 class="recipe-name">{{= recipe.name }}</h3>
+				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"></button>
 			{{ }); }}
 		</div>
 </script>
@@ -120,13 +116,11 @@
 <div id="all-inventory-div">
 	<a href="#inventory/{{=inventory.id}}" class="inventory-title">{{=inventory.ingredient}}</a>
 	<ul class="ing-butts">
-	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+	
+	{{ if (inventory.avail === true){ }} 
+	<button id = "{{= inventory.id }}" class="avail-butt" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="avail-butt" style="background-color:red"> Unavailable </button> {{ }; }}
+
 	<button class="delete-butt">Delete</button>
 	<input type="hidden" id="hidden-userId" value="{{= inventory.user_id }}">
 	<input type="checkbox" name="ingredients" id="{{= inventory.id }}" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
 </script>
-
-
-
-
-

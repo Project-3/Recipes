@@ -14,7 +14,7 @@ class InventoriesController < ApplicationController
 
 		# getting the search query
 		checked = params[:ingredients].join("+").gsub(" ", "+")
-
+		puts checked
 		# making the call
 		response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=#{checked}&auth_token="+Rails.application.secrets.secret_password, options)
 		img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=chicken")
@@ -39,7 +39,6 @@ class InventoriesController < ApplicationController
 		if @inventories
 			render json: @inventories
 		else
-			flash[:error] = "Start out by adding what food you have on hand to your inventory (:^J)"
 			render status: 400, nothing: true
 		end
 	end
@@ -58,6 +57,7 @@ class InventoriesController < ApplicationController
 	def create
 		if Inventory.find_by({ingredient: params[:ingredient]}) 
 			flash.now[:error] = "That item is already in your inventory."
+			render status: 400, nothing: true
 		else
 			@inventory = Inventory.new(inventory_params)
 			if @inventory.save
