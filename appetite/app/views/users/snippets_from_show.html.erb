@@ -1,0 +1,20 @@
+snippets from show.html.erb
+
+<!--shows clicked on recipe-->
+				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
+			{{ }); }}
+
+
+<!-- template for user's currently active recipe(s) -->
+
+<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
+
+
+			<!-- shows clicked on inventory item -->
+
+		
+
+
+							{{ if (recipe.active == true){ }} 
+						<button id = "{{= recipe.id }}" class="active-butt" style="background-color:green"> Active</button>
+						{{ } else { }} <button id = "{{= recipe.id }}" class="avail-butt" style="background-color:red"> Inactive </button> {{ }; }}

@@ -47,6 +47,10 @@ a.nav_link{
 a.nav_link:visited{
 	color:rgb(254,215,53);
 }
+a#menu_logout:{
+	color:rgb(254,215,53);
+}
+
 a#menu_logout:visited{
 	color:rgb(254,215,53);
 }

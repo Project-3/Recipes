@@ -14,7 +14,7 @@ class InventoriesController < ApplicationController
 
 		# getting the search query
 		checked = params[:ingredients].join("+").gsub(" ", "+")
-
+		puts checked
 		# making the call
 		response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=#{checked}&auth_token="+Rails.application.secrets.secret_password, options)
 		
