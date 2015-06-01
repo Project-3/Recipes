@@ -20,8 +20,10 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 	searchInv: function () {
 		var counter = 0;
 		$('.checked-ingredient').each(function() {
-            $(this).attr('checked', counter++);
-            console.log(counter);
+            if ($(this).is('checked')) {
+            	counter++
+            	console.log(counter);
+            };
         });
 
 		if ($('input[name=ingredients]:checked').length > 0) {
@@ -33,7 +35,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 
 	addInv: function(){
 		var newIngFld = $('#ingredient').val();
-		var newGrpFld = this.$('#group').val();
+		var newGrpFld = $('#group').val();
 		var thisUserId = this.collection.models[0].attributes.user_id
 
 		// add a new model to the collection 

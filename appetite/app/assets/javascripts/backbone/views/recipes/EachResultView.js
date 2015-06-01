@@ -11,37 +11,38 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	initialize: function(){
 	 	this.template = _.template($("#recipe-result").html());
 	 	this.listenTo(this.model, "sync", this.render);
+	 	// this.listenTo(this.model, "remove", this.remove);
 	},
 
 	events: {
-		"click .save-button" : "saveRecipe",
+		"click .save-button" : "saveRecipe"
 	},
 	
 
 	saveRecipe: function(e){
-		var saveRecipeId = e.currentTarget.id;
-
-		<h2 class="recipe-name">{{= recipe.name }}</h2>
-		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button class="save-button" id="{{= recipe.id }}">Save</button>
-
-				"name"
-    t.integer  "api_id"
-    t.integer  "user_id"
-    t.text     "instructions"
-    t.boolean  "active"
-    t.text     "ingredients"
-		// get values and save 
-		var name = recipe.name
-		var api_id = recipe.id
-		var instructions = recipe.instructions
-		var ingredients = recipe.ingredients
+		// get values and save recipe
+		var api_id = e.currentTarget.id;
+		var name = this.$(".recipe-name").html();
+		var user_id = this.$(".user_id").val();
+		var ingredients = this.$(".recipe-ingredients").html();
+		var instructions = this.$(".recipe-instructions").html();
+		var inventories_ids = this.$(".inventories_ids").val();
 
 		var recipe_model = new Appetite.Collections.Recipes;
 
 	    recipe_model.create({
-	     	
+	    	name: name,
+	    	api_id: api_id,
+	    	user_id: user_id,
+	    	instructions: instructions,
+	    	active: true,
+	    	ingredients: ingredients.replace(/<br>/g, "\r\n"),
+	    	inventories: inventories_ids
 	    });	
+
+	    console.log("recipe model in Each Result View");
+	    console.log(JSON.stringify(recipe_model));
+	    console.log(JSON.stringify(inventories_ids));
 	},
 
 	render: function(){
