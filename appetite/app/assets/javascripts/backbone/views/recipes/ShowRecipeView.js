@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// If user clicks on a recipe from AllRecipeView or ActiveRecipeView, this view shows recipe
 Appetite.Views.ShowRecipeView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function(){
@@ -19,6 +20,7 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 		"click .delete-butt": "deleteRecipe" 
 	},
 
+	// toggles activeness of recipe
 	recipeUpdate: function() {
 		this.model.toggle();
 	},

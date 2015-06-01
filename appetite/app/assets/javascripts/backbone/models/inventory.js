@@ -4,6 +4,7 @@ var Appetite = Appetite || {
 	Views: {},
 	Routers: {}
 };
+
 Appetite.Models.Inventory = Backbone.Model.extend({
 	urlRoot: "/user/inventories",
 	defaults: {

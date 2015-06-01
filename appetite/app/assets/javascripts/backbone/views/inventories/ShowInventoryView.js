@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// Inventory Show page; view when an inventory item is clicked on from AllInventoryView
 Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	el: "div#content",
 

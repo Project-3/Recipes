@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// Called on by AllRecipeView to render each saved recipe
 Appetite.Views.RecipeView = Backbone.View.extend({
 	tagName: "div",
 
@@ -19,12 +20,12 @@ Appetite.Views.RecipeView = Backbone.View.extend({
 		"click .delete-butt": "deleteRecipe" 
 	},
 	
-
+	// toggles activeness of a recipe
 	recipeUpdate: function(){
-		this.model.toggle();
-			
+		this.model.toggle();		
 	},
 
+	// deletes recipe
 	deleteRecipe: function(){
 		this.model.destroy();
 	},

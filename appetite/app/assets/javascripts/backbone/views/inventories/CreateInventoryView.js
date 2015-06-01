@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// View for creating a new inventory item
 Appetite.Views.CreateInventoryView = Backbone.View.extend({
 	el: "div#content",
 

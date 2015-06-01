@@ -9,7 +9,7 @@ Appetite.Collections.Inventories = Backbone.Collection.extend({
   model: Appetite.Models.Inventory,
   url: "/user/inventories",
 
-  // filter for one group 
+  // function to filter for one group 
   byGroup: function(group) {
     filtered = this.filter(function(coll) {
       return coll.get("group") === group;
