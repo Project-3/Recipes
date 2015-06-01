@@ -31,8 +31,7 @@ counter = 0
 
 response["results"].each do |result|
 	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 2, image: img_response["recipes"][counter]["img_url"]
-
-		counter += 1
+	counter = counter + 1
 end
 
 response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=chicken&auth_token="+Rails.application.secrets.secret_password, options)
@@ -42,8 +41,7 @@ img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc
 counter = 0 
 response["results"].each do |result|
 	Recipe.create(name: result["name"], api_id: result["id"], instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1, image: img_response["recipes"][counter]["img_url"]
-
-		counter += 1
+		counter = counter + 1
 end
 
 
