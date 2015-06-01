@@ -38,7 +38,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		// grabbing all the values entered for the new ingredient
 		var newIngFld = $('#ingredient').val();
 		var newGrpFld = $('#group').val();
-		var thisUserId = this.collection.models[0].attributes.user_id
+		var thisUserId = $("#unicorn").val();
 
 		// add a new model to the collection 
 		// since collection listens to sync, it will auto append to view on successful save
