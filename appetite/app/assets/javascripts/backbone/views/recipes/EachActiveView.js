@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// called on by ActiveRecipeView for each active recipe
 Appetite.Views.EachActiveView = Backbone.View.extend({
 	tagName: "div",
 
@@ -20,14 +21,17 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 		"click .delete-butt": "deleteRecipe"
 	},
 
+	// called on when deactive recipe button is clicked
 	recipeUpdate: function(){
 		this.model.toggle();	
 	},
 
+	// called on when delete button is clicked
 	deleteRecipe: function(){
 		this.model.destroy();
 	},
 
+	// called on when activate button is clicked
 	toggleInventory: function(e) {
 		// grabs the id of the clicked button
 		var invent_id = e.currentTarget.id;

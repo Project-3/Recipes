@@ -15,6 +15,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		"inventory" : "allInventory",
 		"search": "searchRecipes"
 	},
+
 	// root page: all of user's active recipes
 	activeRecipe: function() {
 		var content = $("#content");
@@ -29,6 +30,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 			}
 		});
 	},
+	
 	// all of user's saved recipes
 	allRecipes: function() {
 		var content = $("#content");

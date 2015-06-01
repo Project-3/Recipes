@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// Called on by SearchRecipesView to render each search result
 Appetite.Views.EachResultView = Backbone.View.extend({
 	tagName: "div",
 
@@ -19,11 +20,12 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 		"click .read-more" : "showInstructions"
 	},
 
+	// recipe instructions are intially hidden; triggered by read more button
 	showInstructions: function(e) {
-		// var instructionsId = e.currentTarget.id;
 		this.$(".recipe-instructions").show();
 	},
 	
+	// triggered when save button is clicked
 	saveRecipe: function(e) {
 		// get values and save recipe
 		var apiId = e.currentTarget.id;

@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// View for all of user's Inventory items
 Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function() { 
@@ -16,6 +17,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		"click #search-butt": "searchInv"
 	}, 
 
+	// if search button is clicked, this function is triggered
 	searchInv: function () {
 		var counter = 0;
 		// making sure at least one ingredient was checked when search button was hit
@@ -31,6 +33,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
         });
 	},
 
+	// if add inventory button is clicked, this function is triggered
 	addInv: function(){
 		// grabbing all the values entered for the new ingredient
 		var newIngFld = $('#ingredient').val();
