@@ -34,12 +34,20 @@
 
 6. For styling purposes, most of it was done with vanilla, but there was some utilization of [Pure](http://purecss.io/).
 
+### Artifacts
+- [1](https://cloud.githubusercontent.com/assets/11223124/7914533/99f8537c-0845-11e5-8ffa-40943c10e9ab.png)
+- [2](https://cloud.githubusercontent.com/assets/11223124/7914534/99fce28e-0845-11e5-952a-7e66be183dc5.png)
+- [3](https://cloud.githubusercontent.com/assets/11223124/7914536/9a019716-0845-11e5-8111-19507152fd0b.png)
+- [4](https://cloud.githubusercontent.com/assets/11223124/7914535/9a016e26-0845-11e5-8962-da281adc5d83.png)
+- [5](https://cloud.githubusercontent.com/assets/11223124/7914537/9a091202-0845-11e5-9bb7-06d840c23a2d.png)
+- [6](https://cloud.githubusercontent.com/assets/11223124/7914538/9a09f528-0845-11e5-8a57-af74c9152892.png)
+
 
 ### Summation of Languages and Frameworks Used
 - Ruby on Rails
 - Backbone
 - Underscore
-- ERB
+- EJS
 - jQuery
 - Javascript
 - Vanilla CSS 
