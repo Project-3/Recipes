@@ -1,3 +1,6 @@
+<script>
+	var thisUserId = <%= session[:user_id] %>
+</script>
 <!--picture area-->
 <div id="sidebar"></div>
 
@@ -7,7 +10,6 @@
   <h2>Add An Ingredient</h2>
   <%= text_field_tag :ingredient, nil, placeholder: "ingredient name" %>
   <%= select_tag :group, options_for_select([["Protein", "protein"],["Produce", "produce"],["Dairy", "dairy"],["Grain", "grain"]]) %>
-  <% hidden_field_tag "user-id", session[:user_id] %>
   <%= button_tag "ADD", id: "add-inventory" %>
 </div>
 </script>
