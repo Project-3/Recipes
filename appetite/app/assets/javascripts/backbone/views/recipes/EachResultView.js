@@ -38,8 +38,9 @@ Appetite.Views.EachResultView = Backbone.View.extend({
 	    	ingredients: ingredients.replace(/<br>/g, "\r\n"),
 	    	inventories: inventories_ids
 	    });	
-
-	    this.model.remove();
+	    
+	    // how can I remove it from the dom....parent node?
+	    // this.model.remove();
 	},
 
 	render: function(){
