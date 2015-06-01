@@ -59,6 +59,10 @@
   a#menu_logout:visited{
   	color:rgb(254,215,53);
   }
+  a#menu_logout:visited{
+    color:rgb(254,215,53);
+  }
+
 
   #logo {
   	position: relative;
@@ -150,6 +154,7 @@
   	background-size: 100%;
   	z-index:-2;
   }
+  
   #content{
   	font-family: Courier;
   	position:absolute;
@@ -167,7 +172,7 @@
   	width: 70%;
   	position: relative;
   	right: -46%;
-  	top: -2.25em;
+  	top: -2.55em;
   }
 
   #search-butt{
@@ -189,4 +194,23 @@
   }
   .avail-butt{
   	width:124px;
+    border-style: none;
+
+  }
+   .delete-butt{
+    border-style: none;
+    color: #D95C40;
+
+  }
+  .checked-ingredient{
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    position: absolute;
+    right: 88px;
+        border-style: none;
+
+  }
+  .inventory-title{
+    font-size: 1.3em;
   }

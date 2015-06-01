@@ -118,7 +118,7 @@
 	<ul class="ing-butts">
 	
 	{{ if (inventory.avail === true){ }} 
-	<button id = "{{= inventory.id }}" class="avail-butt" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="avail-butt" style="background-color:red"> Unavailable </button> {{ }; }}
+	<button id = "{{= inventory.id }}" class="avail-butt" style="background-color:rgb(254,215,53)"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="avail-butt" style="background-color:rgb(154,153,153)"> Unavailable </button> {{ }; }}
 
 	<button class="delete-butt">Delete</button>
 	<input type="hidden" id="hidden-userId" value="{{= inventory.user_id }}">
