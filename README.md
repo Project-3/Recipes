@@ -19,13 +19,13 @@ Our project is hosted [here]().
 6. For styling purposes, most of it was done vanilla, but there is some utilization of [Pure](http://purecss.io/).
 
 ### Contributors
-	[Kwasi James](https://github.com/kwasijames)
+[Kwasi James](https://github.com/kwasijames)
 
-	[Julie Kwok](https://github.com/kwokster10) 
+[Julie Kwok](https://github.com/kwokster10) 
 	
-	[Nat Scott](https://github.com/itsnatscott/) 
+[Nat Scott](https://github.com/itsnatscott/) 
 
-	[Abner Yang](https://www.github.com/sunsheeppoplar)
+[Abner Yang](https://www.github.com/sunsheeppoplar)
 
 ### Thanks
 As always, thanks to our instructors for all their support and help: [Maria](https://github.com/mariaperhaps), [Crawford](https://github.com/crawfordforbes), [Sam](https://github.com/sgottfried), [Gretchen](https://github.com/gretchenziegler), and [Dave](https://github.com/dahvvv). 
