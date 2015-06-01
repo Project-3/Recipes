@@ -1,7 +1,7 @@
 # re:Frigerator 
 This project was the third for the March 2015 iteration of General Assembly in New York City. All members were in the "Lemon" cohort. We were tasked during the second to last week of our program with building an app as a group with specs and general workflow narrative linked to below. 
 
-re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you might want or can cook with those ingredients. 
+re:Frigerator is an app that helps you indicate what items you have at home and still aren't sure what you might want or can cook with those ingredients. 
 
 To that end, you're presented with your most recently saved recipe upon login, whereupon you can also check out saved recipes and your inventory. You may toggle between whether or not you want your saved recipes at the forefront, ready for you to use once you get home and need to start cooking. 
 
