@@ -4,9 +4,11 @@
 
 - If you are a new user, you will be directed to an inventory page where you can begin by adding ingredients you currently have in your refridgerator. 
 
-- A returning user will be directed to their active recipes page upon successful login. If there are no active recipes, a user will also be directed to their inventory page. 
+- A returning user will be directed to their active recipes page upon successful login. You may toggle the activeness of your recipes so the ones you plan to use that day are seen. If there are no active recipes, a user will be redirected to their inventory page. 
 
-- With an inventory, a user can begin searching for recipes. A user can check any amount of ingredients to search for in the recipe. Upon hitting search, a user will be shown the results of the search if any. Else, if the button was hit without checking any ingredients, a user will be prompted to check at least one.
+- With an inventory, a user can begin searching for recipes. A user can check any amount of ingredients to search for in the recipe. Upon hitting search, a user will be shown the results of the search if any. Else, if the button was hit without checking any ingredients, a user will be prompted to check at least one. 
+
+- A user can update their inventory to reflect ingredients they are bound to use again or just delete ones they didn't like. 
 
 - On the search page, which can not be refreshed as a search is not persisted, a user can save any recipes they found appealing. Upon save, a user will be alerted of success.
 
