@@ -66,7 +66,8 @@
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<p class="recipe-instructions">{{= recipe.instructions }}</p>
-		<input type="hidden" class="user_id" value="">
+		<input type="hidden" class="user_id" value="{{= recipe.user_id }}">
+		<input type="hidden" class="inventories_ids" value="{{= recipe.inventories_ids }}">
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
 	</div>	 
 </script>
@@ -103,7 +104,7 @@
 <!-- shows clicked on inventory item -->
 <script type="text/template" id="show-inventory">
 		<h1>{{= inventory.ingredient }}</h1>
-	<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
+	<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">{{ if (inventory.avail == true){ }} Available {{ } else { }} Unavailable {{ } }}</button>
 		<button class="delete-butt">Delete</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipes-itemized"> 
