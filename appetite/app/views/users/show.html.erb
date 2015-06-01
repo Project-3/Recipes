@@ -43,14 +43,19 @@
 		<img class="recipe-pic" src="">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
+
+
+
+{{ if (recipe.active == true) { }} <button id={{=recipe.id}} class="dectivate-butt" style="background-color:rgb(254,215,53)"> Deactivate </button> {{ } else { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(154,153,153)"> Inactive </button> 
+		{{ }; }}
+
 		<button class="delete-butt">Delete</button>
 
 		<div id="update-ingredient">
 		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
-		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
+		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="avail-butt" id="{{= inventory.id }}">Used?</button>
 		{{ }) }}
 	</div>
 </script>
@@ -74,7 +79,10 @@
 	<div id="all-recipes-div">
 		<h2><a href="#recipe/{{= recipe.id }}" class="recipe-title"> {{= recipe.name }}</a></h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate?</button>
+
+		{{ if (recipe.active == true) { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(254,215,53)"> Active </button> {{ } else { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(154,153,153)"> Inactive </button> 
+		{{ }; }}
+
 		<button class="delete-butt">Delete</button>
 	</div>
 </script>

@@ -11,12 +11,11 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 		this.template = _.template($("#show-recipe").html());
 		this.listenTo(this.model, "sync", this.render);
 	 	this.listenTo(this.model, "destroy", this.remove);
-	 	this.render();
 	},
 
 	events: {
 		"click .activate-butt" : "recipeUpdate",
-		"click .used" : "inventoryUpdate",
+		"click button.used" : "inventoryUpdate",
 		"click .delete-butt": "deleteRecipe" 
 	},
 
@@ -52,6 +51,7 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 	},
 
 	render: function(){
+		console.log("hello");
 		this.$el.html(this.template({recipe: this.model.toJSON()}));
 		return this;
 	}

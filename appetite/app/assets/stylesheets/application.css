@@ -177,7 +177,7 @@
 
   #search-butt{
   	position: fixed;
-  	right: 18%;
+  	right: 16%;
   	top: 57%;
   	width: 300px;
   	height: 120px;
@@ -197,11 +197,21 @@
     border-style: none;
 
   }
+   .activate-butt{
+    width:124px;
+    border-style: none;
+  }
    .delete-butt{
     border-style: none;
     color: #D95C40;
-
   }
+
+  .dectivate-butt{
+    width:124px;
+    border-style: none;
+  }
+
+
   .checked-ingredient{
     width: 20px;
     height: 20px;
@@ -217,9 +227,20 @@
   .search_pic{
   position: fixed;
   right: 12%;
-  top: 40%;
+  top: 45%;
   width: 400px;
   max-height:360px;
   border-radius: 25px;
   border: 9px solid rgba(223,223,223,.9);;
 }
+#greeting{
+  position: absolute;
+  right: 7%;
+  top: 29%;
+  font-size: 2.4em;
+   -webkit-text-fill-color: white; 
+   -webkit-text-stroke-width: 1.5px;
+   -webkit-text-stroke-color: rgba(103,103,103,.9);
+   -webkit-font-smoothing:antialiased;
+  z-index: -5
+  }

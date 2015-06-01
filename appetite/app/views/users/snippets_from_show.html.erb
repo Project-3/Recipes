@@ -19,3 +19,6 @@
 	{{ if (inventory.avail === true){ }} 
 	<button id = "{{= inventory.id }}" class="used" style="background-color:green"> Available</button>{{ } else { }} <button id = "{{= inventory.id }}" class="used" style="background-color:red"> Unavailable </button> {{ }; }}
 					
+
+
+							<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate?</button>

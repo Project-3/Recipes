@@ -15,7 +15,7 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 	},
 
 	events: {
-		"click .activate-butt": "toggleInventory",
+		"click .avail-butt": "toggleInventory",
 		"click .dectivate-butt" : "recipeUpdate",
 		"click .delete-butt": "deleteRecipe"
 	},
@@ -31,7 +31,7 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 	toggleInventory: function(e) {
 		// grabs the id of the clicked button
 		var invent_id = e.currentTarget.id;
-
+		console.log(invent_id);
 		// need to fetch from the collection since this is on a recipe model page
 		var inventory_model = new Appetite.Collections.Inventories;
 
@@ -41,6 +41,12 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 				var fetched_inventory = inventory_model.get(invent_id);
 				// calling the models function to update activeness
 				fetched_inventory.toggle();
+				// since this collection doesn't belong recipes, it can't listen to it to change automatically, so changing color manually	
+				if (fetched_inventory.attributes.avail == true) {		
+					$("button#"+invent_id).css("background-color", "green");		
+				} else {		
+					$("button#"+invent_id).css("background-color", "red");		
+				}
 			}
 		});	
 	},
