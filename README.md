@@ -39,7 +39,7 @@
 - Ruby on Rails
 - Backbone
 - Underscore
-- ERB
+- EJS
 - jQuery
 - Javascript
 - Vanilla CSS 
