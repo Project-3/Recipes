@@ -24,23 +24,20 @@ class RecipesController < ApplicationController
 
 	# saving a recipe to the db
 	def create
-		# how are we connecting this with inventory?
-		# also check to make sure api_id is not repeated
-		@recipe = Recipe.new(recipe_params)
-		# how are we grabbing id's of inventories
-		# @inventories = Inventory.where(id: )
-		# @recipe.inventories << @inventories
-		if @recipe.save
-			ids = params[:inventories].split(",")
-			for index in 0...ids.length
-				@recipe.inventories << Inventory.where({id: ids[index].to_i})
-				puts ids[index].to_i
-				puts "recipes controller #{ids[index]}"
-			end
-			binding.pry
-			render json: @recipe
+		if Recipe.find_by({api_id: params[:api_id]})
+			flash[:error] = "Recipe '#{params[:name]}' already exists in your saved recipes."
 		else
-			render status: 400, nothing: true
+			@recipe = Recipe.new(recipe_params)
+			if @recipe.save
+				ids = params[:inventories].split(",")
+				for index in 0...ids.length
+					@recipe.inventories << Inventory.where({id: ids[index].to_i})
+				end
+
+				render json: @recipe
+			else
+				render status: 400, nothing: true
+			end
 		end
 	end
 
