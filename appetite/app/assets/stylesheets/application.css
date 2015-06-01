@@ -195,28 +195,34 @@
   .avail-butt{
   	width:124px;
     border-style: none;
+            border-radius: 6px;
 
   }
     #avail-butt{
     width:124px;
     border-style: none;
+            border-radius: 6px;
 
   }
      .active-butt{
     border-style: none;
+            border-radius: 6px;
   }
    .activate-butt{
     width:124px;
     border-style: none;
+            border-radius: 6px;
   }
    .delete-butt{
     border-style: none;
     color: #D95C40;
+            border-radius: 6px;
   }
 
   .dectivate-butt{
     width:124px;
     border-style: none;
+            border-radius: 10px;
   }
 
 
