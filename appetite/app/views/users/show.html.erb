@@ -61,7 +61,8 @@
 	<div id="recipe-result-div">
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<p class="recipe-instructions">{{= recipe.instructions }}</p>
+		<button class="read-more" id="instructions-{{= recipe.id }}">See Cooking Instructions</button>
+		<p style="display: none" class="recipe-instructions">{{= recipe.instructions }}</p>
 		<input type="hidden" class="user_id" value="{{= recipe.user_id }}">
 		<input type="hidden" class="inventories_ids" value="{{= recipe.inventories_ids }}">
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
@@ -79,7 +80,7 @@
 	</div>
 </script>
 
-<!--shows clicked on recipe-->
+<!--shows clicked recipe-->
 <script type="text/template" id="show-recipe">
 <h2>This looks good, right?</h2>
 	<div id="all-recipes-div">
