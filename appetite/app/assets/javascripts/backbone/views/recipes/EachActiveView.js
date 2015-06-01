@@ -11,7 +11,7 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 
 	initialize: function(){
 	 	this.template = _.template($("#active-recipe").html());
-	 	this.listenTo(this.model, "sync", this.render);
+	 	this.listenTo(this.model, "sync remove", this.render);
 	 	this.listenTo(this.model, "destroy", this.remove);
 	},
 

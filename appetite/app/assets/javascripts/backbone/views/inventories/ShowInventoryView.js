@@ -52,6 +52,7 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 
 	deleteItem: function(){
 		this.model.destroy();
+		userRouter.navigate("inventory", {trigger: true});
 	},
 
 	render: function(){

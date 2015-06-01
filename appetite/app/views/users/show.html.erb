@@ -95,13 +95,13 @@
 		<h2>{{= recipe.name }}</a></h2>	
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<p class="recipe-instructions">{{= recipe.instructions }}</p>
-		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
+		<button class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
 		<button class="delete-butt">Delete</button>
 		<h2> From your inventory: </h2>
 			{{ recipe.inventories.forEach(function(inventory) { }}
 				<div class="invent-item"> 
 				<h3 class= "invent-name">{{= inventory.ingredient }}
-				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
+				<button id="{{= inventory.id }}" class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE</button></h3>
 			{{ }); }}
 	</div>
 </script>
@@ -115,7 +115,6 @@
 		<div class="recipes-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
 				<h3 class="recipe-name">{{= recipe.name }}</h3>
-
 				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate Recipe</button>
 			{{ }); }}
 		</div>

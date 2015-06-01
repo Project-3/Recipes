@@ -9,7 +9,7 @@ var Appetite = Appetite || {
 Appetite.Views.SearchRecipesView = Backbone.View.extend({
 	el: "#content",
 	initialize: function(){
-		this.listenTo(this.collection, "sync", this.render);
+		this.listenTo(this.collection, "sync remove", this.render);
 		this.render();
 	},
 

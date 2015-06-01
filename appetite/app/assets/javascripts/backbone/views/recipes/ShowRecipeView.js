@@ -10,13 +10,13 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function(){
 		this.template = _.template($("#show-recipe").html());
-		this.listenTo(this.model, "sync", this.render);
+		this.listenTo(this.model, "sync remove", this.render);
 	 	this.listenTo(this.model, "destroy", this.remove);
 	},
 
 	events: {
 		"click .activate-butt" : "recipeUpdate",
-		"click button.used" : "inventoryUpdate",
+		"click button.avail-butt" : "inventoryUpdate",
 		"click .delete-butt": "deleteRecipe" 
 	},
 
@@ -38,18 +38,19 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 				var fetched_inventory = inventory_model.get(inventory_id);
 				// calling the models function to update activeness
 				fetched_inventory.toggle();
-				// // since this collection doesn't belong recipes, it can't listen to it to change automatically, so changing color manually	
-				// if (fetched_inventory.attributes.avail == true) {		
-				// 	$("button#"+inventory_id).css("background-color", "green");		
-				// } else {		
-				// 	$("button#"+inventory_id).css("background-color", "red");		
-				// }
+				// since this collection doesn't belong recipes, it can't listen to it to change automatically, so changing color manually	
+				if (fetched_inventory.attributes.avail == true) {		
+					$("button#"+inventory_id).css("background-color", "green");		
+				} else {		
+					$("button#"+inventory_id).css("background-color", "red");		
+				}
 			}
 		});	
 	},
 
 	deleteRecipe: function(){
 		this.model.destroy();
+		userRouter.navigate("recipes", {trigger: true});
 	},
 
 	render: function(){
