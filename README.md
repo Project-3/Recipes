@@ -3,6 +3,10 @@ This project was the third for the March 2015 iteration of General Assembly in N
 
 re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you might want or can cook with those ingredients. 
 
+To that end, you're presented with your most recently saved recipe upon login, whereupon you can also check out saved recipes and your inventory. You may toggle between whether or not you want your saved recipes at the forefront, ready for you to use once you get home and need to start cooking. 
+
+Navigate to your inventory to add new ingredients from your stores. Update your list to reflect ingredients you're bound to have again or just delete ones you won't be using for a while. Click the search button and you can start exploring new recipes!
+
 Our project is hosted [here](). 
 
 ### Tools of the Trade
