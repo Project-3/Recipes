@@ -4,6 +4,7 @@ class Inventory < ActiveRecord::Base
 
 	belongs_to :user
 	
+	# can't use this validation as diff users can have same ingredient
 	# validates :ingredient, uniqueness: { message:  "Ingredient is already in your list" }
 	validates :ingredient, presence: true
 

@@ -15,17 +15,17 @@ class InventoriesController < ApplicationController
 		# getting the search query
 		checked = params[:ingredients].join("+").gsub(" ", "+")
 		puts checked
-		# making the call
+		# making the call to weeatt for recipe
 		response = HTTParty.get("http://www.weeatt.com/api/v1/recipes?qs=#{checked}&auth_token="+Rails.application.secrets.secret_password, options)
+		# call to food2fork for image
 		img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=chicken")
 		
 		if response && img_response
-		arr = []
-		arr.push(response)
-		arr.push(img_response)
+			arr = []
+			arr.push(response)
+			arr.push(img_response)
 
 			render json: arr
-
 		else
 			render status: 400, nothing: true
 		end

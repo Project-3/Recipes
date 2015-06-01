@@ -1,9 +1,22 @@
 # re:Frigerator 
-This project was the third for the March 2015 iteration of General Assembly in New York City. All members were in the "Lemon" cohort. We were tasked during the second to last week of our program with building an app as a group with specs and general workflow narrative linked to below. 
 
-re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you might want or can cook with those ingredients. 
+##re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you may want, or can cook with those ingredients. 
 
-Our project is hosted [here](). 
+    If you are a new user, you will be directed to an inventory page where you can begin by adding ingredients you currently have in your refridgerator. 
+
+    A returning user will be directed to their active recipes page upon successful login. If there are no active recipes, a user will also be directed to their inventory page. 
+
+    With an inventory, a user can begin searching for recipes. A user can check any amount of ingredients to search for in the recipe. Upon hitting search, a user will be shown the results of the search if any. Else, if the button was hit without checking any ingredients, a user will be prompted to check at least one.
+
+    On the search page, which can not be refreshed as a search is not persisted, a user can save any recipes they found appealing. Upon save, a user will be alerted of success.
+
+    A user can update the activeness of a recipe and the availability of an ingredient in their inventory. 
+
+    A user can also delete a inventory item and/or a recipe on their respective show pages.
+
+    A user can log-out.
+
+Check out our project [here](). 
 
 ### Tools of the Trade
 1. [Trello](https://trello.com/b/VzQ0EueS/general-assembly-project-three) was used to keep track of the comings and goings of the project overall. 
@@ -18,14 +31,25 @@ Our project is hosted [here]().
 
 6. For styling purposes, most of it was done vanilla, but there is some utilization of [Pure](http://purecss.io/).
 
+### Languages and Frameworks Used
+    Ruby
+    Rails
+    Backbone
+    Underscore
+    ERB
+    jQuery
+    Javascript
+
 ### Contributors
-[Kwasi James](https://github.com/kwasijames)
+    [Kwasi James](https://github.com/kwasijames)
 
-[Julie Kwok](https://github.com/kwokster10) 
+    [Julie Kwok](https://github.com/kwokster10) 
 	
-[Nat Scott](https://github.com/itsnatscott/) 
+    [Nat Scott](https://github.com/itsnatscott/) 
 
-[Abner Yang](https://www.github.com/sunsheeppoplar)
+    [Abner Yang](https://www.github.com/sunsheeppoplar)
 
 ### Thanks
-As always, thanks to our instructors for all their support and help: [Maria](https://github.com/mariaperhaps), [Crawford](https://github.com/crawfordforbes), [Sam](https://github.com/sgottfried), [Gretchen](https://github.com/gretchenziegler), and [Dave](https://github.com/dahvvv). 
+
+This project was the third for the March 2015 iteration of General Assembly in New York City. All members were in the "Lemon" cohort. We were tasked during the second to last week of our program with building an app as a group with specs and general workflow narrative linked above. As always, thanks to our instructors and TAs for all of their support and help: [Maria](https://github.com/mariaperhaps), [Crawford](https://github.com/crawfordforbes), [Sam](https://github.com/sgottfried), [Gretchen](https://github.com/gretchenziegler), and [Dave](https://github.com/dahvvv). 
+

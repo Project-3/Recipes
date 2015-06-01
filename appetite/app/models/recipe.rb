@@ -4,6 +4,9 @@ class Recipe < ActiveRecord::Base
 
 	belongs_to :user
 
+	validates :name, :api_id, :user_id, :ingredients, :instructions, presence: true
+
 	validates :active, inclusion: { in: [true, false] }
+	
 	default_scope {order(:name => :ASC)}
 end

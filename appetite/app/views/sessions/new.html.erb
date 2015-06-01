@@ -1,4 +1,4 @@
-
+<!-- returning user sign-in -->
 <div id= "content">
 <h2>Log in here:</h2>
 <form class="pure-form pure-form-aligned" method="POST" action="/session">
@@ -20,8 +20,8 @@
 	</fieldset>
 </form>
 
+<!-- new user sign-up form -->
 <h2>Sign up here:</h2>
-
 <% if @user %>
 	<% @user.errors.full_messages.each do |message| %>
 		<p style="color: red"><%= message %></p>

@@ -1,13 +1,15 @@
 require 'rails_helper'
 
+# Rspec test for Rails Inventory model
 describe Inventory do 
-	it "ingredient should be unique" do 
-		ingredient = Inventory.create(ingredient: "carrot", group: "produce", avail: true, user_id: 1)
-		expect(Inventory.count).to eq 1
-		ingredient2 = Inventory.new(ingredient: "carrot", group: "produce", avail: true, user_id: 1)
-		expect(ingredient2).to be_invalid
-		expect(ingredient2.errors[:ingredient]).to eq ["Ingredient is already in your list"]
-	end
+	# decided to test this on the server since same ingredient can exist for different users
+	# it "ingredient should be unique" do 
+	# 	ingredient = Inventory.create(ingredient: "carrot", group: "produce", avail: true, user_id: 1)
+	# 	expect(Inventory.count).to eq 1
+	# 	ingredient2 = Inventory.new(ingredient: "carrot", group: "produce", avail: true, user_id: 1)
+	# 	expect(ingredient2).to be_invalid
+	# 	expect(ingredient2.errors[:ingredient]).to eq ["Ingredient is already in your list"]
+	# end
 
 	it "should be invalid with an empty ingredient" do 
 		ingredient6 = Inventory.create(ingredient: "", group: "produce", avail: false, user_id: 1)
@@ -32,3 +34,5 @@ describe Inventory do
 		expect(ingredient8).to be_invalid
 	end
 end
+
+
