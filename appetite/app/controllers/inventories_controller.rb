@@ -20,8 +20,11 @@ class InventoriesController < ApplicationController
 		img_response = HTTParty.get("http://food2fork.com/api/search?key=61c9d5207dd3cfc98d3a7e81e9fada77&q=chicken")
 		
 		if response && img_response
-			binding.pry
-			render json: response, json: img_response
+		arr = []
+		arr.push(response)
+		arr.push(img_response)
+
+			render json: arr
 
 		else
 			render status: 400, nothing: true
