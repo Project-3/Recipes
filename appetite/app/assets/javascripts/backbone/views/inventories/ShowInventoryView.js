@@ -35,13 +35,12 @@ Appetite.Views.ShowInventoryView = Backbone.View.extend({
 	     		// using the function in recipe model to change it's activeness
 	     		recipe_fetched.toggle();
 
-	     		// // since this collection doesn't belong inventories, it can't listen to it to change automatically, so changing color manually		
-	     		// if (recipe_fetched.attributes.active == true) {		
-	     		// 	$("button#"+recipe_id).css("background-color", "green");		
-	     		// } else {		
-	     		// 	$("button#"+recipe_id).css("background-color", "red");		
-	     		// }
-
+	     		// since this collection doesn't belong inventories, it can't listen to it to change automatically, so changing color manually		
+	     		if (recipe_fetched.attributes.active == true) {		
+	     			$("button#"+recipe_id).css("background-color", "green");		
+	     		} else {		
+	     			$("button#"+recipe_id).css("background-color", "red");		
+	     		}
 	     	}
 	    });
 	},

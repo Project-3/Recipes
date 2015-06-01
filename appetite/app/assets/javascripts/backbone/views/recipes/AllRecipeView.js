@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// All of users saved recipes, active or inactive
 Appetite.Views.AllRecipeView = Backbone.View.extend({
 	el: "#content",
 	initialize: function(){
