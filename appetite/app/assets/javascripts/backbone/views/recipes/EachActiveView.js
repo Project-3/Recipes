@@ -47,9 +47,13 @@ Appetite.Views.EachActiveView = Backbone.View.extend({
 				fetched_inventory.toggle();
 				// since this collection doesn't belong recipes, it can't listen to it to change automatically, so changing color manually	
 				if (fetched_inventory.attributes.avail == true) {		
-					$("button#"+invent_id).css("background-color", "green");		
+					$("button#"+invent_id).css("background-color", "rgb(254,215,53)");
+					$("button#"+invent_id).html('Available')
+					console.log("should say available")		
 				} else {		
-					$("button#"+invent_id).css("background-color", "red");		
+					$("button#"+invent_id).css("background-color", "rgb(154,153,153)");	
+					$("button#"+invent_id).html('Unavailable')	
+					console.log("should say Unavailable")
 				}
 			}
 		});	

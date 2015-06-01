@@ -100,8 +100,9 @@
 		<h2> From your inventory: </h2>
 			{{ recipe.inventories.forEach(function(inventory) { }}
 				<div class="invent-item"> 
-				<h3 class= "invent-name">{{= inventory.ingredient }}
-				<button id="{{= inventory.id }}" class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE</button></h3>
+				<h3 class= "invent-name">{{= inventory.ingredient }}</h3>
+				<button id="{{= inventory.id }}" class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: rgb(254,215,53) {{ } else { }} background-color: rgb(154,153,153) {{ } }}"> Available</button>
+
 			{{ }); }}
 	</div>
 </script>
