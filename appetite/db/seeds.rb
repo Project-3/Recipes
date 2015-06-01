@@ -32,7 +32,6 @@ response["results"].each do |result|
 		image = "no image available"		
 	end
 	Recipe.create(name: result["name"], image: image, api_id: result["id"] , instructions: result["instructions"], active: false, ingredients: result["ingredients"], user_id: 1)
-
 end
 
 
