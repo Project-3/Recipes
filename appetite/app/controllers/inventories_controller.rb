@@ -81,7 +81,7 @@ class InventoriesController < ApplicationController
 		end
 	end
 
-	# priavate params for form when saving and updating
+	# private params for form when saving and updating
 	private
 	def inventory_params
 		params.require(:inventory).permit(:ingredient, :group, :avail, :user_id, )
