@@ -54,24 +54,26 @@
 		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
-		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt">Used?</button>
+		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
 		{{ }) }}
 	</div>
 </script>
 
 <!-- template for recipe search results -->
 <script type="text/template" id="recipe-result">
-<h1>HOW DOES THIS SOUND...</h1>
+<h2>HOW DOES THIS SOUND...</h2>
 	<div id="recipe-result-div">
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
+		<p class="recipe-instructions">{{= recipe.instructions }}</p>
+		<input type="hidden" class="user_id" value="">
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
 	</div>	 
 </script>
 
 <!-- template for all of user's saved recipes -->
 <script type="text/template" id="each-recipe">
-<h1>HOW ABOUT SOME...</h1>
+<h2>HOW ABOUT SOME...</h2>
 	<div id="all-recipes-div">
 		<h2><a href="#recipe/{{= recipe.id }}" class="recipe-title"> {{= recipe.name }}</a></h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
@@ -82,7 +84,7 @@
 
 <!--shows clicked on recipe-->
 <script type="text/template" id="show-recipe">
-<h1>This looks good, right?</h1>
+<h2>This looks good, right?</h2>
 	<div id="all-recipes-div">
 		<h2>{{= recipe.name }}</a></h2>	
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
@@ -107,7 +109,7 @@
 		<div class="recipes-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
 				<h3 class="recipe-name">{{= recipe.name }}
-				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> Active ?</button></h3>
+				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"></button></h3>
 			{{ }); }}
 		</div>
 </script>
@@ -119,17 +121,8 @@
 	<ul class="ing-butts">
 	<button class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Available?</button>
 	<button class="delete-butt">Delete</button>
-	<input type="checkbox" name="ingredients" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
-</script>
-
-<!-- is this template being used? -->
-<script type="text/template" id="search-results">
-	<div id="search-results-div">
-		<img class="recipe-pic" src="{{= recipe.image }}">
-		<h2<a href="#recipe/{{=recipe.id}}" class="recipe-title"> {{= recipe.name }}</a></h2>
-		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button class="save-button">Save Recipe</button>
-	</div>
+	<input type="hidden" id="hidden-userId" value="{{= inventory.user_id }}">
+	<input type="checkbox" name="ingredients" id="{{= inventory.id }}" class="checked-ingredient" value="{{= inventory.ingredient }}"></ul>
 </script>
 
 

@@ -37,11 +37,6 @@ Appetite.Views.ShowRecipeView = Backbone.View.extend({
 				var fetched_inventory = inventory_model.get(inventory_id);
 				// calling the models function to update activeness
 				fetched_inventory.toggle();
-				if (fetched_inventory.attributes.avail == true) {
-					$("button#"+inventory_id).css("background-color", "green");
-				} else {
-					$("button#"+inventory_id).css("background-color", "red");
-				}
 			}
 		});	
 	},

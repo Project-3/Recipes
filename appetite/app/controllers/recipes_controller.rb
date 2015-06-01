@@ -26,6 +26,8 @@ class RecipesController < ApplicationController
 	def create
 		# how are we connecting this with inventory?
 		@recipe = Recipe.new(recipe_params)
+		puts @recipe
+		binding.pry
 		# how are we grabbing id's of inventories
 		# @inventories = Inventory.where(id: )
 		# @recipe.inventories << @inventories

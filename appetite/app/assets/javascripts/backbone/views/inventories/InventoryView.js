@@ -25,14 +25,6 @@ Appetite.Views.InventoryView = Backbone.View.extend({
 		this.model.destroy();
 	},
 
-	searchInv: function () {
-		if ($('.checked-ingredient').is(":checked") == true) {
-			userRouter.navigate("search", {trigger: true});
-		} else {
-			alert("Please check all ingredients you would like to use in your dish.")
-		}
-	},
-
 	render: function() {
 		this.$el.html(this.template({inventory: this.model.toJSON()}));
 		return this;

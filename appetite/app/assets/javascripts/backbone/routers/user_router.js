@@ -9,11 +9,10 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 	// maybe add a route welcoming new users with directions to use site
 	routes : {
 		"" : "activeRecipe",
-		"recipes" : "allRecipes",
 		"recipe/:recipe_id" : "showRecipe",
-		"inventory" : "allInventory",
-		// "inventory/new":"allInventory",
+		"recipes" : "allRecipes",
 		"inventory/:inventory_id" : "showInventory",
+		"inventory" : "allInventory",
 		"search": "searchRecipes"
 	},
 
@@ -102,6 +101,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
             $(this).attr('checked',!$(this).attr('checked'));
         });
 
+
 		// clearing content area for new view
 		var content = $("#content");
 		content.html("");
@@ -126,9 +126,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 		    }
 		});
 	}
-
 });
-
 
 
 
