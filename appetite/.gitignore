@@ -15,10 +15,6 @@
 /config/secrets.yml
 secrets.yml
 
-# Token
-/app/assets/javascripts/backone/secrets.json
-secrets.json
-
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep

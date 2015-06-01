@@ -137,7 +137,7 @@ Appetite.Routers.UserRouter = Backbone.Router.extend({
 				    		recipe[i].image = JSON.parse(response[1]).recipes[0].image_url
 				    	}
 				    }
-			    	
+
 			    	// instantiating the view for all search results
 			    	new Appetite.Views.SearchRecipesView({collection: recipes});
 			    }
