@@ -1,6 +1,6 @@
-# re:Frigerator 
+# re:Frigeratr 
 
-##re:Frigerator is an app that helps you indicate what items you have at home and aren't sure what you may want, or can cook with those ingredients. 
+##re:Frigeratr is an app that helps you indicate what items you have at home and aren't sure what you may want, or can cook with those ingredients. 
 
 - If you are a new user, you will be directed to an inventory page where you can begin by adding ingredients you currently have in your refridgerator. 
 
