@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// View for all of user's Inventory items
 Appetite.Views.AllInventoryView = Backbone.View.extend({
 	el: "div#content",
 	initialize: function() { 
@@ -16,6 +17,7 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		"click #search-butt": "searchInv"
 	}, 
 
+	// if search button is clicked, this function is triggered
 	searchInv: function () {
 		var counter = 0;
 		// making sure at least one ingredient was checked when search button was hit
@@ -31,11 +33,11 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
         });
 	},
 
+	// if add inventory button is clicked, this function is triggered
 	addInv: function(){
 		// grabbing all the values entered for the new ingredient
 		var newIngFld = $('#ingredient').val();
 		var newGrpFld = $('#group').val();
-		var thisUserId = this.collection.models[0].attributes.user_id
 
 		// add a new model to the collection 
 		// since collection listens to sync, it will auto append to view on successful save
@@ -70,13 +72,13 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		});
 
 		div.append("<hr>");
-		div.append("<h3>Dairy</h3>");
+		div.append("<h2>Dairy</h2>");
 		this.collection.byGroup("dairy").each(function(inventory) {
 			div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
 
 		div.append("<hr>");
-		div.append("<h3>Grain</h3>");
+		div.append("<h2>Grain</h2>");
 		this.collection.byGroup("grain").each(function(inventory) {
 		div.append(new Appetite.Views.InventoryView({model: inventory}).render().$el);
 		});
@@ -89,7 +91,5 @@ Appetite.Views.AllInventoryView = Backbone.View.extend({
 		return this;
 	}
 });
-
-
 
 

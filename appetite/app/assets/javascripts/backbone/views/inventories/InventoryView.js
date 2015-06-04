@@ -5,6 +5,7 @@ var Appetite = Appetite || {
 	Routers: {}
 };
 
+// All Inventories calls on this view or each inventory item
 Appetite.Views.InventoryView = Backbone.View.extend({
 	tagName: 'div',
 	initialize: function(){

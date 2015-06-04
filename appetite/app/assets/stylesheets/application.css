@@ -177,7 +177,7 @@
 
   #search-butt{
   	position: fixed;
-  	right: 18%;
+  	right: 16%;
   	top: 57%;
   	width: 300px;
   	height: 120px;
@@ -195,13 +195,37 @@
   .avail-butt{
   	width:124px;
     border-style: none;
+            border-radius: 6px;
 
+  }
+    #avail-butt{
+    width:124px;
+    border-style: none;
+            border-radius: 6px;
+
+  }
+     .active-butt{
+    border-style: none;
+            border-radius: 6px;
+  }
+   .activate-butt{
+    width:124px;
+    border-style: none;
+            border-radius: 6px;
   }
    .delete-butt{
     border-style: none;
     color: #D95C40;
-
+            border-radius: 6px;
   }
+
+  .dectivate-butt{
+    width:124px;
+    border-style: none;
+            border-radius: 10px;
+  }
+
+
   .checked-ingredient{
     width: 20px;
     height: 20px;
@@ -213,4 +237,24 @@
   }
   .inventory-title{
     font-size: 1.3em;
+  }
+  .search_pic{
+  position: fixed;
+  right: 12%;
+  top: 45%;
+  width: 400px;
+  max-height:360px;
+  border-radius: 25px;
+  border: 9px solid rgba(223,223,223,.9);;
+}
+#greeting{
+  position: absolute;
+  right: 7%;
+  top: 29%;
+  font-size: 2.4em;
+   -webkit-text-fill-color: white; 
+   -webkit-text-stroke-width: 1.5px;
+   -webkit-text-stroke-color: rgba(103,103,103,.9);
+   -webkit-font-smoothing:antialiased;
+  z-index: -5
   }

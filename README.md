@@ -18,7 +18,7 @@
 
 - A user can log-out.
 
-- Check out our project [here](). 
+- Check out our project: 45.55.155.149:80 
 
 
 ### Tools of the Trade

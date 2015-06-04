@@ -1,3 +1,6 @@
+<script>
+	var thisUserId = <%= session[:user_id] %>
+</script>
 <!--picture area-->
 <div id="sidebar"></div>
 
@@ -43,25 +46,30 @@
 		<img class="recipe-pic" src="">
 		<h2 class="recipe-title"> {{=  recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button id="{{= recipe.id }}" class="dectivate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Deactivate?</button>
+
+
+
+{{ if (recipe.active == true) { }} <button id={{=recipe.id}} class="dectivate-butt" style="background-color:rgb(254,215,53)"> Deactivate </button> {{ } else { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(154,153,153)"> Inactive </button> 
+		{{ }; }}
+
 		<button class="delete-butt">Delete</button>
 
 		<div id="update-ingredient">
 		<h3>Ingredients Linked to Recipe: </h3> 
 		{{ recipe.inventories.forEach(function(inventory){ }}
 			<p>{{= inventory.ingredient }}</p>
-		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="activate-butt" id="{{= inventory.id }}">Used?</button>
+		<button style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}" class="avail-butt" id="{{= inventory.id }}">Used?</button>
 		{{ }) }}
 	</div>
 </script>
 
 <!-- template for recipe search results -->
 <script type="text/template" id="recipe-result">
-<h2>HOW DOES THIS SOUND...</h2>
 	<div id="recipe-result-div">
 		<h2 class="recipe-name">{{= recipe.name }}</h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<p class="recipe-instructions">{{= recipe.instructions }}</p>
+		<button class="read-more" id="instructions-{{= recipe.id }}">See Cooking Instructions</button>
+		<p style="display: none" class="recipe-instructions">{{= recipe.instructions }}</p>
 		<input type="hidden" class="user_id" value="{{= recipe.user_id }}">
 		<input type="hidden" class="inventories_ids" value="{{= recipe.inventories_ids }}">
 		<button class="save-button" id="{{= recipe.id }}">Save</button>
@@ -70,43 +78,45 @@
 
 <!-- template for all of user's saved recipes -->
 <script type="text/template" id="each-recipe">
-<h2>HOW ABOUT SOME...</h2>
 	<div id="all-recipes-div">
 		<h2><a href="#recipe/{{= recipe.id }}" class="recipe-title"> {{= recipe.name }}</a></h2>
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
-		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate?</button>
+
+		{{ if (recipe.active == true) { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(254,215,53)"> Active </button> {{ } else { }} <button id={{=recipe.id}} class="activate-butt" style="background-color:rgb(154,153,153)"> Inactive </button> 
+		{{ }; }}
+
 		<button class="delete-butt">Delete</button>
 	</div>
 </script>
 
-<!--shows clicked on recipe-->
+<!--shows clicked recipe-->
 <script type="text/template" id="show-recipe">
-<h2>This looks good, right?</h2>
 	<div id="all-recipes-div">
 		<h2>{{= recipe.name }}</a></h2>	
 		<p class="recipe-ingredients">{{= recipe.ingredients.nl2br() }}</p>
 		<p class="recipe-instructions">{{= recipe.instructions }}</p>
-		<button id="{{= recipe.id }}" class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
+		<button class="activate-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate</button>
 		<button class="delete-butt">Delete</button>
 		<h2> From your inventory: </h2>
 			{{ recipe.inventories.forEach(function(inventory) { }}
 				<div class="invent-item"> 
-				<h3 class= "invent-name">{{= inventory.ingredient }}
-				<button id="{{= inventory.id }}" class="used" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"> ALL GONE ?</button></h3>
+				<h3 class= "invent-name">{{= inventory.ingredient }}</h3>
+				<button id="{{= inventory.id }}" class="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: rgb(254,215,53) {{ } else { }} background-color: rgb(154,153,153) {{ } }}"> Available</button>
+
 			{{ }); }}
 	</div>
 </script>
 
 <!-- shows clicked on inventory item -->
 <script type="text/template" id="show-inventory">
-		<h1>{{= inventory.ingredient }}</h1>
+	<h1>{{= inventory.ingredient }}</h1>
 	<button id="avail-butt" style="{{ if (inventory.avail == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">{{ if (inventory.avail == true){ }} Available {{ } else { }} Unavailable {{ } }}</button>
 		<button class="delete-butt">Delete</button>
 		<h2> Linked to these recipes: </h2>
 		<div class="recipes-itemized"> 
 			{{ inventory.recipes.forEach(function(recipe) { }}
 				<h3 class="recipe-name">{{= recipe.name }}</h3>
-				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}"></button>
+				<button id="{{= recipe.id }}" class="active-butt" style="{{ if (recipe.active == true){ }} background-color: green {{ } else { }} background-color: red {{ } }}">Activate Recipe</button>
 			{{ }); }}
 		</div>
 </script>
