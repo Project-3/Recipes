@@ -30,7 +30,7 @@
 
 4. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some data fetching from the following APIs, [We Eatt](http://www.weeatt.com/) and [Food2Fork](http://food2fork.com/about/api).
 
-5. We did basic model testing with [RSPEC](http://rspec.info/).
+5. We did basic model testing with [RSpec](http://rspec.info/).
 
 6. For styling purposes, most of it was done with vanilla, but there was some utilization of [Pure](http://purecss.io/).
 
