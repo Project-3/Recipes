@@ -18,7 +18,7 @@
 
 - A user can log-out.
 
-- Check out our project: 45.55.155.149:80 
+- Check out our project: http://45.55.155.149:8080 
 
 
 ### Tools of the Trade
@@ -26,7 +26,7 @@
 
 2. [Ruby on Rails](http://rubyonrails.org/) made up our back-end.
 
-3. Our front-end was built in  [Backbone](http://backbonejs.org/) via the [backbone-on-rails](https://github.com/meleyal/backbone-on-rails) gem.
+3. Our front-end was built in [Backbone](http://backbonejs.org/) via the [backbone-on-rails](https://github.com/meleyal/backbone-on-rails) gem. Furthermore, EJS, Underscore, and JQuery were great helpers, too!
 
 4. [HTTParty](https://github.com/jnunemaker/httparty) was used to do some data fetching from the following APIs, [We Eatt](http://www.weeatt.com/) and [Food2Fork](http://food2fork.com/about/api).
 
@@ -41,18 +41,6 @@
 - [4](https://cloud.githubusercontent.com/assets/11223124/7914535/9a016e26-0845-11e5-8962-da281adc5d83.png)
 - [5](https://cloud.githubusercontent.com/assets/11223124/7914537/9a091202-0845-11e5-9bb7-06d840c23a2d.png)
 - [6](https://cloud.githubusercontent.com/assets/11223124/7914538/9a09f528-0845-11e5-8a57-af74c9152892.png)
-
-
-### Summation of Languages and Frameworks Used
-- Ruby on Rails
-- Backbone
-- Underscore
-- EJS
-- jQuery
-- Javascript
-- Vanilla CSS 
-- Pure CSS
-- RSpec
 
 
 ### Contributors
