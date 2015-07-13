@@ -34,6 +34,8 @@
 
 6. For styling purposes, most of it was done with vanilla, but there was some utilization of [Pure](http://purecss.io/).
 
+7. Our project is hosted on [Digital Ocean](https://www.digitalocean.com/). 
+
 ### Artifacts
 - [1](https://cloud.githubusercontent.com/assets/11223124/7914533/99f8537c-0845-11e5-8ffa-40943c10e9ab.png)
 - [2](https://cloud.githubusercontent.com/assets/11223124/7914534/99fce28e-0845-11e5-952a-7e66be183dc5.png)
